@@ -533,7 +533,7 @@
   border-top: 1px solid rgba(255,215,0,0.4);
   overflow: hidden;
   z-index:8;
-  flex-shrink: 0; /* Prevents ticker from squishing on small screens */
+  flex-shrink: 0;
 }
 
 .ticker::before,
@@ -645,6 +645,3 @@
   .contentWrap { bottom: 44px;}
 }
 
-/* @supports (padding-bottom: env(safe-area-inset-bottom)) {
-  .ticker { padding-bottom: env(safe-area-inset-bottom); }
-} */

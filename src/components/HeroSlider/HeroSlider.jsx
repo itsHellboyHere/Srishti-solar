@@ -206,7 +206,7 @@ export default function HeroSlider() {
       </div>
 
       {/* ── Ticker strip ── */}
-      <div className={styles.ticker} aria-label="Company stats">
+      {/* <div className={styles.ticker} aria-label="Company stats">
         <div className={styles.tickerTrack}>
           {[...STATS, ...STATS, ...STATS].map(({ val, unit, label }, i) => (
             <div key={i} className={styles.tickerItem}>
@@ -217,7 +217,7 @@ export default function HeroSlider() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
     </section>
   )
