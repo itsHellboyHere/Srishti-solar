@@ -645,6 +645,6 @@
   .contentWrap { bottom: 44px;}
 }
 
-@supports (padding-bottom: env(safe-area-inset-bottom)) {
+/* @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .ticker { padding-bottom: env(safe-area-inset-bottom); }
-}
+} */
