@@ -620,7 +620,7 @@
 }
 
 @media (max-width: 640px) {
-  .hero        { min-height: 100svh; }
+  .hero        { height: 100svh; }
   .slideContent{ padding: 90px 20px 80px 20px; }
   .title       { font-size: clamp(2.1rem, 9vw, 2.9rem); letter-spacing: -0.028em; }
   .desc        { font-size: 0.93rem; max-width: 100%; margin-bottom: 26px; text-wrap: pretty; }
