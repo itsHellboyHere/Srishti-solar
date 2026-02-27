@@ -54,6 +54,48 @@ const EASY = [
   { en: 'Installation + Net Meter', hi: 'नेट मीटर सपोर्ट'  },
 ]
 
+const SOLAR_FLOATERS = [
+  { type: 'sun', left: '7%', top: '24%', size: '38px', dur: '13s', delay: '0s', drift: '22px' },
+  { type: 'panel', left: '90%', top: '24%', size: '34px', dur: '16s', delay: '1.5s', drift: '20px' },
+  { type: 'bolt', left: '13%', top: '72%', size: '30px', dur: '12s', delay: '0.8s', drift: '18px' },
+  { type: 'leaf', left: '85%', top: '70%', size: '32px', dur: '14s', delay: '2s', drift: '20px' },
+  { type: 'sun', left: '48%', top: '14%', size: '28px', dur: '11s', delay: '1.2s', drift: '16px' },
+]
+
+function FloaterIcon({ type }) {
+  if (type === 'sun') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" />
+        <path d="M12 1.8v3M12 19.2v3M22.2 12h-3M4.8 12h-3M19.5 4.5l-2.1 2.1M6.6 17.4l-2.1 2.1M19.5 19.5l-2.1-2.1M6.6 6.6L4.5 4.5" />
+      </svg>
+    )
+  }
+
+  if (type === 'panel') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="5" width="18" height="11" rx="1.2" />
+        <path d="M8 16v3M16 16v3M6 19h12M7.5 5v11M12 5v11M16.5 5v11M3 10.5h18" />
+      </svg>
+    )
+  }
+
+  if (type === 'bolt') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13.5 2L6 13h5l-1.2 9L18 10h-5.1L13.5 2z" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M18.8 4.5c-3.6.1-7 2.2-8.8 5.5-1.8 3.3-1.7 7.2.2 10.2 3-.2 5.8-1.8 7.5-4.3 2.2-3.2 2.5-7.4 1.1-11.4zM5.3 19.2c2.2-1.4 4-3.6 4.9-6" />
+    </svg>
+  )
+}
+
 export default function Subsidy() {
   const sectionRef = useRef(null)
   const headRef    = useRef(null)
@@ -90,6 +132,26 @@ export default function Subsidy() {
 
       {/* Ambient grid lines */}
       <div className={styles.gridLines} aria-hidden="true" />
+
+      {/* Floating solar-themed glyphs */}
+      <div className={styles.floaters} aria-hidden="true">
+        {SOLAR_FLOATERS.map((f, i) => (
+          <span
+            key={i}
+            className={styles.floater}
+            style={{
+              '--fl-left': f.left,
+              '--fl-top': f.top,
+              '--fl-size': f.size,
+              '--fl-dur': f.dur,
+              '--fl-delay': f.delay,
+              '--fl-drift': f.drift,
+            }}
+          >
+            <FloaterIcon type={f.type} />
+          </span>
+        ))}
+      </div>
 
       <div className={styles.inner}>
 
@@ -220,11 +282,11 @@ export default function Subsidy() {
       </div>
 
       {/* Wave out — dark → next section */}
-      <div className={styles.waveBottom} aria-hidden="true">
+      {/* <div className={styles.waveBottom} aria-hidden="true">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
           <path d="M0,80 L0,35 C200,65 400,5 600,20 C800,35 1000,70 1200,58 C1320,50 1380,24 1440,20 L1440,80 Z" fill="var(--bg-base)"/>
         </svg>
-      </div>
+      </div> */}
 
     </section>
   )

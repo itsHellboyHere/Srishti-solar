@@ -21,6 +21,58 @@
   z-index: 0;
 }
 
+/* ── Floating solar glyphs ── */
+.floaters {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.floater {
+  position: absolute;
+  left: var(--fl-left);
+  top: var(--fl-top);
+  width: var(--fl-size);
+  height: var(--fl-size);
+  opacity: 0.2;
+  filter: drop-shadow(0 0 12px rgba(244,163,0,0.22));
+  animation: floaterDrift var(--fl-dur) ease-in-out var(--fl-delay) infinite;
+}
+
+.floater svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: rgba(244,163,0,0.9);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.floater:nth-child(3n) svg {
+  fill: rgba(244,163,0,0.2);
+  stroke: rgba(244,163,0,0.75);
+}
+
+@keyframes floaterDrift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate3d(-10px, calc(var(--fl-drift) * -0.6), 0) rotate(-4deg);
+  }
+  50% {
+    transform: translate3d(12px, calc(var(--fl-drift) * -1), 0) rotate(4deg);
+  }
+  75% {
+    transform: translate3d(-8px, calc(var(--fl-drift) * -0.45), 0) rotate(-2deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
 /* ── Wave top — from light Process into dark ── */
 .waveTop {
   position: relative;
@@ -135,7 +187,7 @@
   color: rgba(255,251,244,0.45);
   letter-spacing: 0.02em;
   display: block;
-  margin-top: 4px;
+  margin-top: 15px;
 }
 
 .headDesc {
@@ -518,7 +570,22 @@
 ═══════════════════════════════════════════════ */
 @media (max-width: 1024px) {
   .layout { grid-template-columns: 1fr; gap: 32px; }
-  .tiersCol { flex-direction: row; overflow-x: auto; gap: 12px; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+.tiersCol { 
+  flex-direction: row; 
+  overflow-x: auto; 
+  gap: 12px; 
+  padding-bottom: 8px; 
+  scroll-snap-type: x mandatory;
+  
+  /* Hide scrollbar — all browsers */
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/Edge */
+}
+
+.tiersCol::-webkit-scrollbar {
+  display: none;             
+}
+
   .tier { min-width: 260px; flex-shrink: 0; scroll-snap-align: start; }
   .tierHero { margin: 0; min-width: 280px; }
   .rightCol { position: static; }
@@ -526,6 +593,8 @@
 
 @media (max-width: 640px) {
   .inner { padding: 48px 16px 60px; }
+  .floater { opacity: 0.14; }
+  .floater:nth-child(n+4) { display: none; }
   /* Keep horizontal scroll — just tighter cards */
   .tier { min-width: 230px; padding: 16px 18px 14px; }
   .tierHero { margin: 0; min-width: 250px; padding: 20px 22px 16px; }

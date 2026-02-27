@@ -1,3 +1,7 @@
+/* ═══════════════════════════════════════════════
+   Whyus.module.css — Clean section, no sticky
+   (StickyCanvas wrapper handles the bg)
+═══════════════════════════════════════════════ */
 
 .section {
   position: relative;
@@ -163,6 +167,17 @@
   color: var(--text-primary);
   margin-bottom: 8px;
   letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.cardTitleEn {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 2px;
 }
 .cardDesc {
   font-family: var(--font-body);
@@ -192,4 +207,141 @@
   .container { padding: 60px 20px 0; }
   .title { font-size: clamp(2rem, 8vw, 2.8rem); }
   .stat { font-size: 2.4rem; }
+}
+
+/* ─────────────────────────────────────────────
+   HEADER UPDATES
+───────────────────────────────────────────── */
+.subtextEn {
+  opacity: 0.55;
+  font-size: 0.9rem;
+}
+
+/* ─────────────────────────────────────────────
+   COMPARISON TABLE
+───────────────────────────────────────────── */
+.compareWrap {
+  margin-top: 64px;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s 0.2s var(--ease-smooth), transform 0.8s 0.2s var(--ease-smooth);
+}
+.compareWrap.show { opacity: 1; transform: translateY(0); }
+
+.compareHead {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.compareTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+.compareVs {
+  color: var(--text-muted);
+  font-size: 0.8em;
+  padding: 0 8px;
+}
+.compareUs { color: var(--sun-core); }
+
+.compareSub {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+.compareTable {
+  max-width: 780px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(244,163,0,0.15);
+  box-shadow: 0 12px 48px rgba(26,18,9,0.07);
+}
+
+.compareColHeaders {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  background: var(--text-primary);
+}
+.compareColLabel { padding: 14px 20px; }
+.compareColHead {
+  padding: 14px 20px;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.compareColThem {
+  color: rgba(255,251,244,0.45);
+  background: rgba(255,255,255,0.05);
+  border-left: 1px solid rgba(255,255,255,0.08);
+}
+.compareColOurs {
+  color: #1A0E04;
+  background: var(--sun-core);
+  border-left: 1px solid rgba(244,163,0,0.3);
+}
+
+.compareRow {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  border-top: 1px solid rgba(244,163,0,0.08);
+  background: rgba(255,252,245,0.96);
+  opacity: 0;
+  transform: translateX(-12px);
+  transition:
+    opacity  0.5s calc(var(--ri,0) * 0.1s + 0.3s) var(--ease-smooth),
+    transform 0.5s calc(var(--ri,0) * 0.1s + 0.3s) var(--ease-smooth);
+}
+.compareWrap.show .compareRow { opacity: 1; transform: translateX(0); }
+.compareRow:hover { background: #fff; }
+
+.compareRowLabel {
+  padding: 16px 20px;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+}
+
+.compareRowThem,
+.compareRowUs {
+  padding: 16px 20px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-left: 1px solid rgba(244,163,0,0.08);
+}
+.compareRowThem { color: var(--text-muted); }
+.compareRowUs   { color: var(--text-primary); font-weight: 600; background: rgba(244,163,0,0.04); }
+
+.crossIcon {
+  color: #dc2626;
+  font-size: 0.8rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+.checkIcon {
+  color: #16a34a;
+  font-size: 0.85rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .compareColHead { font-size: 0.68rem; padding: 12px 12px; }
+  .compareRowLabel { font-size: 0.78rem; padding: 14px 12px; }
+  .compareRowThem, .compareRowUs { font-size: 0.75rem; padding: 14px 12px; gap: 5px; }
+  .compareColHeaders { grid-template-columns: 1.2fr 1fr 1fr; }
+  .compareRow { grid-template-columns: 1.2fr 1fr 1fr; }
 }

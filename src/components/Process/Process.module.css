@@ -1,26 +1,38 @@
+/* ═══════════════════════════════════════════════
+   Process.module.css — How to Go Solar
+═══════════════════════════════════════════════ */
+
 .section {
-  background: transparent;
-  padding: 100px 0;
+  background: var(--bg-base);
+  padding: 100px 0 0px;
   overflow: visible;
 }
 
+/* ─────────────────────────────────────────────
+   CONTAINER — matches WhyUs max-width exactly
+───────────────────────────────────────────── */
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  padding: 0 24px;
+  align-items: start;
 }
 
-/* --- Sticky Image Styling --- */
+/* ─────────────────────────────────────────────
+   LEFT — Sticky Image
+───────────────────────────────────────────── */
 .imageSide {
-  height: 100%;
+  align-self: start;
+  position: sticky;
+  top: 110px;
 }
 
+/* stickyWrapper no longer needed — sticky on imageSide directly */
 .stickyWrapper {
-  position: sticky;
-  top: 120px;
+  height: 100%;
 }
 
 .imageWrapper {
@@ -29,91 +41,101 @@
   overflow: hidden;
   box-shadow: var(--shadow-card);
   aspect-ratio: 4/5;
-  background: #000;
+  background: #111;
 }
 
 .mainImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.9;
+  opacity: 0.92;
   transition: transform var(--dur-slow) var(--ease-smooth);
 }
+.imageWrapper:hover .mainImg { transform: scale(1.05); }
 
-.imageWrapper:hover .mainImg {
-  transform: scale(1.08);
-}
-
+/* Glass badge */
 .glassCard {
   position: absolute;
-  bottom: 24px;
-  left: 24px;
-  right: 24px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  padding: 20px;
+  bottom: 20px;
+  left: 16px;
+  right: 16px;
+  background: rgba(255, 252, 245, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  will-change: transform;
+  transform: translateZ(0);
+  padding: 16px 18px;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   border: 1px solid rgba(244, 163, 0, 0.2);
-  transform: translateY(0);
   transition: transform var(--dur-base) var(--ease-spring);
 }
-
-.imageWrapper:hover .glassCard {
-  transform: translateY(-5px);
-}
+.imageWrapper:hover .glassCard { transform: translateY(-5px) translateZ(0); }
 
 .badgeIcon {
-  width: 40px;
-  height: 40px;
+  width: 38px; height: 38px;
   background: var(--sun-core);
   color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 800;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(244,163,0,0.4);
 }
 
 .badgeTitle {
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   color: var(--text-primary);
-  margin: 0;
+  margin: 0 0 2px;
+  line-height: 1.3;
 }
-
 .badgeSub {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--text-muted);
   margin: 0;
 }
 
-/* --- Timeline Content Styling --- */
+/* ─────────────────────────────────────────────
+   RIGHT — Timeline
+───────────────────────────────────────────── */
+.contentSide {
+  padding-top: 8px;
+}
+
 .header {
-  margin-bottom: 50px;
+  margin-bottom: 48px;
 }
 
 .eyebrow {
-  color: var(--sun-core);
+  display: inline-block;
   font-family: var(--font-heading);
-  font-weight: 800;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 0.75rem;
+  color: var(--sun-core);
+  margin-bottom: 12px;
 }
 
 .title {
-  margin-top: 12px;
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  line-height: 1.1;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
 }
-
 .accent { color: var(--sun-core); }
 
+/* ── Timeline ── */
 .timeline {
   display: flex;
   flex-direction: column;
@@ -121,90 +143,137 @@
 
 .step {
   display: flex;
-  gap: 30px;
-  padding-bottom: 50px;
+  gap: 24px;
+  padding-bottom: 44px;
   position: relative;
-  opacity: 0.3;
-  transform: translateX(20px);
-  transition: all 0.6s var(--ease-smooth);
+  opacity: 0.25;
+  transform: translateX(18px);
+  transition:
+    opacity   0.6s calc(var(--i, 0) * 0.1s) var(--ease-smooth),
+    transform 0.6s calc(var(--i, 0) * 0.1s) var(--ease-smooth);
 }
-
 .step.active {
   opacity: 1;
   transform: translateX(0);
 }
 
-.numOuter {
-  position: relative;
-  z-index: 1;
-}
-
-/* Timeline vertical line */
+/* Connector line */
 .step:not(:last-child)::after {
   content: '';
   position: absolute;
-  left: 24px;
-  top: 48px;
+  left: 24px; /* half of stepNum width (50px) */
+  top: 50px;
   bottom: 0;
   width: 2px;
   background: var(--bg-muted);
-  transition: background 0.5s;
+  border-radius: 2px;
+  transition: background 0.5s 0.2s;
 }
-
 .step.active:not(:last-child)::after {
-  background: var(--sun-core);
+  background: linear-gradient(to bottom, var(--sun-core), var(--bg-muted));
 }
 
+/* Number badge */
+.numOuter {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
 .stepNum {
-  width: 50px;
-  height: 50px;
+  width: 50px; height: 50px;
   background: var(--bg-muted);
   color: var(--text-muted);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 15px;
+  border-radius: 14px;
   font-weight: 800;
   font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
   transition: all 0.4s var(--ease-spring);
 }
-
 .step.active .stepNum {
   background: var(--sun-core);
   color: #fff;
-  transform: scale(1.1) rotate(-5deg);
+  transform: scale(1.08) rotate(-5deg);
   box-shadow: var(--shadow-sun);
 }
 
+/* Step text */
+.stepText { padding-top: 10px; }
+
 .stepTitle {
-  font-size: 1.3rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
   font-weight: 800;
-  margin-bottom: 8px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
   transition: color 0.4s;
 }
-
-.step.active .stepTitle {
-  color: var(--sun-core);
-}
+.step.active .stepTitle { color: var(--sun-core); }
 
 .stepDesc {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.7;
   color: var(--text-secondary);
-  max-width: 400px;
+  max-width: 380px;
 }
 
-/* --- Mobile Logic --- */
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .container {
     grid-template-columns: 1fr;
     gap: 60px;
+    padding: 0 24px;
   }
   .stickyWrapper {
     position: relative;
     top: 0;
   }
-  .imageWrapper {
-    aspect-ratio: 16/9;
-  }
+  .imageWrapper { aspect-ratio: 16/9; }
+  .section { padding: 80px 0 100px; }
+}
+
+@media (max-width: 640px) {
+  .container  { padding: 0 20px; gap: 40px; }
+  .section    { padding: 60px 0 80px; }
+  .title      { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  .stepTitle  { font-size: 1rem; }
+  .step       { gap: 18px; padding-bottom: 36px; }
+  .stepNum    { width: 44px; height: 44px; font-size: 0.8rem; }
+  .step:not(:last-child)::after { left: 22px; }
+}
+
+/* ── Wave bottom — feeds into Subsidy dark section ── */
+.waveBottom {
+  width: 100%;
+  line-height: 0;
+  margin-bottom: -2px;
+}
+.waveBottom svg { width: 100%; height: 90px; display: block; }
+
+/* ── Bilingual additions ── */
+.headerSub {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  opacity: 0.7;
+}
+
+.stepTitleEn {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 2px;
+  opacity: 0.7;
 }

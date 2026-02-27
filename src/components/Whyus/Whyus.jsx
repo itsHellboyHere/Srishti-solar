@@ -1,21 +1,73 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { Zap, ShieldCheck, TrendingUp, FileText, Star, WalletCards } from 'lucide-react'
+import { Zap, ShieldCheck, TrendingUp, Wrench, Star, WalletCards } from 'lucide-react'
 import styles from './Whyus.module.css'
 
+/* ── 6 benefit cards — data from your marketing materials ── */
 const REASONS = [
-  { Icon: Zap,         stat: '72',  unit: 'Hrs', title: 'Fastest Installation',  desc: "From site visit to live in 72 hours. Bihar's most efficient MNRE-certified teams work around your schedule.",  tag: 'Record'         },
-  { Icon: ShieldCheck, stat: '78k', unit: '₹',   title: 'Max Subsidy Support',   desc: 'Full PM Surya Ghar assistance. Get up to ₹78,000 directly in your bank — we file all 14 documents.',          tag: 'Govt Approved'  },
-  { Icon: TrendingUp,  stat: '90',  unit: '%',   title: 'Bill Savings',          desc: 'Verified savings up to 90%. Patna & Bokaro customers average ₹3,200/month savings from day one.',              tag: 'Verified'       },
-  { Icon: FileText,    stat: '100', unit: '%',   title: 'Zero Paperwork',        desc: 'We handle all SBPDCL and NBPDCL documentation, DISCOM approvals, and net-metering applications.',             tag: 'Authorized'     },
-  { Icon: Star,        stat: '5',   unit: 'Yr',  title: 'Free Maintenance',      desc: '5-year complimentary AMC including scheduled cleaning, inverter diagnostics and health checks.',               tag: 'Risk Free'      },
-  { Icon: WalletCards, stat: 'EMI', unit: '',    title: 'Easy Financing',        desc: 'Low-interest solar loans and 0% EMI options available. Go solar with ₹0 upfront investment.',                 tag: 'Budget Friendly'},
+  {
+    Icon: Zap,
+    stat: '72', unit: 'Hrs',
+    tag: 'रिकॉर्ड · Record',
+    title: 'सबसे तेज़ इंस्टॉलेशन',
+    titleEn: 'Fastest Installation',
+    desc: 'साइट विज़िट से सिस्टम लाइव — सिर्फ 72 घंटे। Bihar\'s most efficient MNRE-certified teams.',
+  },
+  {
+    Icon: ShieldCheck,
+    stat: '₹78k', unit: '',
+    tag: 'सरकारी · Govt Scheme',
+    title: 'पूरी सब्सिडी सहायता',
+    titleEn: 'Max Subsidy Assisted',
+    desc: 'PM Surya Ghar के तहत ₹78,000 तक सीधे बैंक में। All 14 documents filed by us — SBPDCL/NBPDCL approved.',
+  },
+  {
+    Icon: TrendingUp,
+    stat: '1', unit: 'unit/kW',
+    tag: 'प्रतिदिन · Per Day',
+    title: 'एक्स्ट्रा बिजली उत्पादन',
+    titleEn: 'Extra Generation Daily',
+    desc: 'N-Type Advanced 16BB/18BB पैनल से 1 unit/kW/day extra generation — सामान्य पैनल से ज़्यादा।',
+  },
+  {
+    Icon: Wrench,
+    stat: '5', unit: 'Yr',
+    tag: 'निःशुल्क · Free AMC',
+    title: '5 साल फ्री सर्विस',
+    titleEn: 'Free Maintenance',
+    desc: '5 साल की मुफ्त AMC — पैनल सफाई, इन्वर्टर डायग्नोस्टिक्स, और Mobile Remote Monitoring शामिल।',
+  },
+  {
+    Icon: Star,
+    stat: 'HDG', unit: '',
+    tag: 'मज़बूत · Premium Build',
+    title: 'HDG कोटेड स्टील स्ट्रक्चर',
+    titleEn: 'Strong HDG Structure',
+    desc: 'Hot-Dip Galvanized steel — जंग नहीं लगती, 25 साल तक मज़बूत। सामान्य MS स्ट्रक्चर से 10x बेहतर।',
+  },
+  {
+    Icon: WalletCards,
+    stat: '₹0', unit: '',
+    tag: 'आसान · Zero Upfront',
+    title: 'आसान किस्तों में',
+    titleEn: 'Easy Financing',
+    desc: '₹0 अग्रिम निवेश से सोलर लगवाएँ। Subsidy + Loan support — Free site visit भी उपलब्ध।',
+  },
+]
+
+/* ── Comparison: सामान्य सोलर vs हमारा सोलर — from Image 6 ── */
+const COMPARE = [
+  { label: 'पैनल टेक्नोलॉजी', them: 'Poly / Basic',    us: 'N-Type Advanced'   },
+  { label: 'बस-बार',          them: '5BB',               us: '16BB / 18BB'       },
+  { label: 'स्ट्रक्चर',       them: 'साधारण MS',         us: 'HDG Coated'        },
+  { label: 'मॉनिटरिंग',       them: 'मॉनिटरिंग नहीं',   us: 'Mobile Monitoring' },
 ]
 
 export default function WhyUs() {
-  const headerRef = useRef(null)
-  const cardsRef  = useRef([])
+  const headerRef  = useRef(null)
+  const cardsRef   = useRef([])
+  const compareRef = useRef(null)
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -24,7 +76,8 @@ export default function WhyUs() {
       }),
       { threshold: 0.1 }
     )
-    if (headerRef.current) io.observe(headerRef.current)
+    if (headerRef.current)  io.observe(headerRef.current)
+    if (compareRef.current) io.observe(compareRef.current)
     cardsRef.current.forEach(el => el && io.observe(el))
     return () => io.disconnect()
   }, [])
@@ -41,16 +94,20 @@ export default function WhyUs() {
 
       <div className={styles.container}>
 
+        {/* ── Header ── */}
         <div className={styles.header} ref={headerRef}>
-          <span className={styles.eyebrow}>The Srishti Advantage</span>
+          <span className={styles.eyebrow}>हमारा सोलर क्यों? · Why Choose Us</span>
           <h2 className={styles.title}>
-            The Smarter Choice For <span className={styles.accent}>Every Roof</span>
+            बिहार की हर छत चमकेगी,{' '}
+            <span className={styles.accent}>अब बिजली खुद ही दमकेगी</span>
           </h2>
           <p className={styles.subtext}>
-            Join 2,500+ families who have already transitioned to free energy.
+            2,500+ परिवार पहले से मुफ्त बिजली का आनंद ले रहे हैं।{' '}
+            <span className={styles.subtextEn}>Join Bihar's fastest-growing solar community.</span>
           </p>
         </div>
 
+        {/* ── 6 Benefit Cards ── */}
         <div className={styles.grid}>
           {REASONS.map((r, i) => (
             <div key={i} ref={el => cardsRef.current[i] = el}
@@ -63,11 +120,44 @@ export default function WhyUs() {
                 <span className={styles.stat}>{r.stat}</span>
                 {r.unit && <span className={styles.unit}>{r.unit}</span>}
               </div>
-              <h3 className={styles.cardTitle}>{r.title}</h3>
+              <h3 className={styles.cardTitle}>
+                {r.title}
+                <span className={styles.cardTitleEn}>{r.titleEn}</span>
+              </h3>
               <p className={styles.cardDesc}>{r.desc}</p>
               <div className={styles.cardLine} />
             </div>
           ))}
+        </div>
+
+        {/* ── Comparison Table ── */}
+        <div className={styles.compareWrap} ref={compareRef}>
+          <div className={styles.compareHead}>
+            <h3 className={styles.compareTitle}>
+              सामान्य सोलर <span className={styles.compareVs}>vs</span>{' '}
+              <span className={styles.compareUs}>हमारा सोलर</span>
+            </h3>
+            <p className={styles.compareSub}>Why Srishti's technology outperforms the rest</p>
+          </div>
+          <div className={styles.compareTable}>
+            {/* Column headers */}
+            <div className={styles.compareColHeaders}>
+              <div className={styles.compareColLabel} />
+              <div className={`${styles.compareColHead} ${styles.compareColThem}`}>सामान्य सोलर</div>
+              <div className={`${styles.compareColHead} ${styles.compareColOurs}`}>✦ हमारा सोलर</div>
+            </div>
+            {COMPARE.map((row, i) => (
+              <div key={i} className={styles.compareRow} style={{ '--ri': i }}>
+                <div className={styles.compareRowLabel}>{row.label}</div>
+                <div className={styles.compareRowThem}>
+                  <span className={styles.crossIcon}>✗</span> {row.them}
+                </div>
+                <div className={styles.compareRowUs}>
+                  <span className={styles.checkIcon}>✓</span> {row.us}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>
