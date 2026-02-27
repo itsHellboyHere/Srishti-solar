@@ -5,42 +5,42 @@ import styles from './HeroSlider.module.css'
 
 const SLIDES = [
   {
-    tag: 'Residential Solar',
-    lines: ['Power Your', 'Home With'],
-    accent: 'Pure Sunlight',
-    desc: 'Cut bills by up to 90%. Premium rooftop systems installed in just 3 days.',
+    tag: 'छत पर सोलर — Rooftop Solar',
+    lines: ['छत पर सोलर लगाइए,'],
+    accent: 'बिजली का खर्च बचाइए',
+    desc: 'सभी प्रकार का सोलर सिस्टम इंस्टॉलेशन — 5 साल निःशुल्क सेवा, EMI सुविधा, मोबाइल मॉनिटरिंग।',
     cta: 'Get Free Assessment',
     ghost: 'See How It Works',
     bg: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1800&q=90',
   },
   {
-    tag: 'Commercial Solutions',
-    lines: ['Scale Smarter.'],
-    accent: 'Go Solar Today',
-    desc: 'Industrial-grade systems for factories & offices. Full ROI in under 4 years.',
-    cta: 'Explore Plans',
-    ghost: 'View Case Studies',
-    bg: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1800&q=90',
-  },
-  {
-    tag: 'PM Surya Ghar Yojana',
-    lines: ['₹78,000 Subsidy,'],
-    accent: 'Zero Hassle',
-    desc: 'We handle every approval. You just go solar — completely hassle free.',
-    cta: 'Check Eligibility',
+    tag: 'PM Surya Ghar Yojana · मुफ्त बिजली योजना',
+    lines: ['सरकार की सब्सिडी'],
+    accent: 'का पूरा लाभ पाएँ',
+    desc: '₹78,000 तक सीधे बैंक में। SBPDCL / NBPDCL से पंजीकृत · MNRE के नियम अनुसार कार्य।',
+    cta: 'Check Eligibility · पात्रता जांचें',
     ghost: 'Subsidy Details',
     bg: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1800&q=90',
+  },
+  {
+    tag: 'MNRE Certified · SBPDCL/NBPDCL Registered',
+    lines: ['Srishti Solar Power'],
+    accent: 'से सोलर लगवाएँ।',
+    desc: '5 साल निःशुल्क सेवा · EMI सुविधा · मोबाइल मॉनिटरिंग। Bihar\'s most trusted installer since day one.',
+    cta: 'Call Now · अभी कॉल करें',
+    ghost: 'Our Projects',
+    bg: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1800&q=90',
   },
 ]
 
 const STATS = [
-  { val: '2,500', unit: '+',   label: 'Installations' },
-  { val: '15',    unit: 'MW',  label: 'Capacity Deployed' },
-  { val: '90',    unit: '%',   label: 'Bill Reduction' },
-  { val: '25',    unit: 'Yr',  label: 'Panel Warranty' },
-  { val: '4.9',   unit: '★',   label: 'Customer Rating' },
-  { val: '3',     unit: 'Day', label: 'Avg Install Time' },
-  { val: '100',   unit: '%',   label: 'Subsidy Assisted' },
+  { val: '₹78,000', unit: '',    label: 'Max Subsidy · अधिकतम सब्सिडी' },
+  { val: '30',       unit: 'GW', label: 'Solar Capacity Added · PM Surya Ghar' },
+  { val: '17',       unit: 'L',  label: 'Direct Jobs Created · प्रत्यक्ष रोजगार' },
+  { val: '25',       unit: 'Yr', label: 'Panel Warranty · पैनल वारंटी' },
+  { val: '5',        unit: 'Yr', label: 'Free Service · निःशुल्क सेवा' },
+  { val: '720',      unit: 'MT', label: 'CO₂ Reduced · कार्बन में कमी' },
+  { val: '100',      unit: '%',  label: 'Subsidy Assisted · सब्सिडी सहायता' },
 ]
 
 const DURATION = 6000

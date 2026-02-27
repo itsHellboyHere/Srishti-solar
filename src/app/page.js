@@ -3,6 +3,7 @@ import HeroSlider from '@/components/HeroSlider/HeroSlider'
 import WhyUs from '@/components/Whyus/Whyus'
 import Process from '@/components/Process/Process'
 import StickyCanvas from '@/components/StickyCanvas/StickyCanvas'
+import Subsidy from '@/components/subsidy/Subsidy'
 
 export default function HomePage() {
   return (
@@ -16,7 +17,7 @@ export default function HomePage() {
         <WhyUs />
         <Process />
       </StickyCanvas>
-
+      <Subsidy/>
     </main>
   )
 }

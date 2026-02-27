@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar/Navbar'
 import './globals.css'
 import { Figtree, Lexend } from 'next/font/google'
+import Footer from '@/components/Footer/Footer'
 
 /* ── Load fonts via next/font (best practice in App Router) ──
    This handles preloading, no-FOUT, and self-hosting automatically.
@@ -31,7 +32,10 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${figtree.variable} ${lexend.variable}`}>
       <body>
         <Navbar/>
-        {children}</body>
+        {children}
+          <Footer/>
+        </body>
+      
     </html>
   )
 }
