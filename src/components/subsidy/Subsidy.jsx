@@ -125,9 +125,9 @@ export default function Subsidy() {
           <path d="M0,0 L0,50 C240,80 480,15 720,30 C960,45 1200,75 1440,55 C1680,35 1920,70 2160,48 C2400,26 2640,60 2880,50 L2880,0 Z" fill="var(--bg-muted)"/>
         </svg>
         {/* Secondary wave — different shape, counter-animates */}
-        <svg viewBox="0 0 2880 90" preserveAspectRatio="none">
+        {/* <svg viewBox="0 0 2880 90" preserveAspectRatio="none">
           <path d="M0,0 L0,60 C360,20 720,80 1080,55 C1440,30 1800,70 2160,45 C2520,20 2700,65 2880,60 L2880,0 Z" fill="var(--bg-muted)"/>
-        </svg>
+        </svg> */}
       </div>
 
       {/* Ambient grid lines */}

@@ -48,14 +48,20 @@
 
 .title {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-size: clamp(2.0rem, 4.0vw, 3.2rem);
   font-weight: 900;
   line-height: 1.06;
   letter-spacing: -0.04em;
   color: var(--text-primary);
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-;
+  /* background: #d7cbc2; */
+  gap: 6px;
 }
-.accent { color: var(--sun-core); }
+.accent { color: var(--sun-core); font-size: clamp(2.6rem, 4.6vw, 3.4rem); }
 
 .subtext {
   font-family: var(--font-body);
@@ -73,7 +79,7 @@
 
 /* Card */
 .card {
-  /* Solid fallback for Chrome when backdrop-filter isn't composited */
+
   background: rgba(255, 252, 245, 0.92);
   /* Safari gets the glass effect on top */
   backdrop-filter: blur(16px);
@@ -139,7 +145,7 @@
 .statContainer {
   display: flex;
   align-items: baseline;
-  gap: 2px;
+  gap: 4px;
   margin-bottom: 6px;
 }
 .stat {
@@ -177,7 +183,7 @@
   color: var(--text-muted);
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  margin-top: 2px;
+  margin-top: 4px;
 }
 .cardDesc {
   font-family: var(--font-body);

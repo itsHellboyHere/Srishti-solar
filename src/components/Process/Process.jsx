@@ -108,11 +108,11 @@ export default function Process() {
 
       </div>
       {/* Wave bottom — clean downward arc into dark Subsidy */}
-      <div className={styles.waveBottom} aria-hidden="true">
+      {/* <div className={styles.waveBottom} aria-hidden="true">
         <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
           <path d="M0,0 Q720,90 1440,0 L1440,90 L0,90 Z" fill="var(--bg-muted)"/>
         </svg>
-      </div>
+      </div> */}
     </section>
   )
 }

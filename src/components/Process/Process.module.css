@@ -4,7 +4,7 @@
 
 .section {
   background: var(--bg-base);
-  padding: 100px 0 0px;
+  padding: 100px 0 50px;
   overflow: visible;
 }
 
@@ -30,10 +30,6 @@
   top: 110px;
 }
 
-/* stickyWrapper no longer needed — sticky on imageSide directly */
-.stickyWrapper {
-  height: 100%;
-}
 
 .imageWrapper {
   position: relative;
@@ -231,12 +227,13 @@
     gap: 60px;
     padding: 0 24px;
   }
-  .stickyWrapper {
-    position: relative;
-    top: 0;
-  }
+  
+  .imageSide {
+  position: relative;
+  top: 0;
+}
   .imageWrapper { aspect-ratio: 16/9; }
-  .section { padding: 80px 0 100px; }
+  .section { padding: 80px 0 0; }
 }
 
 @media (max-width: 640px) {
@@ -257,7 +254,6 @@
 }
 .waveBottom svg { width: 100%; height: 90px; display: block; }
 
-/* ── Bilingual additions ── */
 .headerSub {
   font-family: var(--font-body);
   font-size: 0.88rem;
