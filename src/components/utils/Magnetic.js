@@ -1,63 +1,62 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion'
 
 export default function Magnetic({ children, strength = 0.45 }) {
   const ref = useRef(null)
-  const [pos, setPos] = useState({ x: 0, y: 0 })
-  const animRef = useRef(null)
-  const currentPos = useRef({ x: 0, y: 0 })
+  const reduceMotion = useReducedMotion()
+  const [isFinePointer, setIsFinePointer] = useState(true)
 
-  const handleMouseMove = (e) => {
-    const el = ref.current
-    if (!el) return
-    const { width, height, left, top } = el.getBoundingClientRect()
-    const targetX = (e.clientX - (left + width / 2)) * strength
-    const targetY = (e.clientY - (top + height / 2)) * strength
+  const rawX = useMotionValue(0)
+  const rawY = useMotionValue(0)
 
-    // Cancel any snap-back animation
-    if (animRef.current) cancelAnimationFrame(animRef.current)
+  const x = useSpring(rawX, { stiffness: 180, damping: 18, mass: 0.12 })
+  const y = useSpring(rawY, { stiffness: 180, damping: 18, mass: 0.12 })
 
-    // Smooth lerp toward target
-    const lerp = () => {
-      currentPos.current.x += (targetX - currentPos.current.x) * 0.18
-      currentPos.current.y += (targetY - currentPos.current.y) * 0.18
-      setPos({ x: currentPos.current.x, y: currentPos.current.y })
-      animRef.current = requestAnimationFrame(lerp)
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined
+
+    const media = window.matchMedia('(pointer: fine)')
+    const update = () => setIsFinePointer(media.matches)
+
+    update()
+
+    if (media.addEventListener) {
+      media.addEventListener('change', update)
+      return () => media.removeEventListener('change', update)
     }
-    animRef.current = requestAnimationFrame(lerp)
+
+    media.addListener(update)
+    return () => media.removeListener(update)
+  }, [])
+
+  const handleMouseMove = (event) => {
+    if (!ref.current || reduceMotion || !isFinePointer) return
+
+    const { clientX, clientY } = event
+    const { width, height, left, top } = ref.current.getBoundingClientRect()
+
+    const nextX = (clientX - (left + width / 2)) * strength
+    const nextY = (clientY - (top + height / 2)) * strength
+
+    rawX.set(nextX)
+    rawY.set(nextY)
   }
 
   const handleMouseLeave = () => {
-    if (animRef.current) cancelAnimationFrame(animRef.current)
-
-    // Spring snap back
-    const snap = () => {
-      currentPos.current.x *= 0.82
-      currentPos.current.y *= 0.82
-      setPos({ x: currentPos.current.x, y: currentPos.current.y })
-      if (Math.abs(currentPos.current.x) > 0.05 || Math.abs(currentPos.current.y) > 0.05) {
-        animRef.current = requestAnimationFrame(snap)
-      } else {
-        currentPos.current = { x: 0, y: 0 }
-        setPos({ x: 0, y: 0 })
-      }
-    }
-    animRef.current = requestAnimationFrame(snap)
+    rawX.set(0)
+    rawY.set(0)
   }
 
   return (
-    <div
+    <motion.div
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
-        transform: `translate(${pos.x}px, ${pos.y}px)`,
-        display: 'inline-block',
-        willChange: 'transform',
-      }}
+      style={{ display: 'inline-block', willChange: 'transform', x, y }}
     >
       {children}
-    </div>
+    </motion.div>
   )
 }

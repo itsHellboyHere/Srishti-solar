@@ -40,11 +40,18 @@ export default function Navbar() {
   }, [menuOpen])
 
   const closeMenu = () => setMenuOpen(false)
-
+  const isHome = pathname === '/'
   return (
     <>
       {/* ── Navbar bar ── */}
-      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${menuOpen ? styles.menuActive : ''}`}>
+<nav
+  className={`
+    ${styles.navbar}
+    ${isHome && scrolled ? styles.scrolled : ''}
+    ${!isHome ? styles.scrolled : ''}
+    ${menuOpen ? styles.menuActive : ''}
+  `}
+>
         <div className={styles.container}>
 
           {/* Logo */}

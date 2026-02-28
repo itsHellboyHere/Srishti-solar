@@ -569,40 +569,102 @@
    RESPONSIVE
 ═══════════════════════════════════════════════ */
 @media (max-width: 1024px) {
-  .layout { grid-template-columns: 1fr; gap: 32px; }
-.tiersCol { 
-  flex-direction: row; 
-  overflow-x: auto; 
-  gap: 12px; 
-  padding-bottom: 8px; 
-  scroll-snap-type: x mandatory;
-  
-  /* Hide scrollbar — all browsers */
-  scrollbar-width: none;        /* Firefox */
-  -ms-overflow-style: none;     /* IE/Edge */
-}
 
-.tiersCol::-webkit-scrollbar {
-  display: none;             
-}
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 
-  .tier { min-width: 260px; flex-shrink: 0; scroll-snap-align: start; }
-  .tierHero { margin: 0; min-width: 280px; }
-  .rightCol { position: static; }
+  .rightCol {
+    position: static;
+  }
+
+  .tiersCol {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 16px;
+
+    padding: 0 20px 12px;
+    margin: 0 -20px;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tiersCol::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tier {
+    flex: 0 0 70%;
+    scroll-snap-align: center;
+  }
+
+  .tierHero {
+    flex: 0 0 75%;
+    margin: 0;
+  }
+
 }
 
 @media (max-width: 640px) {
-  .inner { padding: 48px 16px 60px; }
-  .floater { opacity: 0.14; }
-  .floater:nth-child(n+4) { display: none; }
-  /* Keep horizontal scroll — just tighter cards */
-  .tier { min-width: 230px; padding: 16px 18px 14px; }
-  .tierHero { margin: 0; min-width: 250px; padding: 20px 22px 16px; }
-  .heading { font-size: clamp(2rem, 9vw, 3rem); }
-  .amt { font-size: 2rem; }
-  .tierHero .amt { font-size: 2.4rem; }
-  .kwNum { font-size: 1.7rem; }
-  .tierHero .kwNum { font-size: 1.9rem; }
-  .waveTop svg { height: 60px; }
-  .waveBottom svg { height: 55px; }
+
+  .inner {
+    padding: 48px 18px 60px;
+  }
+
+  .floater {
+    opacity: 0.12;
+  }
+
+  .floater:nth-child(n+4) {
+    display: none;
+  }
+
+  .tiersCol {
+    gap: 14px;
+    padding: 0 16px 12px;
+    margin: 0 -16px;
+  }
+
+  .tier {
+    flex: 0 0 82%;
+    padding: 18px 20px 16px;
+  }
+
+  .tierHero {
+    flex: 0 0 86%;
+    padding: 22px 22px 18px;
+  }
+
+  .heading {
+    font-size: clamp(2rem, 8.5vw, 3rem);
+  }
+
+  .amt {
+    font-size: 2rem;
+  }
+
+  .tierHero .amt {
+    font-size: 2.4rem;
+  }
+
+  .kwNum {
+    font-size: 1.7rem;
+  }
+
+  .tierHero .kwNum {
+    font-size: 1.9rem;
+  }
+
+  .waveTop svg {
+    height: 60px;
+  }
+
+  .waveBottom svg {
+    height: 55px;
+  }
 }

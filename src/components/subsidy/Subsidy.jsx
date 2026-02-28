@@ -40,18 +40,18 @@ const TIERS = [
 ]
 
 const STRENGTHS = [
-  { en: 'Topcon Solar Panels',       hi: 'टॉपकॉन पैनल',        icon: '◈' },
-  { en: 'HDG Coated Steel Structure', hi: 'HDG स्टील संरचना',   icon: '◈' },
-  { en: 'Smart Mobile Monitoring',   hi: 'मोबाइल मॉनिटरिंग',   icon: '◈' },
-  { en: 'SBPDCL / NBPDCL Registered',hi: 'रजिस्टर्ड वेंडर',    icon: '◈' },
+  { en: 'Topcon Solar Panels', hi: 'टॉपकॉन पैनल', icon: '◈' },
+  { en: 'HDG Coated Steel Structure', hi: 'HDG स्टील संरचना', icon: '◈' },
+  { en: 'Smart Mobile Monitoring', hi: 'मोबाइल मॉनिटरिंग', icon: '◈' },
+  { en: 'SBPDCL / NBPDCL Registered', hi: 'रजिस्टर्ड वेंडर', icon: '◈' },
 ]
 
 const EASY = [
-  { en: 'Subsidy + Loan Support',   hi: 'सब्सिडी सहायता'   },
-  { en: 'Free Site Visit',          hi: 'मुफ़्त साइट विज़िट' },
-  { en: 'Load Calculation',         hi: 'लोड कैलकुलेशन'    },
-  { en: 'Online Application Help',  hi: 'Online आवेदन'     },
-  { en: 'Installation + Net Meter', hi: 'नेट मीटर सपोर्ट'  },
+  { en: 'Subsidy + Loan Support', hi: 'सब्सिडी सहायता' },
+  { en: 'Free Site Visit', hi: 'मुफ़्त साइट विज़िट' },
+  { en: 'Load Calculation', hi: 'लोड कैलकुलेशन' },
+  { en: 'Online Application Help', hi: 'Online आवेदन' },
+  { en: 'Installation + Net Meter', hi: 'नेट मीटर सपोर्ट' },
 ]
 
 const SOLAR_FLOATERS = [
@@ -98,9 +98,9 @@ function FloaterIcon({ type }) {
 
 export default function Subsidy() {
   const sectionRef = useRef(null)
-  const headRef    = useRef(null)
-  const tiersRef   = useRef([])
-  const rightRef   = useRef(null)
+  const headRef = useRef(null)
+  const tiersRef = useRef([])
+  const rightRef = useRef(null)
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -109,7 +109,7 @@ export default function Subsidy() {
       }),
       { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     )
-    if (headRef.current)  io.observe(headRef.current)
+    if (headRef.current) io.observe(headRef.current)
     if (rightRef.current) io.observe(rightRef.current)
     tiersRef.current.forEach(el => el && io.observe(el))
     return () => io.disconnect()
@@ -122,7 +122,7 @@ export default function Subsidy() {
       <div className={styles.waveTop} aria-hidden="true">
         {/* Primary wave — fills top, tiles seamlessly at 50% */}
         <svg viewBox="0 0 2880 90" preserveAspectRatio="none">
-          <path d="M0,0 L0,50 C240,80 480,15 720,30 C960,45 1200,75 1440,55 C1680,35 1920,70 2160,48 C2400,26 2640,60 2880,50 L2880,0 Z" fill="var(--bg-muted)"/>
+          <path d="M0,0 L0,50 C240,80 480,15 720,30 C960,45 1200,75 1440,55 C1680,35 1920,70 2160,48 C2400,26 2640,60 2880,50 L2880,0 Z" fill="var(--bg-muted)" />
         </svg>
         {/* Secondary wave — different shape, counter-animates */}
         {/* <svg viewBox="0 0 2880 90" preserveAspectRatio="none">
@@ -214,11 +214,11 @@ export default function Subsidy() {
 
                 <div className={styles.tierMeta}>
                   <span className={styles.tierMetaItem}>
-                    <span className={styles.metaDot}/>
+                    <span className={styles.metaDot} />
                     {t.panels}
                   </span>
                   <span className={styles.tierMetaItem}>
-                    <span className={styles.metaDot}/>
+                    <span className={styles.metaDot} />
                     Saves {t.monthly}/mo
                   </span>
                 </div>
@@ -287,7 +287,39 @@ export default function Subsidy() {
           <path d="M0,80 L0,35 C200,65 400,5 600,20 C800,35 1000,70 1200,58 C1320,50 1380,24 1440,20 L1440,80 Z" fill="var(--bg-base)"/>
         </svg>
       </div> */}
+      <div className={styles.waveBottom} aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 90"
+          preserveAspectRatio="none"
+          width="100%"
+          height="100%"
+        >
+          <defs>
+            {/* The base vertical transition */}
+            <linearGradient id="waveLinear" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="var(--bg-base)" />
+              <stop offset="100%" stopColor="var(--bg-warm)" />
+            </linearGradient>
 
+            {/* Your custom radial glow: 82% from right, 0% from top */}
+            <radialGradient id="waveRadial" cx="82%" cy="0%" r="70%" fx="82%" fy="0%">
+              <stop offset="0%" stopColor="rgba(244, 163, 0, 0.16)" />
+              <stop offset="100%" stopColor="transparent" />
+            </radialGradient>
+          </defs>
+
+
+          <path
+            d="M0,0 Q720,90 1440,0 L1440,90 L0,90 Z"
+            fill="url(#waveLinear)"
+          />
+
+          <path
+            d="M0,0 Q720,90 1440,0 L1440,90 L0,90 Z"
+            fill="url(#waveRadial)"
+          />
+        </svg>
+      </div>
     </section>
   )
 }
