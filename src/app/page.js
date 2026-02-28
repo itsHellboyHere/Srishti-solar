@@ -18,16 +18,16 @@ export default function HomePage() {
         <WhyUs />
         <Process />
       </StickyCanvas>
-      <Subsidy/>
-      <SolarCTA/>
-      {/* <div style={{
+      {/* <Subsidy/>
+      <SolarCTA/> */}
+      <div style={{
         padding:"100px 100px",
         display: "flex",
         margin: " 0 auto",
         alignItems:"center",
         justifyContent:"center",
         fontSize:"3rem"
-      }}  >We are in buid Process </div> */}
+      }}  >We are in buid Process </div>
     </main>
   )
 }
