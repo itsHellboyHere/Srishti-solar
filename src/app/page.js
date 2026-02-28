@@ -4,6 +4,7 @@ import WhyUs from '@/components/Whyus/Whyus'
 import Process from '@/components/Process/Process'
 import StickyCanvas from '@/components/StickyCanvas/StickyCanvas'
 import Subsidy from '@/components/subsidy/Subsidy'
+import SolarCTA from '@/components/Cta/SolarCTA'
 
 export default function HomePage() {
   return (
@@ -17,7 +18,16 @@ export default function HomePage() {
         <WhyUs />
         <Process />
       </StickyCanvas>
-      <Subsidy/>
+      {/* <Subsidy/>
+      <SolarCTA/> */}
+      <div style={{
+        padding:"100px 100px",
+        display: "flex",
+        margin: " 0 auto",
+        alignItems:"center",
+        justifyContent:"center",
+        fontSize:"3rem"
+      }}  >We are in buid Process </div>
     </main>
   )
 }
