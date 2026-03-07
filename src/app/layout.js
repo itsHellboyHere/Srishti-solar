@@ -2,6 +2,8 @@ import './globals.css'
 import { Figtree, Lexend } from 'next/font/google'
 import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
+import LeadModal from '@/components/LeadModal/LeadModal'
+import WhatsAppButton from '@/components/Whatsappbutton'
 
 const figtree = Figtree({
   subsets: ['latin'],
@@ -82,7 +84,7 @@ export default function RootLayout({ children }) {
     <html lang="hi" dir="ltr" className={`${figtree.variable} ${lexend.variable}`}>
       <head>
         {/*
-          ✅ NO <link> tags needed here — Next.js metadata API above handles:
+           NO <link> tags needed here — Next.js metadata API above handles:
              - favicon.ico, icon.svg, apple-touch-icon  → via icons: {}
              - manifest.json                            → via manifest: ''
              - og-image, twitter card                   → via openGraph/twitter
@@ -139,6 +141,8 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Navbar/>
+        <LeadModal/>
+        <WhatsAppButton/>
         {children}
         <Footer/>
       </body>

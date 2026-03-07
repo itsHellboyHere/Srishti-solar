@@ -1,0 +1,226 @@
+/* ═══════════════════════════════════════════
+   LeadModal
+   - Dark #0E0904 card, gold accents
+   - Scales up from center on enter
+   - Slides down + fades on exit
+   - Matches site aesthetic exactly
+═══════════════════════════════════════════ */
+
+/* ── Backdrop ── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 6, 2, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9998;
+  animation: fadeIn 0.3s ease both;
+}
+.backdropOut {
+  animation: fadeOut 0.32s ease both;
+}
+
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+/* ── Modal card ── */
+.modal {
+  position: fixed;
+  /* centered vertically a little above middle — feels premium */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+
+  width: min(420px, calc(100vw - 32px));
+  background: #0E0904;
+  border: 1px solid rgba(244, 163, 0, 0.2);
+  border-radius: 24px;
+  padding: 36px 32px 28px;
+  text-align: center;
+  overflow: hidden;
+
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(244, 163, 0, 0.08);
+
+  animation: modalIn 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.modalOut {
+  animation: modalOut 0.32s cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translate(-50%, -46%) scale(0.93); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1);    }
+}
+@keyframes modalOut {
+  from { opacity: 1; transform: translate(-50%, -50%) scale(1);    }
+  to   { opacity: 0; transform: translate(-50%, -54%) scale(0.95); }
+}
+
+/* ── Gold orb glow ── */
+.orb {
+  position: absolute;
+  top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 300px; height: 220px;
+  background: radial-gradient(ellipse, rgba(244,163,0,0.13) 0%, transparent 68%);
+  pointer-events: none;
+  animation: orbPulse 4s ease-in-out infinite;
+}
+@keyframes orbPulse {
+  0%,100% { opacity: 0.7; transform: translateX(-50%) scale(1);    }
+  50%      { opacity: 1;   transform: translateX(-50%) scale(1.1); }
+}
+
+/* ── Close button ── */
+.close {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,251,244,0.1);
+  background: rgba(255,251,244,0.05);
+  color: rgba(255,251,244,0.4);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.close:hover {
+  background: rgba(255,251,244,0.1);
+  color: rgba(255,251,244,0.8);
+  transform: rotate(90deg);
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-heading); font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--sun-core);
+  background: rgba(244,163,0,0.08);
+  border: 1px solid rgba(244,163,0,0.18);
+  padding: 5px 12px; border-radius: 100px;
+  margin-bottom: 18px;
+  position: relative; z-index: 1;
+}
+.badgeDot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--sun-core);
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(244,163,0,0.7); }
+  60%      { box-shadow: 0 0 0 5px rgba(244,163,0,0); }
+}
+
+/* ── Sun icon ── */
+.sunWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.sun {
+  position: relative; z-index: 1;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: rgba(244,163,0,0.1);
+  border: 1px solid rgba(244,163,0,0.22);
+  display: flex; align-items: center; justify-content: center;
+  animation: sunSpin 12s linear infinite;
+}
+@keyframes sunSpin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+.sunRing {
+  position: absolute;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  border: 1px dashed rgba(244,163,0,0.15);
+  animation: sunSpin 20s linear infinite reverse;
+}
+
+/* ── Title ── */
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem; font-weight: 900;
+  letter-spacing: -0.03em; line-height: 1.15;
+  color: #FFFBF4;
+  margin-bottom: 10px;
+  position: relative; z-index: 1;
+}
+.titleGold { color: var(--sun-core); display: block; }
+
+/* ── Desc ── */
+.desc {
+  font-family: var(--font-body); font-size: 0.82rem;
+  color: rgba(255,251,244,0.45); line-height: 1.65;
+  margin-bottom: 18px;
+  position: relative; z-index: 1;
+}
+.desc strong { color: var(--sun-core); font-weight: 700; }
+
+/* ── Stats row ── */
+.stats {
+  display: flex;
+  align-items: center; justify-content: center;
+  gap: 1px;
+  background: rgba(244,163,0,0.1);
+  border: 1px solid rgba(244,163,0,0.14);
+  border-radius: 12px; overflow: hidden;
+  margin-bottom: 22px;
+  position: relative; z-index: 1;
+}
+.stat {
+  flex: 1; padding: 10px 6px;
+  background: rgba(14,9,4,0.8);
+  display: flex; flex-direction: column; gap: 2px; align-items: center;
+}
+.statNum {
+  font-family: var(--font-heading); font-size: 1.1rem; font-weight: 900;
+  color: var(--sun-core); letter-spacing: -0.02em; line-height: 1;
+}
+.statLabel {
+  font-family: var(--font-body); font-size: 0.6rem;
+  color: rgba(255,251,244,0.3);
+}
+
+/* ── WhatsApp button ── */
+.waBtn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%;
+  background: linear-gradient(135deg, #25d366, #1da851);
+  color: #fff;
+  padding: 15px 20px; border-radius: 14px; border: none;
+  font-family: var(--font-heading); font-size: 1rem; font-weight: 800;
+  cursor: pointer;
+  position: relative; z-index: 1;
+  box-shadow: 0 8px 28px rgba(37,211,102,0.35);
+  transition: box-shadow 0.25s, transform 0.2s;
+  margin-bottom: 14px;
+}
+.waBtn:hover {
+  box-shadow: 0 14px 40px rgba(37,211,102,0.55);
+  transform: translateY(-2px);
+}
+.waBtn:active { transform: translateY(0); }
+
+/* ── Skip link ── */
+.skip {
+  background: none; border: none;
+  font-family: var(--font-body); font-size: 0.72rem;
+  color: rgba(255,251,244,0.2);
+  cursor: pointer; padding: 4px 8px;
+  transition: color 0.2s;
+  position: relative; z-index: 1;
+}
+.skip:hover { color: rgba(255,251,244,0.45); }
+
+@media (max-width: 440px) {
+  .modal   { padding: 28px 20px 22px; }
+  .title   { font-size: 1.3rem; }
+  .waBtn   { font-size: 0.9rem; }
+}

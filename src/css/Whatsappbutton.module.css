@@ -1,0 +1,173 @@
+/* ═══════════════════════════════════════
+   Sticky WhatsApp Button — bottom right
+   Tooltip slides in from right after 3s
+═══════════════════════════════════════ */
+
+.wrap {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  /* Slide up on mount */
+  animation: slideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Button ── */
+.btn {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #25d366, #1da851);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 20px rgba(37, 211, 102, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 8px 32px rgba(37, 211, 102, 0.6),
+    0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* ── WhatsApp icon ── */
+.icon {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Pulse ring ── */
+.pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.35);
+  animation: pulsate 2.5s ease-out infinite;
+}
+
+@keyframes pulsate {
+  0%   { transform: scale(1);    opacity: 0.8; }
+  70%  { transform: scale(1.65); opacity: 0;   }
+  100% { transform: scale(1.65); opacity: 0;   }
+}
+
+/* ── Tooltip ── */
+.tooltip {
+  position: relative;
+  background: #0E0904;
+  border: 1px solid rgba(244, 163, 0, 0.2);
+  color: #FFFBF4;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 8px 14px 8px 10px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  /* Hidden state */
+  opacity: 0;
+  transform: translateX(8px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tooltipVisible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Green online dot inside tooltip */
+.tooltipDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #25d366;
+  flex-shrink: 0;
+  animation: onlinePulse 2s ease infinite;
+}
+
+@keyframes onlinePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* Arrow pointing right toward the button */
+.tooltipArrow {
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0; height: 0;
+  border-top:    6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left:   6px solid #0E0904;
+}
+
+/* ── Mobile — smaller button, tooltip below ── */
+@media (max-width: 480px) {
+  .wrap {
+    bottom: 20px;
+    right: 16px;
+  }
+
+  .btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* On mobile, tooltip appears above the button */
+  .wrap {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+
+  .tooltip {
+    transform: translateY(6px);
+    font-size: 0.72rem;
+  }
+
+  .tooltipVisible {
+    transform: translateY(0);
+  }
+
+  .tooltipArrow {
+    display: none;
+  }
+}

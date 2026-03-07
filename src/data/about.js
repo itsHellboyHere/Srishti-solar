@@ -63,7 +63,7 @@ export const TEAM = [
     education:   'MBBS',
     bio:         'Leads team welfare and human resources. Ensures every team member is trained, motivated, and customer-first.',
     bioHindi:    'टीम कल्याण और HR की प्रमुख। सुनिश्चित करती हैं कि हर सदस्य प्रशिक्षित और ग्राहक-केंद्रित हो।',
-    photo:       null,
+    photo:       '/team/dr-srishti.jpg',
     featured:    false,
   },
 ]
