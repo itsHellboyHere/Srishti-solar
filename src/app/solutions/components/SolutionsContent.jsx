@@ -6,6 +6,7 @@ import SolutionsCTA from './SolutionsCTA'
 import SolutionsGrid from './SolutionsGrid'
 import SolutionsScroll from './SolutionsScroll'
 import SubsidyStrip from './SubsidyStrip'
+import TechnologySpecs from './TechnologySpecs'
 
 
 export default function SolutionsContent() {
@@ -13,6 +14,7 @@ export default function SolutionsContent() {
     <div>
       <SolutionsHero />
       <SolutionsGrid />
+      <TechnologySpecs/>
       <SolutionsScroll />
       <HowItWorks />
       <SubsidyStrip/>

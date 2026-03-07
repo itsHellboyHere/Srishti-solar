@@ -3,11 +3,13 @@
 import SubsidyHero from './Subsidyhero'
 import SubsidyCalculator from './Subsidycalculator'
 import SubsidyTiers      from './Subsidytiers'
+import ZeroBillProof from './ZeroBillProof'
 import {
   SubsidyEligibility,
   SubsidySteps,
   SubsidyFAQ,
   SubsidyCTA,
+  
 } from '../comp/Subsidysections'
 import styles from '../css/Subsidycontent.module.css'
 
@@ -23,6 +25,7 @@ import styles from '../css/Subsidycontent.module.css'
 const CARDS = [
   { id: 'calculator',  Component: SubsidyCalculator, bg: 'warm' },
   { id: 'tiers',       Component: SubsidyTiers,       bg: 'base' },
+    { id: 'zerobill',      Component: ZeroBillProof,      bg: 'dark' },
   { id: 'eligibility', Component: SubsidyEligibility, bg: 'warm' },
   { id: 'steps',       Component: SubsidySteps,       bg: 'dark' },
   { id: 'faq',         Component: SubsidyFAQ,         bg: 'warm' },

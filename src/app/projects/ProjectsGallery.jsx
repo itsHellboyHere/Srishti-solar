@@ -13,18 +13,17 @@ const BREAKPOINTS = {
 }
 
 const STATS = [
-  { num: '41+', label: 'Installations'       },
-  { num: '9',     label: 'Districts Covered'   },
-  { num: '5 MW+',  label: 'Total Capacity'      },
-  { num: '₹31,98,000', label: 'Subsidy Assisted'    },
+  { num: '20+',        label: 'Installations'    },
+  { num: '5',          label: 'Districts Covered' },
+  { num: 'Residential & Commercial', label: 'Project Types' },
+  { num: '₹31,98,000', label: 'Subsidy Assisted'  },
 ]
 
-/* ── Solar panel placeholder SVG ── */
-function PlaceholderPanel({ gradient, accent, kw }) {
+/* ── Placeholder SVG (no kW shown) ── */
+function PlaceholderPanel({ gradient, accent }) {
   return (
     <div className={styles.placeholder} style={{ background: gradient }}>
       <svg viewBox="0 0 200 160" className={styles.placeholderSvg}>
-        {/* Panel grid */}
         {[0,1,2,3].map(c => [0,1,2].map(r => (
           <rect key={`${c}${r}`}
             x={10 + c * 47} y={10 + r * 47}
@@ -33,10 +32,8 @@ function PlaceholderPanel({ gradient, accent, kw }) {
             stroke={accent} strokeWidth="0.8" strokeOpacity="0.4"
           />
         )))}
-        {/* Sun */}
         <circle cx="170" cy="22" r="14" fill={accent} opacity="0.25"/>
         <circle cx="170" cy="22" r="9"  fill={accent} opacity="0.6"/>
-        {/* Rays */}
         {[0,45,90,135,180,225,270,315].map((deg,i) => {
           const r = deg * Math.PI / 180
           return <line key={i}
@@ -45,9 +42,6 @@ function PlaceholderPanel({ gradient, accent, kw }) {
             stroke={accent} strokeWidth="1.2" strokeLinecap="round" opacity="0.5"/>
         })}
       </svg>
-      <div className={styles.placeholderKw} style={{ color: accent }}>
-        {kw} kW
-      </div>
       <div className={styles.placeholderLabel}>Installation Photo</div>
       <div className={styles.placeholderHint}>Coming Soon</div>
     </div>
@@ -63,31 +57,24 @@ function ProjectCard({ project, onOpen }) {
     >
       <div className={styles.cardInner}>
 
-        {/* Image or placeholder */}
         {project.image ? (
           <img
             src={project.image}
-            alt={`${project.kw}kW solar installation in ${project.location}`}
+            alt={`Solar installation in ${project.area}, ${project.location}`}
             className={styles.cardImg}
             loading="lazy"
           />
         ) : (
-          <PlaceholderPanel
-            gradient={project.gradient}
-            accent={project.accent}
-            kw={project.label}
-          />
+          <PlaceholderPanel gradient={project.gradient} accent={project.accent} />
         )}
 
-        {/* Tag badge */}
         {project.tag && (
           <div className={styles.tag}>{project.tag}</div>
         )}
 
-        {/* Hover overlay */}
         <div className={styles.overlay}>
           <div className={styles.overlayContent}>
-            <div className={styles.overlayKw}>{project.label}</div>
+            <div className={styles.overlayArea}>{project.area}</div>
             <div className={styles.overlayLocation}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -107,10 +94,16 @@ function ProjectCard({ project, onOpen }) {
           </div>
         </div>
 
-        {/* Bottom info strip */}
         <div className={styles.cardBottom}>
-          <span className={styles.cardKw}>⚡ {project.label}</span>
-          <span className={styles.cardLoc}>{project.area}</span>
+          <span className={styles.cardLocation}>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            {project.location}
+          </span>
+          <span className={styles.cardArea}>{project.area}</span>
         </div>
 
       </div>
@@ -122,9 +115,9 @@ function ProjectCard({ project, onOpen }) {
 function Lightbox({ project, all, onClose, onNav }) {
   useEffect(() => {
     const handler = (e) => {
-      if (e.key === 'Escape') onClose()
-      if (e.key === 'ArrowRight') onNav(1)
-      if (e.key === 'ArrowLeft')  onNav(-1)
+      if (e.key === 'Escape')      onClose()
+      if (e.key === 'ArrowRight')  onNav(1)
+      if (e.key === 'ArrowLeft')   onNav(-1)
     }
     window.addEventListener('keydown', handler)
     document.body.style.overflow = 'hidden'
@@ -142,7 +135,6 @@ function Lightbox({ project, all, onClose, onNav }) {
     <div className={styles.lightboxBackdrop} onClick={onClose}>
       <div className={styles.lightbox} onClick={e => e.stopPropagation()}>
 
-        {/* Close */}
         <button className={styles.lbClose} onClick={onClose} aria-label="Close">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -150,7 +142,6 @@ function Lightbox({ project, all, onClose, onNav }) {
           </svg>
         </button>
 
-        {/* Nav prev */}
         {hasPrev && (
           <button className={`${styles.lbNav} ${styles.lbPrev}`}
             onClick={() => onNav(-1)} aria-label="Previous">
@@ -161,29 +152,23 @@ function Lightbox({ project, all, onClose, onNav }) {
           </button>
         )}
 
-        {/* Image */}
         <div className={styles.lbImgWrap}>
           {project.image ? (
-            <img src={project.image} alt={project.location} className={styles.lbImg}/>
+            <img src={project.image} alt={`${project.area}, ${project.location}`} className={styles.lbImg}/>
           ) : (
-            <PlaceholderPanel
-              gradient={project.gradient}
-              accent={project.accent}
-              kw={project.label}
-            />
+            <PlaceholderPanel gradient={project.gradient} accent={project.accent} />
           )}
         </div>
 
-        {/* Info */}
         <div className={styles.lbInfo}>
-          <div className={styles.lbKw}>{project.label} System</div>
+          <div className={styles.lbArea}>{project.area}</div>
           <div className={styles.lbLocation}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
-            {project.area}, {project.location}
+            {project.location}, Bihar
           </div>
           <div className={styles.lbMeta}>
             <span>{project.type}</span>
@@ -195,7 +180,6 @@ function Lightbox({ project, all, onClose, onNav }) {
           <div className={styles.lbCounter}>{idx + 1} / {all.length}</div>
         </div>
 
-        {/* Nav next */}
         {hasNext && (
           <button className={`${styles.lbNav} ${styles.lbNext}`}
             onClick={() => onNav(1)} aria-label="Next">
@@ -219,11 +203,9 @@ export default function ProjectsGallery() {
   const [lightbox,  setLightbox]  = useState(null)
   const [animating, setAnimating] = useState(false)
 
-  const filtered = PROJECTS.filter(p => {
-    if (active === 'all') return true
-    if (active === '4+')  return p.kw >= 4
-    return p.kw === active
-  })
+  const filtered = PROJECTS.filter(p =>
+    active === 'all' ? true : p.district === active
+  )
 
   const handleFilter = (val) => {
     if (val === active) return
@@ -266,7 +248,6 @@ export default function ProjectsGallery() {
             </p>
           </div>
 
-          {/* Stats */}
           <div className={styles.stats}>
             {STATS.map((s, i) => (
               <div key={i} className={styles.stat}>
@@ -282,7 +263,6 @@ export default function ProjectsGallery() {
       <section className={styles.gallery}>
         <div className={styles.galleryInner}>
 
-          {/* Filter bar */}
           <div className={styles.filters}>
             {FILTERS.map(f => (
               <button key={f.value}
@@ -297,7 +277,6 @@ export default function ProjectsGallery() {
             ))}
           </div>
 
-          {/* Masonry grid */}
           <div className={`${styles.masonryWrap} ${animating ? styles.fadeOut : styles.fadeIn}`}>
             <Masonry
               breakpointCols={BREAKPOINTS}
@@ -314,7 +293,6 @@ export default function ProjectsGallery() {
             </Masonry>
           </div>
 
-          {/* Empty state */}
           {filtered.length === 0 && (
             <div className={styles.empty}>
               <span>🌞</span>
@@ -334,7 +312,7 @@ export default function ProjectsGallery() {
               <span className={styles.ctaGold}>अगली सफलता की कहानी</span>
             </h2>
             <p className={styles.ctaDesc}>
-              Join 2,500+ happy families across Bihar.
+              Join 20+ happy families across Bihar.
               Free site visit · ₹78,000 subsidy assisted · 72-hour install.
             </p>
           </div>
@@ -353,7 +331,6 @@ export default function ProjectsGallery() {
         </div>
       </section>
 
-      {/* ── Lightbox ── */}
       {lightbox && (
         <Lightbox
           project={lightbox}

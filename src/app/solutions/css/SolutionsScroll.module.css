@@ -14,6 +14,21 @@
   overflow: hidden;
 }
 
+/* .section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 40px;
+  right: 40px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(244,163,0,0.2) 20%,
+    rgba(244,163,0,0.2) 80%,
+    transparent
+  );
+} */
 /* Gold grid lines on dark — more visible than on cream */
 .gridLines {
   position: absolute;

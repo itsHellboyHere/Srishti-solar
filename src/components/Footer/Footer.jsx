@@ -16,6 +16,7 @@ const PAGES = [
 const SERVICES = [
   { label: 'Residential Solar',  href: '/solutions#residential' },
   { label: 'Commercial Solar',   href: '/solutions#commercial' },
+    { label: 'Our Technology',     href: '/solutions#tech' }, 
   // { label: 'Industrial Solar',   href: '/solutions#offgrid' },
   { label: 'PM Surya Ghar',      href: '/subsidies' },
   { label: 'Free Site Visit',    href: '/contact' },

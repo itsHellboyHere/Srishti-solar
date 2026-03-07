@@ -5,6 +5,7 @@ import Process from '@/components/Process/Process'
 import StickyCanvas from '@/components/StickyCanvas/StickyCanvas'
 import Subsidy from '@/components/subsidy/Subsidy'
 import SolarCTA from '@/components/Cta/SolarCTA'
+import MediaStrip from '@/components/MediaStrip'
 
 
 export const metadata = {
@@ -32,6 +33,7 @@ export default function HomePage() {
         <Process />
       </StickyCanvas>
       <Subsidy/>
+      <MediaStrip/>
       <SolarCTA/>
       {/* <div style={{
         padding:"100px 100px",

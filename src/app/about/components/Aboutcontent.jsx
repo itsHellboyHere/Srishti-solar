@@ -6,6 +6,7 @@ import AboutMission from './Aboutmission'
 import AboutAwards from './Aboutawards'
 import AboutTeam from './Aboutteam'
 import AboutCTA from './Aboutcta'
+import MediaGallery from '@/components/MediaGallery'
 
 export default function AboutContent() {
   return (
@@ -15,6 +16,7 @@ export default function AboutContent() {
       <AboutMission />
       <AboutTeam />
       <AboutAwards />
+      <MediaGallery/>
       <AboutCTA />
     </div>
   )
