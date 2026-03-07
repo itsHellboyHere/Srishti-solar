@@ -102,7 +102,7 @@ export default function WhyUs() {
             <span className={styles.accent}>अब बिजली खुद ही दमकेगी</span>
           </h2>
           <p className={styles.subtext}>
-            2,500+ परिवार पहले से मुफ्त बिजली का आनंद ले रहे हैं।{' '}
+            41+ परिवार पहले से मुफ्त बिजली का आनंद ले रहे हैं।{' '}
             <span className={styles.subtextEn}>Join Bihar's fastest-growing solar community.</span>
           </p>
         </div>
