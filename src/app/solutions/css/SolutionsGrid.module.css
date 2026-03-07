@@ -1,0 +1,213 @@
+
+/* ═══════════════════════════════════════════
+   SolutionsGrid
+   - Cream bg with subtle grid line texture
+   - 2×2 photo bg cards
+   - Hover: card lifts + photo zooms
+   - Quad SVG curve arch UP → dark
+═══════════════════════════════════════════ */
+
+.section {
+  background: #FFFBF4;
+  position: relative;
+  padding: 80px 0 130px;
+  overflow: hidden;
+}
+
+/* ── Grid line texture — cream on cream, very subtle ── */
+.gridLines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,14,4,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,14,4,0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading); font-size: 0.62rem;
+  font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--sun-core); margin-bottom: 12px;
+}
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 900; letter-spacing: -0.04em; line-height: 1.08;
+  color: var(--text-primary); margin-bottom: 10px;
+}
+.gold { color: var(--sun-core); }
+.sub {
+  font-family: var(--font-body); font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* ── Fade-up ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fadeUp1 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.05s both; }
+.fadeUp2 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s both; }
+.fadeUp3 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.25s both; }
+.fadeUp4 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.35s both; }
+.fadeUp5 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.45s both; }
+
+/* ── 2×2 Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ── Card ── */
+.card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  min-height: 480px;
+  cursor: pointer;
+  /* lift on hover */
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 64px rgba(14,9,4,0.2);
+}
+
+/* Photo bg */
+.cardBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.cardImg {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.card:hover .cardImg { transform: scale(1.06); }
+
+.cardOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10,6,2,0.96) 0%,
+    rgba(10,6,2,0.75) 40%,
+    rgba(10,6,2,0.30) 70%,
+    rgba(10,6,2,0.10) 100%
+  );
+}
+
+/* Tag */
+.tag {
+  position: absolute;
+  top: 18px; right: 18px;
+  z-index: 3;
+  font-family: var(--font-heading); font-size: 0.58rem; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: #1A0E04; padding: 5px 12px; border-radius: 100px;
+}
+
+/* Content */
+.cardContent {
+  position: relative;
+  z-index: 2;
+  padding: 24px 26px 28px;
+  /* pin to bottom of card */
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+}
+.cardIcon {
+  font-size: 1.6rem; margin-bottom: 8px;
+  display: block;
+}
+.cardTitleHi {
+  font-family: var(--font-heading); font-size: 1.45rem; font-weight: 900;
+  color: #FFFBF4; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 2px;
+}
+.cardTitleEn {
+  font-family: var(--font-heading); font-size: 0.7rem; font-weight: 600;
+  color: rgba(255,251,244,0.4); margin-bottom: 8px; letter-spacing: 0.04em;
+}
+.cardTagline {
+  font-family: var(--font-body); font-size: 0.82rem;
+  color: rgba(255,251,244,0.6); line-height: 1.5; margin-bottom: 14px;
+}
+
+/* Benefits list */
+.benefits {
+  list-style: none; margin: 0 0 14px; padding: 0;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.benefit {
+  display: flex; align-items: center; gap: 7px;
+  font-family: var(--font-body); font-size: 0.78rem;
+  color: rgba(255,251,244,0.7);
+}
+.bIcon { font-size: 0.9rem; flex-shrink: 0; }
+
+/* Meta row */
+.cardMeta {
+  display: flex; align-items: center; gap: 10px;
+  flex-wrap: wrap; margin-bottom: 16px;
+}
+.subsidyPill {
+  font-family: var(--font-heading); font-size: 0.62rem; font-weight: 700;
+  background: rgba(244,163,0,0.15); border: 1px solid rgba(244,163,0,0.3);
+  color: var(--sun-core); padding: 4px 10px; border-radius: 100px;
+}
+.sizes { display: flex; gap: 5px; flex-wrap: wrap; }
+.size {
+  font-family: var(--font-body); font-size: 0.6rem;
+  color: rgba(255,251,244,0.35); background: rgba(255,251,244,0.06);
+  border: 1px solid rgba(255,251,244,0.1);
+  padding: 3px 8px; border-radius: 6px;
+}
+
+/* CTA */
+.cardCta {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-heading); font-size: 0.82rem; font-weight: 700;
+  color: var(--sun-core); text-decoration: none;
+  border-bottom: 1px solid rgba(244,163,0,0.3);
+  padding-bottom: 2px;
+  transition: gap 0.2s, border-color 0.2s;
+}
+.cardCta:hover { gap: 10px; border-color: var(--sun-core); }
+
+/* ── Curve wrapper ── */
+.curveWrap {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; line-height: 0; z-index: 2;
+}
+.curveSvg { display: block; width: 100%; height: 90px; }
+
+@media (max-width: 900px) {
+  .grid  { grid-template-columns: 1fr; }
+  .card  { min-height: 400px; }
+  .inner { padding: 0 24px; }
+  .curveSvg { height: 60px; }
+}
+@media (max-width: 520px) {
+  .inner { padding: 0 20px; }
+  .card  { min-height: 360px; }
+}

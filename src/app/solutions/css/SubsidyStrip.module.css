@@ -1,0 +1,239 @@
+/* ═══════════════════════════════════════════
+   SubsidyStrip
+   - Dark bg + gold grid lines
+   - 3 subsidy slab cards — big gold numbers
+   - Featured (Best Value) card pops taller
+   - Total assisted banner
+   - Quad dips DOWN → darkest
+═══════════════════════════════════════════ */
+
+.section {
+  background: #0E0904;
+  position: relative;
+  padding: 80px 0 130px;
+  overflow: hidden;
+}
+
+.gridLines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(244,163,0,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,163,0,0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none; z-index: 0;
+}
+
+.inner {
+  position: relative; z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── Header ── */
+.header { text-align: center; margin-bottom: 48px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fadeUp1 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.05s both; }
+.fadeUp2 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s both; }
+.fadeUp3 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.25s both; }
+.fadeUp4 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.35s both; }
+.fadeUp5 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.45s both; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading); font-size: 0.62rem;
+  font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(244,163,0,0.55); margin-bottom: 12px;
+}
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  font-weight: 900; letter-spacing: -0.04em; line-height: 1.08;
+  color: #FFFBF4; margin-bottom: 10px;
+}
+.gold { color: var(--sun-core); }
+.sub {
+  font-family: var(--font-body); font-size: 0.95rem;
+  color: rgba(255,251,244,0.38);
+}
+
+/* ══════════════════════════════════
+   3 SLAB CARDS
+   Middle card (Best Value) is taller
+   using align-items: end so tops align
+══════════════════════════════════ */
+.slabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  align-items: end; /* cards grow upward — featured pops above */
+  margin-bottom: 32px;
+}
+
+.slab {
+  position: relative;
+  background: rgba(255,251,244,0.03);
+  border: 1px solid rgba(244,163,0,0.12);
+  border-radius: 20px;
+  padding: 32px 24px 28px;
+  text-align: center;
+  transition: border-color 0.3s, transform 0.25s, box-shadow 0.3s;
+}
+.slab:hover {
+  border-color: rgba(244,163,0,0.28);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.28);
+}
+
+/* Featured (Best Value) — taller, brighter border, glow */
+.slabFeatured {
+  background: rgba(244,163,0,0.06);
+  border-color: rgba(244,163,0,0.3);
+  padding-top: 44px;
+  box-shadow: 0 0 40px rgba(244,163,0,0.08);
+}
+.slabFeatured:hover {
+  box-shadow: 0 24px 56px rgba(244,163,0,0.18);
+}
+
+/* Tag pill */
+.slabTag {
+  position: absolute;
+  top: -12px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-heading); font-size: 0.58rem; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 100px; white-space: nowrap;
+}
+.slabTagGold { background: var(--sun-core); color: #1A0E04; }
+.slabTagWhite { background: rgba(255,251,244,0.12); color: rgba(255,251,244,0.6); }
+
+/* kW size */
+.slabKw {
+  font-family: var(--font-heading); font-size: 2.4rem; font-weight: 900;
+  letter-spacing: -0.04em; color: #FFFBF4; line-height: 1; margin-bottom: 2px;
+}
+.slabSystem {
+  font-family: var(--font-body); font-size: 0.7rem;
+  color: rgba(255,251,244,0.3); margin-bottom: 20px;
+}
+
+.slabDivider {
+  height: 1px;
+  background: rgba(244,163,0,0.12);
+  margin-bottom: 20px;
+}
+
+/* Subsidy amount — BIG gold */
+.slabSubsidy {
+  font-family: var(--font-heading); font-size: 2.6rem; font-weight: 900;
+  letter-spacing: -0.04em; color: var(--sun-core); line-height: 1; margin-bottom: 4px;
+}
+.slabFeatured .slabSubsidy { font-size: 3rem; }
+
+.slabSubsidyLabel {
+  font-family: var(--font-body); font-size: 0.68rem;
+  color: rgba(255,251,244,0.3); margin-bottom: 20px;
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+
+/* Stats row inside card */
+.slabStats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: rgba(255,251,244,0.04);
+  border: 1px solid rgba(255,251,244,0.07);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.slabStat {
+  flex: 1; padding: 12px 10px;
+  display: flex; flex-direction: column; gap: 3px;
+  align-items: center;
+}
+.slabStatDivider {
+  width: 1px; height: 36px;
+  background: rgba(255,251,244,0.08);
+  flex-shrink: 0;
+}
+.slabStatVal {
+  font-family: var(--font-heading); font-size: 0.86rem; font-weight: 800;
+  color: rgba(255,251,244,0.75); letter-spacing: -0.02em;
+}
+.slabStatLabel {
+  font-family: var(--font-body); font-size: 0.6rem;
+  color: rgba(255,251,244,0.28); text-align: center;
+}
+
+/* CTA */
+.slabCta {
+  display: block;
+  background: linear-gradient(135deg, var(--sun-bright), var(--sun-core));
+  color: #1A0E04; padding: 12px 0; border-radius: 100px;
+  text-align: center; text-decoration: none;
+  font-family: var(--font-heading); font-size: 0.82rem; font-weight: 800;
+  box-shadow: 0 6px 18px rgba(244,163,0,0.32);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.slabCta:hover { box-shadow: 0 10px 28px rgba(244,163,0,0.52); transform: translateY(-2px); }
+
+/* ── Total assisted banner ── */
+.totalBanner {
+  background: rgba(244,163,0,0.06);
+  border: 1px solid rgba(244,163,0,0.18);
+  border-radius: 18px; padding: 22px 28px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 20px;
+  flex-wrap: wrap; margin-bottom: 18px;
+}
+.totalLeft { display: flex; align-items: center; gap: 14px; }
+.totalIcon { font-size: 1.8rem; flex-shrink: 0; }
+.totalTitle {
+  font-family: var(--font-heading); font-size: 0.98rem; font-weight: 800;
+  color: #FFFBF4; line-height: 1.4; margin-bottom: 3px;
+}
+.totalNum { color: var(--sun-core); }
+.totalSub {
+  font-family: var(--font-body); font-size: 0.76rem;
+  color: rgba(255,251,244,0.35);
+}
+.totalCta {
+  display: inline-flex; align-items: center;
+  font-family: var(--font-heading); font-size: 0.84rem; font-weight: 700;
+  color: var(--sun-core); text-decoration: none;
+  border-bottom: 1px solid rgba(244,163,0,0.3);
+  padding-bottom: 2px; white-space: nowrap;
+  transition: border-color 0.2s;
+}
+.totalCta:hover { border-color: var(--sun-core); }
+
+/* Fine print */
+.finePrint {
+  font-family: var(--font-body); font-size: 0.66rem;
+  color: rgba(255,251,244,0.2); text-align: center;
+  line-height: 1.6;
+}
+
+/* ── Curve wrapper ── */
+.curveWrap {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; line-height: 0; z-index: 2;
+}
+.curveSvg { display: block; width: 100%; height: 90px; }
+
+@media (max-width: 900px) {
+  .slabs { grid-template-columns: 1fr; align-items: stretch; }
+  .slabFeatured { padding-top: 44px; }
+  .inner { padding: 0 24px; }
+  .totalBanner { flex-direction: column; align-items: flex-start; }
+  .curveSvg { height: 60px; }
+}
+@media (max-width: 520px) { .inner { padding: 0 20px; } }

@@ -1,0 +1,198 @@
+.section {
+  background: linear-gradient(160deg, #1A0E04 0%, #241200 50%, #1A0E04 100%);
+  padding: 64px 0 96px;
+}
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+.label {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,251,244,0.15);
+  margin-bottom: 48px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,251,244,0.06);
+}
+
+/* Mission banner */
+.missionBanner {
+  text-align: center;
+  margin-bottom: 72px;
+  position: relative;
+}
+.missionQuoteIcon {
+  font-family: Georgia, serif;
+  font-size: 8rem;
+  line-height: 0.6;
+  color: rgba(244,163,0,0.12);
+  display: block;
+  margin-bottom: 16px;
+}
+.missionQuote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #FFFBF4;
+  margin: 0 0 12px;
+  padding: 0;
+  border: none;
+  font-style: normal;
+}
+.missionEn {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: rgba(255,251,244,0.3);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.sectionLabel {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sun-core);
+  opacity: 0.6;
+  margin-bottom: 24px;
+}
+
+/* Differentiator cards */
+.left { display: flex; flex-direction: column; gap: 16px; }
+.diffCard {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  background: rgba(255,251,244,0.03);
+  border: 1px solid rgba(255,251,244,0.07);
+  border-radius: 16px;
+  padding: 22px 20px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.diffCard:hover {
+  background: rgba(244,163,0,0.05);
+  border-color: rgba(244,163,0,0.15);
+}
+.diffNum {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: rgba(244,163,0,0.2);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  padding-top: 4px;
+}
+.diffTitleHi {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #FFFBF4;
+  margin-bottom: 2px;
+}
+.diffTitleEn {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--sun-core);
+  opacity: 0.75;
+  margin-bottom: 10px;
+}
+.diffDesc {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,251,244,0.5);
+  line-height: 1.6;
+  margin: 0 0 4px;
+}
+.diffDescEn {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255,251,244,0.25);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Why Solar grid */
+.whyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.whyCard {
+  background: rgba(255,251,244,0.03);
+  border: 1px solid rgba(255,251,244,0.07);
+  border-radius: 14px;
+  padding: 18px 16px;
+  transition: background 0.2s;
+}
+.whyCard:hover { background: rgba(244,163,0,0.05); }
+.whyIcon { font-size: 1.5rem; display: block; margin-bottom: 8px; }
+.whyHi {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFFBF4;
+  margin-bottom: 2px;
+}
+.whyEn {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: rgba(255,251,244,0.28);
+}
+
+/* Vision box */
+.visionBox {
+  background: rgba(244,163,0,0.06);
+  border: 1px solid rgba(244,163,0,0.18);
+  border-radius: 16px;
+  padding: 22px 22px;
+}
+.visionLabel {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sun-core);
+  margin-bottom: 10px;
+}
+.visionText {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(255,251,244,0.75);
+  line-height: 1.6;
+  margin: 0 0 6px;
+}
+.visionTextEn {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(255,251,244,0.3);
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .grid  { grid-template-columns: 1fr; gap: 40px; }
+  .inner { padding: 0 28px; }
+  .missionQuote { font-size: 1.7rem; }
+}
+@media (max-width: 520px) {
+  .inner   { padding: 0 20px; }
+  .whyGrid { grid-template-columns: 1fr; }
+}

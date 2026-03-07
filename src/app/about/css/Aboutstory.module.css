@@ -1,0 +1,165 @@
+.section {
+  background: #FFFBF4;
+  padding: 64px 0 96px;
+}
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+
+/* Big editorial section label */
+.label {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(26,14,4,0.2);
+  margin-bottom: 48px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(26,14,4,0.08);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Left */
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+  color: #1A0E04;
+  margin-bottom: 28px;
+}
+.em {
+  font-style: italic;
+  color: var(--sun-core);
+  font-weight: 900;
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(26,14,4,0.6);
+  line-height: 1.85;
+  margin-bottom: 32px;
+}
+
+.challengeBox {
+  border-left: 3px solid rgba(26,14,4,0.12);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  background: rgba(26,14,4,0.02);
+  border-radius: 0 12px 12px 0;
+}
+.challengeLabel {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(26,14,4,0.35);
+  margin-bottom: 6px;
+}
+.challengeText {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: rgba(26,14,4,0.55);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.todayBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: linear-gradient(135deg, rgba(244,163,0,0.08), rgba(244,163,0,0.04));
+  border: 1px solid rgba(244,163,0,0.2);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.trophy { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+.todayText {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #1A0E04;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Right — Timeline */
+.right { display: flex; flex-direction: column; padding-top: 8px; }
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 20px;
+}
+.yearCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.yearNum {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: var(--sun-core);
+  background: rgba(244,163,0,0.1);
+  border: 1px solid rgba(244,163,0,0.2);
+  border-radius: 100px;
+  padding: 6px 10px;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+.connector {
+  width: 2px;
+  flex: 1;
+  min-height: 32px;
+  background: linear-gradient(to bottom, rgba(244,163,0,0.35), rgba(244,163,0,0.06));
+  margin: 6px 0;
+}
+
+.timelineCard {
+  padding-bottom: 40px;
+}
+.timelineTitle {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #1A0E04;
+  margin-bottom: 2px;
+}
+.timelineTitleEn {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--sun-core);
+  opacity: 0.8;
+  margin-bottom: 8px;
+  letter-spacing: 0.04em;
+}
+.timelineDesc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: rgba(26,14,4,0.5);
+  line-height: 1.72;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .grid  { grid-template-columns: 1fr; gap: 48px; }
+  .inner { padding: 0 28px; }
+}
+@media (max-width: 520px) {
+  .inner { padding: 0 20px; }
+  .title { font-size: 2.4rem; }
+}

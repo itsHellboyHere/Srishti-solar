@@ -16,10 +16,10 @@ const PAGES = [
 const SERVICES = [
   { label: 'Residential Solar',  href: '/solutions#residential' },
   { label: 'Commercial Solar',   href: '/solutions#commercial' },
-  { label: 'Industrial Solar',   href: '/solutions#industrial' },
+  // { label: 'Industrial Solar',   href: '/solutions#offgrid' },
   { label: 'PM Surya Ghar',      href: '/subsidies' },
   { label: 'Free Site Visit',    href: '/contact' },
-  { label: 'Net Meter Support',  href: '/solutions#netmeter' },
+  { label: 'Subsidy Calculator',  href: '/subsidies#calculator' },
 ]
 
 const SOCIALS = [

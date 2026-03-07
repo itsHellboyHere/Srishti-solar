@@ -1,0 +1,86 @@
+.section { background: #FFFBF4; position: relative; padding: 80px 0 120px; }
+.inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fadeUp1 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.05s both; }
+.fadeUp2 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.18s both; }
+.fadeUp3 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.30s both; }
+.fadeUp4 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.42s both; }
+.fadeUp5 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.54s both; }
+
+.eyebrow {
+  display: block; font-family: var(--font-heading); font-size: 0.62rem;
+  font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--sun-core); margin-bottom: 12px;
+}
+.title {
+  font-family: var(--font-heading); font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 900; letter-spacing: -0.04em;
+  color: var(--text-primary); margin-bottom: 36px; text-align: center;
+}
+.gold { color: var(--sun-core); }
+
+.awardsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 40px; }
+.awardCard {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: #0E0904; border: 1px solid rgba(244,163,0,0.13);
+  border-radius: 16px; padding: 22px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.awardCard:hover { border-color: rgba(244,163,0,0.3); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.2); }
+.awardIcon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+.awardYear { font-family: var(--font-heading); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; color: var(--sun-core); margin-bottom: 4px; }
+.awardTitle { font-family: var(--font-heading); font-size: 0.94rem; font-weight: 900; color: #FFFBF4; line-height: 1.3; margin-bottom: 4px; }
+.awardBy { font-family: var(--font-body); font-size: 0.7rem; color: rgba(255,251,244,0.32); }
+
+.mediaLabel { font-family: var(--font-heading); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+.mediaRow { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; margin-bottom: 52px; }
+.mediaImgCard {
+  background: #fff; border: 1.5px solid rgba(26,14,4,0.07);
+  border-radius: 16px; overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.mediaImgCard:hover { box-shadow: 0 8px 24px rgba(26,14,4,0.09); transform: translateY(-2px); }
+.mediaImgWrap { width: 100%; aspect-ratio: 16/9; background: #1a0e04; position: relative; display: flex; align-items: center; justify-content: center; }
+.mediaImg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mediaImgFallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: rgba(255,251,244,0.2); font-family: var(--font-body); font-size: 0.7rem; text-align: center; }
+.mediaImgFallback span:first-child { font-size: 2rem; }
+.mediaInfo { padding: 16px 18px; }
+.mediaSocial {
+  background: rgba(244,163,0,0.05); border: 1.5px solid rgba(244,163,0,0.14);
+  border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 6px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.mediaSocial:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(244,163,0,0.1); }
+.mediaSocialIcon { font-size: 2rem; }
+.mediaOutlet { font-family: var(--font-heading); font-size: 0.62rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sun-core); margin-bottom: 4px; }
+.mediaHeadline { font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--text-primary); line-height: 1.4; margin-bottom: 4px; }
+.mediaDate { font-family: var(--font-body); font-size: 0.68rem; color: var(--text-muted); }
+
+.diffHeading { font-family: var(--font-heading); font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 900; letter-spacing: -0.03em; color: var(--text-primary); text-align: center; margin-bottom: 24px; }
+.diffGrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+.diffCard {
+  background: #fff; border: 1.5px solid rgba(26,14,4,0.07);
+  border-radius: 16px; padding: 26px 20px;
+  transition: box-shadow 0.25s, transform 0.2s, border-color 0.2s;
+}
+.diffCard:hover { box-shadow: 0 10px 28px rgba(26,14,4,0.09); transform: translateY(-4px); border-color: rgba(244,163,0,0.25); }
+.diffNum { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 900; color: rgba(244,163,0,0.18); letter-spacing: -0.04em; line-height: 1; margin-bottom: 10px; }
+.diffTitle { font-family: var(--font-heading); font-size: 0.95rem; font-weight: 800; color: var(--text-primary); margin-bottom: 2px; }
+.diffEn { font-family: var(--font-heading); font-size: 0.68rem; font-weight: 600; color: var(--sun-core); opacity: 0.85; margin-bottom: 10px; }
+.diffDesc { font-family: var(--font-body); font-size: 0.8rem; color: var(--text-secondary); line-height: 1.68; margin: 0; }
+
+.curveWrap { position: absolute; bottom: 0; left: 0; width: 100%; line-height: 0; z-index: 2; }
+.curveSvg { display: block; width: 100%; height: 90px; }
+
+@media (max-width: 900px) {
+  .awardsGrid { grid-template-columns: 1fr; }
+  .mediaRow   { grid-template-columns: 1fr; }
+  .diffGrid   { grid-template-columns: 1fr; }
+  .inner      { padding: 0 24px; }
+  .curveSvg   { height: 60px; }
+}
+@media (max-width: 520px) { .inner { padding: 0 20px; } }

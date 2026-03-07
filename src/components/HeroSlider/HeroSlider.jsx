@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
+import Link from 'next/link'
 import styles from './HeroSlider.module.css'
 
 const SLIDES = [
@@ -9,8 +10,10 @@ const SLIDES = [
     lines: ['छत पर सोलर लगाइए,'],
     accent: 'बिजली का खर्च बचाइए',
     desc: 'सभी प्रकार का सोलर सिस्टम इंस्टॉलेशन — 5 साल निःशुल्क सेवा, EMI सुविधा, मोबाइल मॉनिटरिंग।',
-    cta: 'Get Free Assessment',
-    ghost: 'See How It Works',
+    cta:      'Get Free Assessment',
+    ctaHref:  '/contact',
+    ghost:     'See How It Works',
+    ghostHref: '/solutions',
     bg: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1800&q=90',
   },
   {
@@ -18,8 +21,10 @@ const SLIDES = [
     lines: ['सरकार की सब्सिडी'],
     accent: 'का पूरा लाभ पाएँ',
     desc: '₹78,000 तक सीधे बैंक में। SBPDCL / NBPDCL से पंजीकृत · MNRE के नियम अनुसार कार्य।',
-    cta: 'Check Eligibility · पात्रता जांचें',
-    ghost: 'Subsidy Details',
+    cta:      'Check Eligibility · पात्रता जांचें',
+    ctaHref:  '/subsidies',
+    ghost:     'Subsidy Details',
+    ghostHref: '/subsidies',
     bg: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1800&q=90',
   },
   {
@@ -27,8 +32,10 @@ const SLIDES = [
     lines: ['Srishti Solar Power'],
     accent: 'से सोलर लगवाएँ।',
     desc: '5 साल निःशुल्क सेवा · EMI सुविधा · मोबाइल मॉनिटरिंग। Bihar\'s most trusted installer since day one.',
-    cta: 'Call Now · अभी कॉल करें',
-    ghost: 'Our Projects',
+    cta:      'Call Now · अभी कॉल करें',
+    ctaHref:  '/contact',
+    ghost:     'Our Projects',
+    ghostHref: '/projects',
     bg: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1800&q=90',
   },
 ]
@@ -88,10 +95,8 @@ export default function HeroSlider() {
   return (
     <section className={styles.hero}>
 
-      {/* ── Dark cinematic base ── */}
       <div className={styles.darkBase} aria-hidden="true" />
 
-      {/* ── Slides ── */}
       <div className={styles.slides}>
         {SLIDES.map((slide, i) => (
           <div
@@ -99,31 +104,23 @@ export default function HeroSlider() {
             className={`${styles.slide} ${i === current ? styles.slideIn : ''} ${i === prev ? styles.slideOut : ''}`}
           >
             <div className={styles.bg} style={{ backgroundImage: `url('${slide.bg}')` }} />
-            {/* Dark scrim over whole photo */}
             <div className={styles.scrim} />
-            {/* Gradient: dark left for text, reveals photo right */}
             <div className={styles.maskLeft} />
-            {/* Top fade for navbar */}
             <div className={styles.maskTop} />
-            {/* Bottom fade into wave */}
             <div className={styles.maskBottom} />
-            {/* Gold haze on photo */}
             <div className={styles.photoHaze} />
           </div>
         ))}
       </div>
 
-      {/* ── Floating particles ── */}
       <div className={styles.particles} aria-hidden="true">
         {[...Array(10)].map((_, i) => (
           <div key={i} className={styles.particle} style={{ '--pi': i }} />
         ))}
       </div>
 
-      {/* ── Content — outside slides so it stays sharp ── */}
       <div className={styles.contentWrap}>
 
-        {/* Vertical accent line */}
         <div className={styles.accentBar} aria-hidden="true" />
 
         <div className={styles.content}>
@@ -133,13 +130,11 @@ export default function HeroSlider() {
               className={`${styles.slideContent} ${i === current ? styles.slideContentIn : ''}`}
               aria-hidden={i !== current}
             >
-              {/* Tag */}
               <div className={styles.tag}>
                 <span className={styles.tagDot} />
                 {slide.tag}
               </div>
 
-              {/* Title */}
               <h1 className={styles.title}>
                 {slide.lines.map((line, li) => (
                   <span key={li} className={styles.line} style={{ '--li': li }}>{line}</span>
@@ -149,30 +144,40 @@ export default function HeroSlider() {
                 </span>
               </h1>
 
-              {/* Desc */}
               <p className={styles.desc}>{slide.desc}</p>
 
-              {/* Actions */}
               <div className={styles.actions}>
-                <button className={styles.btnPrimary}>
-                  <span className={styles.btnLabel}>{slide.cta}</span>
-                  <span className={styles.btnIcon}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </span>
-                </button>
-                <button className={styles.btnGhost}>
+                {/* Slide 2 CTA calls phone directly instead of contact page */}
+                {slide.ctaHref === 'tel' ? (
+                  <a href="tel:+919931013345" className={styles.btnPrimary}>
+                    <span className={styles.btnLabel}>{slide.cta}</span>
+                    <span className={styles.btnIcon}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.22 1.18 2 2 0 012.22 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.56-.56a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                      </svg>
+                    </span>
+                  </a>
+                ) : (
+                  <Link href={slide.ctaHref} className={styles.btnPrimary}>
+                    <span className={styles.btnLabel}>{slide.cta}</span>
+                    <span className={styles.btnIcon}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </Link>
+                )}
+
+                <Link href={slide.ghostHref} className={styles.btnGhost}>
                   {slide.ghost}
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
                     <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                </button>
+                </Link>
               </div>
             </div>
           ))}
 
-          {/* Controls — always visible */}
           <div className={styles.controls}>
             <div className={styles.counter}>
               <span className={styles.counterNum}>{pad(current)}</span>
@@ -204,20 +209,6 @@ export default function HeroSlider() {
 
         </div>
       </div>
-
-      {/* ── Ticker strip ── */}
-      {/* <div className={styles.ticker} aria-label="Company stats">
-        <div className={styles.tickerTrack}>
-          {[...STATS, ...STATS, ...STATS].map(({ val, unit, label }, i) => (
-            <div key={i} className={styles.tickerItem}>
-              <span className={styles.tickerNum}>{val}</span>
-              <span className={styles.tickerUnit}>{unit}</span>
-              <span className={styles.tickerDot} aria-hidden="true" />
-              <span className={styles.tickerLabel}>{label}</span>
-            </div>
-          ))}
-        </div>
-      </div> */}
 
     </section>
   )

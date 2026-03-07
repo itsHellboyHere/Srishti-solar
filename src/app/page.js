@@ -6,6 +6,19 @@ import StickyCanvas from '@/components/StickyCanvas/StickyCanvas'
 import Subsidy from '@/components/subsidy/Subsidy'
 import SolarCTA from '@/components/Cta/SolarCTA'
 
+
+export const metadata = {
+  title: 'Srishti Solar Power — Bihar की #1 Solar Company | Patna',
+  description: 'Bihar की #1 Solar Company — Bihar Solar Expo 2026 में #1 ranked। घर और दुकान के लिए rooftop solar। PM Surya Ghar subsidy ₹78,000 तक। Patna, Gaya, Muzaffarpur में free site visit।',
+  alternates: { canonical: 'https://srishtisolarpower.com' },
+  openGraph: {
+    title: 'Srishti Solar Power — Bihar की #1 Solar Company',
+    description: 'Bihar Solar Expo 2026 में #1। PM Surya Ghar subsidy ₹78,000। Free site visit। 41+ installations, 9 districts।',
+    url: 'https://srishtisolarpower.com',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+  },
+}
+
 export default function HomePage() {
   return (
     <main>

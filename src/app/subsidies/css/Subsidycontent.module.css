@@ -1,0 +1,86 @@
+/* ═══════════════════════════════════════════════
+   SubsidyContent.module.css
+   Sticky pull-up card stack orchestration
+═══════════════════════════════════════════════ */
+
+.page {
+  background: var(--bg-warm);
+  min-height: 100vh;
+  padding-top: 90px; /* navbar clearance */
+}
+
+/* ── Stack container ──
+   Must be tall enough so each card has room to scroll
+   before the next one covers it.
+   We don't set a fixed height — the natural content
+   height of all cards stacked is enough.
+─────────────────────── */
+.stack {
+  position: relative;
+}
+
+/* ── Individual card ──
+   position:sticky + increasing top = pull-up peeling effect.
+   Each card stays pinned as you scroll until the next one
+   slides up over it from below.
+─────────────────────── */
+.card {
+  position: sticky;
+  width: 100%;
+  /* top is set inline per card: NAVBAR + index * PEEK */
+
+  /* Rounded top corners so cards look like sheets */
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+
+  /* Subtle shadow so depth is visible when stacking */
+  box-shadow: 0 -4px 32px rgba(14, 9, 4, 0.08);
+
+  /* Smooth appearance */
+  will-change: transform;
+}
+
+/* Background variants */
+.bg_warm { background: var(--bg-warm); }
+.bg_base { background: var(--bg-base); }
+.bg_dark { background: #0E0904; }
+
+/* ── Peel bar ──
+   Tiny pill at the top of each card that hints
+   the card is "on top of" the one below.
+   Only shown on cards index > 0.
+─────────────────────── */
+.peelBar {
+  width: 40px;
+  height: 4px;
+  border-radius: 100px;
+  background: rgba(244, 163, 0, 0.25);
+  margin: 14px auto 0;
+}
+
+/* Dark cards get a lighter peel bar */
+.bg_dark .peelBar {
+  background: rgba(255, 251, 244, 0.12);
+}
+
+/* ── Remove internal section top-padding on first card ──
+   since the card border-radius already creates visual space
+─────────────────────── */
+.card > * > section:first-child,
+.card > section:first-child {
+  padding-top: 64px;
+}
+
+/* ── Mobile: disable sticky — too many stacked panels ──
+   becomes hard to scroll on small screens
+─────────────────────── */
+@media (max-width: 520px) {
+  .card {
+    position: relative;
+    top: 0 !important;
+    border-radius: 0;
+    box-shadow: none;
+    border-top: 1px solid rgba(244, 163, 0, 0.08);
+  }
+  .peelBar { display: none; }
+}

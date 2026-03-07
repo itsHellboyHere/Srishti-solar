@@ -1,0 +1,297 @@
+/* ═══════════════════════════════════════════
+   SolutionsScroll
+   - Dark bg with gold grid lines
+   - Horizontal scroll-snap track
+   - Wide tall cards (left=photo, right=content)
+   - Big number watermark on each photo
+   - Quad SVG curve → warm
+═══════════════════════════════════════════ */
+
+.section {
+  background: #0E0904;
+  position: relative;
+  padding: 80px 0 130px;
+  overflow: hidden;
+}
+
+/* Gold grid lines on dark — more visible than on cream */
+.gridLines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244,163,0,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,163,0,0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ── */
+.header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 40px;
+  margin-bottom: 40px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fadeUp1 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.05s both; }
+.fadeUp2 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.18s both; }
+.fadeUp3 { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.30s both; }
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading); font-size: 0.62rem;
+  font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(244,163,0,0.55); margin-bottom: 10px;
+}
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  font-weight: 900; letter-spacing: -0.04em;
+  color: #FFFBF4; margin-bottom: 12px;
+}
+.gold { color: var(--sun-core); }
+.hint {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-body); font-size: 0.78rem;
+  color: rgba(255,251,244,0.28);
+  animation: hintPulse 2.5s ease infinite;
+}
+@keyframes hintPulse {
+  0%,100% { opacity: 0.4; transform: translateX(0); }
+  50%      { opacity: 0.9; transform: translateX(5px); }
+}
+
+/* ══════════════════════════════════════════
+   HORIZONTAL SCROLL TRACK
+   - scrollOuter: clips overflow, full width
+   - track: flex row, scroll-snap, no wrap
+   - Each card: scroll-snap-align start
+   - CSS snap handles the paginated feel
+══════════════════════════════════════════ */
+.scrollOuter {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  /* hide scrollbar visually but keep functional */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* left padding so first card has breathing room */
+  padding: 0 0 20px;
+  cursor: grab;
+}
+.scrollOuter::-webkit-scrollbar { display: none; }
+.scrollOuter:active { cursor: grabbing; }
+
+.track {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 8px 40px 24px;
+  scroll-snap-type: x mandatory;
+  width: max-content;
+}
+
+/* ── Individual card ── */
+.card {
+  flex-shrink: 0;
+  /* Each card is ~85vw wide so you can see a peek of the next */
+  width: min(820px, 85vw);
+  height: 480px;
+  border-radius: 22px;
+  overflow: hidden;
+  display: grid;
+  /* left photo = 44% | right content = 56% */
+  grid-template-columns: 44% 56%;
+  scroll-snap-align: start;
+  border: 1px solid rgba(244,163,0,0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background: #140a02;
+}
+.card:hover {
+  border-color: rgba(244,163,0,0.22);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+}
+
+/* Photo side */
+.cardPhoto {
+  position: relative;
+  overflow: hidden;
+}
+.cardImg {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.card:hover .cardImg { transform: scale(1.05); }
+
+.photoOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(14,9,4,0.15) 0%,
+    rgba(14,9,4,0.55) 100%
+  );
+}
+
+/* Big watermark number */
+.cardNum {
+  position: absolute;
+  bottom: -10px; left: -4px;
+  font-family: var(--font-heading);
+  font-size: 8rem; font-weight: 900;
+  line-height: 1; letter-spacing: -0.06em;
+  color: rgba(255,251,244,0.07);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Tag chip on photo */
+.cardTag {
+  position: absolute;
+  top: 16px; left: 16px;
+  font-family: var(--font-heading); font-size: 0.58rem; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: #1A0E04; padding: 4px 12px; border-radius: 100px;
+}
+
+/* Content side */
+.cardBody {
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.cardBody::-webkit-scrollbar { display: none; }
+
+.cardIcon { font-size: 1.6rem; margin-bottom: 10px; }
+
+.cardHead { margin-bottom: 6px; }
+.cardTitleHi {
+  font-family: var(--font-heading); font-size: 1.5rem; font-weight: 900;
+  color: #FFFBF4; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 3px;
+}
+.cardTitleEn {
+  font-family: var(--font-heading); font-size: 0.68rem; font-weight: 600;
+  color: rgba(255,251,244,0.32); letter-spacing: 0.04em;
+}
+
+.cardTagline {
+  font-family: var(--font-body); font-size: 0.82rem;
+  color: var(--sun-core); font-style: italic;
+  line-height: 1.5; margin-bottom: 6px;
+}
+.cardDesc {
+  font-family: var(--font-body); font-size: 0.76rem;
+  color: rgba(255,251,244,0.42); line-height: 1.7; margin-bottom: 14px;
+}
+
+/* Savings highlight box */
+.savingsBox {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(244,163,0,0.07);
+  border: 1px solid rgba(244,163,0,0.15);
+  border-radius: 10px; padding: 10px 14px; margin-bottom: 14px;
+}
+.savingsIcon { font-size: 1.1rem; flex-shrink: 0; }
+.savingsHi {
+  font-family: var(--font-heading); font-size: 0.85rem; font-weight: 800;
+  color: var(--sun-core);
+}
+.savingsEn {
+  font-family: var(--font-body); font-size: 0.65rem;
+  color: rgba(255,251,244,0.3);
+}
+
+/* Benefits 2-col grid */
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-bottom: 16px;
+}
+.benefit {
+  display: flex; align-items: flex-start; gap: 7px;
+  background: rgba(255,251,244,0.03);
+  border: 1px solid rgba(255,251,244,0.06);
+  border-radius: 8px; padding: 8px 10px;
+}
+.bIcon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+.bHi {
+  font-family: var(--font-heading); font-size: 0.72rem; font-weight: 700;
+  color: rgba(255,251,244,0.8); margin-bottom: 1px;
+}
+.bEn {
+  font-family: var(--font-body); font-size: 0.6rem;
+  color: rgba(255,251,244,0.28);
+}
+
+/* Meta row */
+.metaRow {
+  display: flex; gap: 20px; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap;
+}
+.metaLabel {
+  font-family: var(--font-heading); font-size: 0.56rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,251,244,0.28); display: block; margin-bottom: 5px;
+}
+.sizes { display: flex; gap: 5px; flex-wrap: wrap; }
+.sizeChip {
+  font-family: var(--font-body); font-size: 0.62rem;
+  color: rgba(255,251,244,0.5); background: rgba(255,251,244,0.06);
+  border: 1px solid rgba(255,251,244,0.1);
+  padding: 3px 9px; border-radius: 6px;
+}
+.subsidyVal {
+  font-family: var(--font-heading); font-size: 1rem; font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+/* CTA */
+.cardCta {
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #1A0E04; padding: 12px 22px; border-radius: 100px;
+  text-decoration: none; font-family: var(--font-heading);
+  font-size: 0.86rem; font-weight: 800; margin-top: auto;
+  align-self: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 6px 20px rgba(244,163,0,0.3);
+}
+.cardCta:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(244,163,0,0.5); }
+
+/* Dots */
+.dots {
+  position: relative; z-index: 1;
+  display: flex; justify-content: center; gap: 7px; margin-top: 8px;
+}
+.dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(244,163,0,0.2);
+}
+.dot:first-child { background: var(--sun-core); width: 20px; border-radius: 3px; }
+
+/* ── Curve wrapper ── */
+.curveWrap {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; line-height: 0; z-index: 2;
+}
+.curveSvg { display: block; width: 100%; height: 90px; }
+
+@media (max-width: 768px) {
+  .card   { height: 560px; grid-template-columns: 1fr; grid-template-rows: 220px 1fr; width: min(360px, 88vw); }
+  .cardNum { font-size: 5rem; }
+  .benefitsGrid { grid-template-columns: 1fr; }
+  .track  { padding: 8px 24px 24px; }
+  .header { padding: 0 24px; }
+  .curveSvg { height: 60px; }
+}

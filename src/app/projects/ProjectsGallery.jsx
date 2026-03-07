@@ -13,10 +13,10 @@ const BREAKPOINTS = {
 }
 
 const STATS = [
-  { num: '2,500+', label: 'Installations'       },
-  { num: '18',     label: 'Districts Covered'   },
+  { num: '41+', label: 'Installations'       },
+  { num: '9',     label: 'Districts Covered'   },
   { num: '5 MW+',  label: 'Total Capacity'      },
-  { num: '₹12 Cr', label: 'Subsidy Assisted'    },
+  { num: '₹31,98,000', label: 'Subsidy Assisted'    },
 ]
 
 /* ── Solar panel placeholder SVG ── */

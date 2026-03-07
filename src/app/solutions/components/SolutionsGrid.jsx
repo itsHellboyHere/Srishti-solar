@@ -1,0 +1,109 @@
+'use client'
+import Link from 'next/link'
+import { SOLUTIONS } from '@/data/solutions'
+import styles from '../css/SolutionsGrid.module.css'
+
+export default function SolutionsGrid() {
+  return (
+    <section className={styles.section}>
+
+      {/* Grid line texture */}
+      <div className={styles.gridLines} aria-hidden="true"/>
+
+      <div className={styles.inner}>
+
+        <div className={styles.header}>
+          <span className={`${styles.eyebrow} ${styles.fadeUp1}`}>
+            हमारे समाधान · Our Solutions
+          </span>
+          <h2 className={`${styles.title} ${styles.fadeUp2}`}>
+            हर ज़रूरत के लिए{' '}
+            <span className={styles.gold}>एक समाधान</span>
+          </h2>
+          <p className={`${styles.sub} ${styles.fadeUp3}`}>
+            घर, दुकान, खेत — जहाँ भी हो, सोलर है।
+          </p>
+        </div>
+
+        {/* 2×2 card grid */}
+        <div className={styles.grid}>
+          {SOLUTIONS.map((sol, i) => (
+            <div
+              key={sol.id}
+              id={sol.id}
+              className={`${styles.card} ${styles[`fadeUp${Math.min(i + 2, 5)}`]}`}
+            >
+              {/* Photo bg */}
+              <div className={styles.cardBg}>
+                <img
+                  src={sol.image}
+                  alt={sol.titleEn}
+                  className={styles.cardImg}
+                  loading="lazy"
+                />
+                <div className={styles.cardOverlay}/>
+              </div>
+
+              {/* Tag */}
+              {sol.tag && (
+                <div className={styles.tag} style={{ background: sol.color }}>
+                  {sol.tag}
+                </div>
+              )}
+
+              {/* Content */}
+              <div className={styles.cardContent}>
+                <div className={styles.cardIcon}>{sol.icon}</div>
+                <h3 className={styles.cardTitleHi}>{sol.titleHi}</h3>
+                <p className={styles.cardTitleEn}>{sol.titleEn}</p>
+                <p className={styles.cardTagline}>{sol.tagline}</p>
+
+                {/* Benefits */}
+                <ul className={styles.benefits}>
+                  {sol.benefits.slice(0,3).map((b, j) => (
+                    <li key={j} className={styles.benefit}>
+                      <span className={styles.bIcon}>{b.icon}</span>
+                      <span>{b.hi}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Subsidy pill + sizes */}
+                <div className={styles.cardMeta}>
+                  <span className={styles.subsidyPill}>{sol.subsidy}</span>
+                  <div className={styles.sizes}>
+                    {sol.sizes.map((s, j) => (
+                      <span key={j} className={styles.size}>{s}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <Link href="/contact" className={styles.cardCta}>
+                  जानकारी लें
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      {/* Quad curve → SolutionsScroll (#0E0904) — arch UP */}
+      <div className={styles.curveWrap}>
+        <svg
+          viewBox="0 0 1440 90"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          className={styles.curveSvg}
+        >
+          <path d="M0,90 Q720,0 1440,90 L1440,90 L0,90 Z" fill="#0E0904"/>
+        </svg>
+      </div>
+
+    </section>
+  )
+}
