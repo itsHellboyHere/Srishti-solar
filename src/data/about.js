@@ -30,7 +30,7 @@ export const TEAM = [
     education:   'MA, MBA, LLB',
     bio:         'Visionary founder with 25+ years of experience. Personally collects monthly feedback from every customer.',
     bioHindi:    'दूरदर्शी संस्थापक जो हर महीने ग्राहकों से व्यक्तिगत रूप से फीडबैक लेते हैं।',
-    photo:       null,
+    photo:       '/team/dayamani1.jpg',
     featured:    true,
   },
   {
@@ -41,7 +41,7 @@ export const TEAM = [
     education:   null,
     bio:         '30 years of deep technical experience in electrical and solar energy systems across Bihar.',
     bioHindi:    'बिहार में बिजली और सोलर सिस्टम में 30 साल का गहरा तकनीकी अनुभव।',
-    photo:       null,
+    photo:       '/team/bijendra1.jpg',
     featured:    false,
   },
   {
@@ -92,7 +92,7 @@ export const ACHIEVEMENTS = {
       outlet:    'Dainik Jagran',
       headline:  'Srishti Solar Power featured with CMD',
       date:      'February 26, 2026',
-      image:     '/media/dainik-jagran.jpg',
+      image:     '/media/dainik-jagran.jpg',  // ← upload client's image here
       url:       null,
     },
     {
