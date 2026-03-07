@@ -5,7 +5,6 @@
   overflow: hidden;
 }
 
-/* Solar panel rows bg — close-up, dark and moody */
 .bgImg {
   position: absolute; inset: 0;
   background-image: url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1600&q=80');
@@ -34,7 +33,6 @@
   align-items: start;
 }
 
-/* ── Fade-up animations ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -52,7 +50,9 @@
   color: rgba(244,163,0,0.55); margin-bottom: 14px;
 }
 
+/* ── Mission / Vision / Philosophy cards ── */
 .mvStack { display: flex; flex-direction: column; gap: 12px; }
+
 .mvCard {
   background: rgba(255,251,244,0.04);
   border: 1px solid rgba(244,163,0,0.1);
@@ -64,7 +64,18 @@
   border-color: rgba(244,163,0,0.22);
   transform: translateX(4px);
 }
-.mvIcon { font-size: 1.2rem; display: block; margin-bottom: 7px; }
+
+/* Lucide icon wrapper */
+.mvIconWrap {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: rgba(244,163,0,0.1);
+  border: 1px solid rgba(244,163,0,0.18);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--sun-core);
+  margin-bottom: 10px;
+}
+
 .mvLabel {
   font-family: var(--font-heading); font-size: 0.6rem; font-weight: 700;
   letter-spacing: 0.14em; text-transform: uppercase;
@@ -79,6 +90,7 @@
   color: rgba(255,251,244,0.38); line-height: 1.65; margin: 0;
 }
 
+/* ── Why Solar column ── */
 .title {
   font-family: var(--font-heading);
   font-size: clamp(1.9rem, 3.2vw, 2.6rem);
@@ -88,6 +100,7 @@
 .gold { color: var(--sun-core); }
 
 .reasons { display: flex; flex-direction: column; gap: 10px; }
+
 .reason {
   display: flex; align-items: flex-start; gap: 14px;
   background: rgba(255,251,244,0.03);
@@ -100,7 +113,19 @@
   border-color: rgba(244,163,0,0.16);
   transform: translateX(4px);
 }
-.rIcon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+
+/* Lucide icon wrapper for reasons */
+.rIconWrap {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: rgba(244,163,0,0.08);
+  border: 1px solid rgba(244,163,0,0.14);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--sun-core);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
 .rHi {
   font-family: var(--font-heading); font-size: 0.86rem;
   font-weight: 700; color: #FFFBF4; margin-bottom: 2px;
@@ -110,10 +135,9 @@
   color: rgba(255,251,244,0.3);
 }
 
-/* ── Curve wrapper ── */
+/* ── Curve ── */
 .curveWrap {
-  position: absolute;
-  bottom: 0; left: 0;
+  position: absolute; bottom: 0; left: 0;
   width: 100%; line-height: 0; z-index: 3;
 }
 .curveSvg { display: block; width: 100%; height: 90px; }
