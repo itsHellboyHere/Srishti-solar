@@ -188,7 +188,11 @@
 }
 .cardBody::-webkit-scrollbar { display: none; }
 
-.cardIcon { font-size: 1.6rem; margin-bottom: 10px; }
+.cardIcon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
 .cardHead { margin-bottom: 6px; }
 .cardTitleHi {
@@ -217,7 +221,11 @@
   border: 1px solid rgba(244,163,0,0.15);
   border-radius: 10px; padding: 10px 14px; margin-bottom: 14px;
 }
-.savingsIcon { font-size: 1.1rem; flex-shrink: 0; }
+.savingsIcon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
 .savingsHi {
   font-family: var(--font-heading); font-size: 0.85rem; font-weight: 800;
   color: var(--sun-core);
@@ -240,7 +248,13 @@
   border: 1px solid rgba(255,251,244,0.06);
   border-radius: 8px; padding: 8px 10px;
 }
-.bIcon { font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+.bIcon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
 .bHi {
   font-family: var(--font-heading); font-size: 0.72rem; font-weight: 700;
   color: rgba(255,251,244,0.8); margin-bottom: 1px;

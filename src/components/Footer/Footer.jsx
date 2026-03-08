@@ -21,6 +21,7 @@ const SERVICES = [
   { label: 'PM Surya Ghar',      href: '/subsidies' },
   { label: 'Free Site Visit',    href: '/contact' },
   { label: 'Subsidy Calculator',  href: '/subsidies#calculator' },
+  {label: 'F & Q' , href:'/subsidies#f&q'},
 ]
 
 const SOCIALS = [

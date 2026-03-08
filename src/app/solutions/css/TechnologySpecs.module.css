@@ -194,7 +194,13 @@
   border-radius: var(--radius-md);
   padding: 12px;
 }
-.featIcon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.featIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
 .featHi {
   font-family: var(--font-heading);
   font-size: 0.75rem;

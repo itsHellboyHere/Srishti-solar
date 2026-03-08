@@ -2,16 +2,39 @@
 import Link from 'next/link'
 import { SOLUTIONS } from '@/data/solutions'
 import styles from '../css/SolutionsGrid.module.css'
+import {
+  Home, Building2, BatteryFull, Landmark,
+  Zap, IndianRupee, Wrench, TrendingUp,
+  HardHat, Shield, MapPin, Plug,
+  Clipboard, ArrowRight,
+} from 'lucide-react'
+
+const CARD_ICONS = {
+  'home':     <Home      size={26} strokeWidth={1.8}/>,
+  'building': <Building2 size={26} strokeWidth={1.8}/>,
+  'battery':  <BatteryFull size={26} strokeWidth={1.8}/>,
+  'landmark': <Landmark  size={26} strokeWidth={1.8}/>,
+}
+
+const BENEFIT_ICONS = {
+  'zap':       <Zap          size={15} strokeWidth={2}/>,
+  'rupee':     <IndianRupee  size={15} strokeWidth={2}/>,
+  'wrench':    <Wrench       size={15} strokeWidth={2}/>,
+  'trending':  <TrendingUp   size={15} strokeWidth={2}/>,
+  'hard-hat':  <HardHat      size={15} strokeWidth={2}/>,
+  'shield':    <Shield       size={15} strokeWidth={2}/>,
+  'battery':   <BatteryFull  size={15} strokeWidth={2}/>,
+  'map-pin':   <MapPin       size={15} strokeWidth={2}/>,
+  'plug':      <Plug         size={15} strokeWidth={2}/>,
+  'landmark':  <Landmark     size={15} strokeWidth={2}/>,
+  'clipboard': <Clipboard    size={15} strokeWidth={2}/>,
+}
 
 export default function SolutionsGrid() {
   return (
     <section className={styles.section}>
-
-      {/* Grid line texture */}
       <div className={styles.gridLines} aria-hidden="true"/>
-
       <div className={styles.inner}>
-
         <div className={styles.header}>
           <span className={`${styles.eyebrow} ${styles.fadeUp1}`}>
             हमारे समाधान · Our Solutions
@@ -25,7 +48,6 @@ export default function SolutionsGrid() {
           </p>
         </div>
 
-        {/* 2×2 card grid */}
         <div className={styles.grid}>
           {SOLUTIONS.map((sol, i) => (
             <div
@@ -53,22 +75,29 @@ export default function SolutionsGrid() {
 
               {/* Content */}
               <div className={styles.cardContent}>
-                <div className={styles.cardIcon}>{sol.icon}</div>
+
+                {/* Card icon — lucide */}
+                <div className={styles.cardIcon}>
+                  {CARD_ICONS[sol.iconKey] ?? <Zap size={26} strokeWidth={1.8}/>}
+                </div>
+
                 <h3 className={styles.cardTitleHi}>{sol.titleHi}</h3>
                 <p className={styles.cardTitleEn}>{sol.titleEn}</p>
                 <p className={styles.cardTagline}>{sol.tagline}</p>
 
                 {/* Benefits */}
                 <ul className={styles.benefits}>
-                  {sol.benefits.slice(0,3).map((b, j) => (
+                  {sol.benefits.slice(0, 3).map((b, j) => (
                     <li key={j} className={styles.benefit}>
-                      <span className={styles.bIcon}>{b.icon}</span>
+                      <span className={styles.bIcon}>
+                        {BENEFIT_ICONS[b.iconKey] ?? <CheckCircle2 size={15} strokeWidth={2}/>}
+                      </span>
                       <span>{b.hi}</span>
                     </li>
                   ))}
                 </ul>
 
-                {/* Subsidy pill + sizes */}
+                {/* Meta */}
                 <div className={styles.cardMeta}>
                   <span className={styles.subsidyPill}>{sol.subsidy}</span>
                   <div className={styles.sizes}>
@@ -80,30 +109,21 @@ export default function SolutionsGrid() {
 
                 <Link href="/contact" className={styles.cardCta}>
                   जानकारी लें
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
+                  <ArrowRight size={14} strokeWidth={2.5}/>
                 </Link>
+
               </div>
             </div>
           ))}
         </div>
-
       </div>
 
-      {/* Quad curve → SolutionsScroll (#0E0904) — arch UP */}
       <div className={styles.curveWrap}>
-        <svg
-          viewBox="0 0 1440 90"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-          className={styles.curveSvg}
-        >
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none"
+          aria-hidden="true" className={styles.curveSvg}>
           <path d="M0,90 Q720,0 1440,90 L1440,90 L0,90 Z" fill="#0E0904"/>
         </svg>
       </div>
-
     </section>
   )
 }

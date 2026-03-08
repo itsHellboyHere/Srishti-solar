@@ -71,7 +71,7 @@
   border-radius: 14px;
   overflow: hidden;
   background: #fff;
-  border: 1.5px solid rgba(26,14,4,0.06);
+  /* border: 1.5px solid rgba(26,14,4,0.06); */
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: default;
 }

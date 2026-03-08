@@ -3,6 +3,45 @@ import { useRef } from 'react'
 import { SOLUTIONS } from '@/data/solutions'
 import styles from '../css/SolutionsScroll.module.css'
 import Link from 'next/link'
+import {
+  Home,
+  Building2,
+  BatteryFull,
+  Landmark,
+  Zap,
+  IndianRupee,
+  Wrench,
+  TrendingUp,
+  HardHat,
+  Shield,
+  MapPin,
+  Plug,
+  Clipboard,
+  ArrowRight,
+  IndianRupee as Rupee,
+} from 'lucide-react'
+
+/* ── Icon maps ── */
+const CARD_ICONS = {
+  'home':     <Home       size={28} strokeWidth={1.6}/>,
+  'building': <Building2  size={28} strokeWidth={1.6}/>,
+  'battery':  <BatteryFull size={28} strokeWidth={1.6}/>,
+  'landmark': <Landmark   size={28} strokeWidth={1.6}/>,
+}
+
+const BENEFIT_ICONS = {
+  'zap':       <Zap         size={14} strokeWidth={2}/>,
+  'rupee':     <IndianRupee size={14} strokeWidth={2}/>,
+  'wrench':    <Wrench      size={14} strokeWidth={2}/>,
+  'trending':  <TrendingUp  size={14} strokeWidth={2}/>,
+  'hard-hat':  <HardHat     size={14} strokeWidth={2}/>,
+  'shield':    <Shield      size={14} strokeWidth={2}/>,
+  'battery':   <BatteryFull size={14} strokeWidth={2}/>,
+  'map-pin':   <MapPin      size={14} strokeWidth={2}/>,
+  'plug':      <Plug        size={14} strokeWidth={2}/>,
+  'landmark':  <Landmark    size={14} strokeWidth={2}/>,
+  'clipboard': <Clipboard   size={14} strokeWidth={2}/>,
+}
 
 export default function SolutionsScroll() {
   const trackRef = useRef(null)
@@ -23,10 +62,7 @@ export default function SolutionsScroll() {
           <span className={styles.gold}>पूरी जानकारी</span>
         </h2>
         <p className={`${styles.hint} ${styles.fadeUp3}`}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
+          <ArrowRight size={14} strokeWidth={2}/>
           स्क्रॉल करें · Scroll across
         </p>
       </div>
@@ -47,9 +83,7 @@ export default function SolutionsScroll() {
                   loading="lazy"
                 />
                 <div className={styles.photoOverlay}/>
-                {/* Big number watermark */}
                 <div className={styles.cardNum}>0{i + 1}</div>
-                {/* Tag */}
                 {sol.tag && (
                   <div
                     className={styles.cardTag}
@@ -62,7 +96,12 @@ export default function SolutionsScroll() {
 
               {/* Right — content side */}
               <div className={styles.cardBody}>
-                <div className={styles.cardIcon}>{sol.icon}</div>
+
+                {/* Card icon */}
+                <div className={styles.cardIcon}
+                  style={{ color: sol.color }}>
+                  {CARD_ICONS[sol.iconKey] ?? <Zap size={28} strokeWidth={1.6}/>}
+                </div>
 
                 <div className={styles.cardHead}>
                   <h3 className={styles.cardTitleHi}>{sol.titleHi}</h3>
@@ -74,7 +113,9 @@ export default function SolutionsScroll() {
 
                 {/* Savings highlight */}
                 <div className={styles.savingsBox}>
-                  <span className={styles.savingsIcon}>💰</span>
+                  <span className={styles.savingsIcon}>
+                    <IndianRupee size={18} strokeWidth={2} color="#F4A300"/>
+                  </span>
                   <div>
                     <div className={styles.savingsHi}>{sol.savingsHi}</div>
                     <div className={styles.savingsEn}>{sol.savingsEn}</div>
@@ -85,7 +126,10 @@ export default function SolutionsScroll() {
                 <div className={styles.benefitsGrid}>
                   {sol.benefits.map((b, j) => (
                     <div key={j} className={styles.benefit}>
-                      <span className={styles.bIcon}>{b.icon}</span>
+                      <span className={styles.bIcon}
+                        style={{ color: sol.color, opacity: 0.8 }}>
+                        {BENEFIT_ICONS[b.iconKey] ?? <Zap size={14} strokeWidth={2}/>}
+                      </span>
                       <div>
                         <div className={styles.bHi}>{b.hi}</div>
                         <div className={styles.bEn}>{b.en}</div>
@@ -115,10 +159,11 @@ export default function SolutionsScroll() {
 
                 <Link href="/contact" className={styles.cardCta}
                   style={{ background: sol.color }}>
-                  अभी बुक करें →
+                  अभी बुक करें
+                  <ArrowRight size={14} strokeWidth={2.5}/>
                 </Link>
-              </div>
 
+              </div>
             </div>
           ))}
 

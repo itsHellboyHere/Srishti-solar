@@ -1,6 +1,16 @@
 'use client'
 import { useState } from 'react'
 import styles from '../css/TechnologySpecs.module.css'
+import {
+  Zap,
+  FlipHorizontal,
+  ShieldCheck,
+  Thermometer,
+  Cloud,
+  IndianRupee,
+  ChevronUp,
+  ChevronDown,
+} from 'lucide-react'
 
 /* ══════════════════════════════════════════════
    DATA — extracted from Srishti Solar spec PDFs
@@ -21,14 +31,14 @@ const MODULES = [
     name:    'TOPcon Bifacial',
     badge:   'Premium',
     badgeColor: '#F4A300',
-    // image: '/products/module-topcon.jpg',  ← add when available
+    // image: '/products/module-topcon.jpg',
     features: [
-      { icon: '⚡', hi: 'उच्च आउटपुट पावर',     en: 'Higher output power'              },
-      { icon: '🔆', hi: 'बाइफेशियल सेल',          en: 'Bifacial cells — more sunlight'   },
-      { icon: '🛡️', hi: 'PID प्रतिरोधी',           en: 'Excellent PID Resistance'         },
-      { icon: '🌡️', hi: 'बेहतर तापमान गुणांक',    en: 'Better temperature coefficient'   },
-      { icon: '☁️', hi: 'शेडिंग टॉलरेंस',          en: 'Better shading tolerance'         },
-      { icon: '💰', hi: 'कम LCOE',                 en: 'Lower LCOE'                       },
+      { Icon: Zap,            hi: 'उच्च आउटपुट पावर',     en: 'Higher output power'              },
+      { Icon: FlipHorizontal, hi: 'बाइफेशियल सेल',         en: 'Bifacial cells — more sunlight'   },
+      { Icon: ShieldCheck,    hi: 'PID प्रतिरोधी',          en: 'Excellent PID Resistance'         },
+      { Icon: Thermometer,    hi: 'बेहतर तापमान गुणांक',   en: 'Better temperature coefficient'   },
+      { Icon: Cloud,          hi: 'शेडिंग टॉलरेंस',         en: 'Better shading tolerance'         },
+      { Icon: IndianRupee,    hi: 'कम LCOE',                en: 'Lower LCOE'                       },
     ],
     tech: [
       { label: 'Technology',    value: 'TOPcon, Glass to Glass'             },
@@ -46,7 +56,6 @@ const CELLS = [
     sub:   '10BB / 16BB',
     badge: 'N-Type',
     badgeColor: '#3b82f6',
-    // image: '/products/cell-n182.jpg',
     specs: [
       { label: 'Size',       value: '182.2 × 183.75 mm ±0.5mm' },
       { label: 'Diagonal',   value: '256mm ±0.5mm'              },
@@ -61,7 +70,6 @@ const CELLS = [
     sub:   '18BB',
     badge: 'N-Type',
     badgeColor: '#3b82f6',
-    // image: '/products/cell-n210.jpg',
     specs: [
       { label: 'Size',      value: '210 × 210mm ±0.5mm'                              },
       { label: 'Thickness', value: '130μm ±13μm'                                     },
@@ -75,7 +83,6 @@ const CELLS = [
     sub:   '20BB',
     badge: 'HJT',
     badgeColor: '#22c55e',
-    // image: '/products/cell-hjt.jpg',
     specs: [
       { label: 'Size',      value: '210 × 105mm ±0.15mm'                           },
       { label: 'Thickness', value: '110μm ±15μm'                                   },
@@ -89,7 +96,6 @@ const CELLS = [
     sub:   '10BB',
     badge: 'PERC',
     badgeColor: '#a855f7',
-    // image: '/products/cell-perc182.jpg',
     specs: [
       { label: 'Size',      value: '182 × 182mm ±0.25mm'                             },
       { label: 'Diagonal',  value: '247mm ±0.25mm'                                   },
@@ -104,7 +110,6 @@ const CELLS = [
     sub:   '5BB Half-cell',
     badge: 'PERC',
     badgeColor: '#a855f7',
-    // image: '/products/cell-perc158.jpg',
     specs: [
       { label: 'Size',      value: '158.75 × 158.75mm +0.25mm'                       },
       { label: 'Thickness', value: '160μm ±20μm'                                     },
@@ -118,7 +123,6 @@ const CELLS = [
     sub:   '5BB',
     badge: 'Poly',
     badgeColor: '#f97316',
-    // image: '/products/cell-poly157.jpg',
     specs: [
       { label: 'Size',      value: '157 × 157mm ±0.25mm'                           },
       { label: 'Thickness', value: '170μm ±20μm'                                   },
@@ -134,7 +138,6 @@ const WAFERS = [
     name:  '182MM N-Type Mono',
     badge: 'N-Type',
     badgeColor: '#3b82f6',
-    // image: '/products/wafer-182n.jpg',
     specs: [
       { label: 'Specification',         value: '182.2 × 183.75mm'  },
       { label: 'Length of Side',        value: '±0.25mm'           },
@@ -150,7 +153,6 @@ const WAFERS = [
     name:  '182MM P-Type Mono',
     badge: 'P-Type',
     badgeColor: '#f97316',
-    // image: '/products/wafer-182p.jpg',
     specs: [
       { label: 'Specification',         value: '182 × 182mm'       },
       { label: 'Length of Side',        value: '182 ±0.25mm'       },
@@ -166,7 +168,6 @@ const WAFERS = [
     name:  '210MM Monocrystalline',
     badge: 'Mono',
     badgeColor: '#22c55e',
-    // image: '/products/wafer-210.jpg',
     specs: [
       { label: 'Specification',         value: '210 × 210mm'       },
       { label: 'Length of Side',        value: '210 ±0.25mm'       },
@@ -179,14 +180,12 @@ const WAFERS = [
   },
 ]
 
-/* ── SVG placeholder panel (replace with <img> when real images available) ── */
+/* ── SVG placeholder panel ── */
 function PanelSVG({ color = '#F4A300' }) {
   return (
     <svg viewBox="0 0 160 200" className={styles.panelSvg} aria-hidden="true">
-      {/* Panel body */}
       <rect x="8" y="8" width="144" height="184" rx="4"
         fill="#111" stroke={color} strokeWidth="1" strokeOpacity="0.3"/>
-      {/* Cell grid — 4×6 */}
       {[0,1,2,3].map(c => [0,1,2,3,4,5].map(r => (
         <rect key={`${c}${r}`}
           x={14 + c * 34} y={14 + r * 29}
@@ -195,14 +194,12 @@ function PanelSVG({ color = '#F4A300' }) {
           stroke={color} strokeWidth="0.5" strokeOpacity="0.25"
         />
       )))}
-      {/* Busbars */}
       {[0,1,2,3].map(c => (
         <line key={c}
           x1={29 + c * 34} y1="14" x2={29 + c * 34} y2="186"
           stroke={color} strokeWidth="0.6" strokeOpacity="0.3"
         />
       ))}
-      {/* Sun glow top right */}
       <circle cx="138" cy="22" r="18" fill={color} opacity="0.08"/>
       <circle cx="138" cy="22" r="10" fill={color} opacity="0.18"/>
     </svg>
@@ -236,14 +233,7 @@ export default function TechnologySpecs() {
     setExpanded(prev => ({ ...prev, [id]: !prev[id] }))
 
   return (
-    <section className={styles.section} id='tech'>
-
-      {/* Top curve — coming from cream (#FFF5E6) above */}
-      {/* <div className={styles.curveTop}>
-        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,90 Q720,0 1440,90 L1440,0 L0,0 Z" fill="#FFF5E6"/>
-        </svg>
-      </div> */}
+    <section className={styles.section} id="tech">
 
       <div className={styles.inner}>
 
@@ -282,9 +272,7 @@ export default function TechnologySpecs() {
             {MODULES.map(mod => (
               <div key={mod.id} className={styles.moduleCard}>
 
-                {/* Visual */}
                 <div className={styles.moduleVisual}>
-                  {/* swap for: <img src={mod.image} alt={mod.name} className={styles.moduleImg}/> */}
                   <PanelSVG color={mod.badgeColor}/>
                   <div className={styles.moduleBadge}
                     style={{ background: mod.badgeColor, color: '#1A0E04' }}>
@@ -292,15 +280,15 @@ export default function TechnologySpecs() {
                   </div>
                 </div>
 
-                {/* Info */}
                 <div className={styles.moduleInfo}>
                   <h3 className={styles.moduleName}>{mod.name}</h3>
 
-                  {/* Feature list */}
                   <div className={styles.featureGrid}>
                     {mod.features.map((f, i) => (
                       <div key={i} className={styles.feature}>
-                        <span className={styles.featIcon}>{f.icon}</span>
+                        <span className={styles.featIcon}>
+                          <f.Icon size={18} strokeWidth={1.8} color="#F4A300"/>
+                        </span>
                         <div>
                           <div className={styles.featHi}>{f.hi}</div>
                           <div className={styles.featEn}>{f.en}</div>
@@ -309,12 +297,14 @@ export default function TechnologySpecs() {
                     ))}
                   </div>
 
-                  {/* Tech specs toggle */}
                   <button
                     className={styles.expandBtn}
                     onClick={() => toggle(mod.id)}
                   >
-                    {expanded[mod.id] ? '▲ Hide Specs' : '▼ View Full Specs'}
+                    {expanded[mod.id]
+                      ? <><ChevronUp size={13} strokeWidth={2.5}/> Hide Specs</>
+                      : <><ChevronDown size={13} strokeWidth={2.5}/> View Full Specs</>
+                    }
                   </button>
 
                   {expanded[mod.id] && (
@@ -323,7 +313,6 @@ export default function TechnologySpecs() {
                     </div>
                   )}
 
-                  {/* Cert badges */}
                   <div className={styles.certs}>
                     {mod.certs.map((c, i) => (
                       <span key={i} className={styles.cert}>{c}</span>
@@ -342,9 +331,7 @@ export default function TechnologySpecs() {
             {CELLS.map(cell => (
               <div key={cell.id} className={styles.specCard}>
 
-                {/* Visual */}
                 <div className={styles.specVisual}>
-                  {/* swap for: <img src={cell.image} alt={cell.name} className={styles.specImg}/> */}
                   <PanelSVG color={cell.badgeColor}/>
                   <span className={styles.specBadge}
                     style={{ background: cell.badgeColor, color: '#fff' }}>
@@ -352,21 +339,22 @@ export default function TechnologySpecs() {
                   </span>
                 </div>
 
-                {/* Info */}
                 <div className={styles.specInfo}>
                   <div className={styles.specHead}>
                     <h3 className={styles.specName}>{cell.name}</h3>
                     <p className={styles.specSub}>{cell.sub}</p>
                   </div>
 
-                  {/* Always show first 2 specs, rest behind toggle */}
                   <SpecTable specs={cell.specs.slice(0, 2)}/>
 
                   <button
                     className={styles.expandBtn}
                     onClick={() => toggle(cell.id)}
                   >
-                    {expanded[cell.id] ? '▲ Hide' : `▼ +${cell.specs.length - 2} more specs`}
+                    {expanded[cell.id]
+                      ? <><ChevronUp size={13} strokeWidth={2.5}/> Hide</>
+                      : <><ChevronDown size={13} strokeWidth={2.5}/> +{cell.specs.length - 2} more specs</>
+                    }
                   </button>
 
                   {expanded[cell.id] && (
@@ -387,9 +375,7 @@ export default function TechnologySpecs() {
             {WAFERS.map(wafer => (
               <div key={wafer.id} className={styles.specCard}>
 
-                {/* Visual */}
                 <div className={styles.specVisual}>
-                  {/* swap for: <img src={wafer.image} alt={wafer.name} className={styles.specImg}/> */}
                   <PanelSVG color={wafer.badgeColor}/>
                   <span className={styles.specBadge}
                     style={{ background: wafer.badgeColor, color: '#fff' }}>
@@ -397,7 +383,6 @@ export default function TechnologySpecs() {
                   </span>
                 </div>
 
-                {/* Info */}
                 <div className={styles.specInfo}>
                   <div className={styles.specHead}>
                     <h3 className={styles.specName}>{wafer.name}</h3>
@@ -409,7 +394,10 @@ export default function TechnologySpecs() {
                     className={styles.expandBtn}
                     onClick={() => toggle(wafer.id)}
                   >
-                    {expanded[wafer.id] ? '▲ Hide' : `▼ +${wafer.specs.length - 3} more specs`}
+                    {expanded[wafer.id]
+                      ? <><ChevronUp size={13} strokeWidth={2.5}/> Hide</>
+                      : <><ChevronDown size={13} strokeWidth={2.5}/> +{wafer.specs.length - 3} more specs</>
+                    }
                   </button>
 
                   {expanded[wafer.id] && (
@@ -426,18 +414,13 @@ export default function TechnologySpecs() {
 
       </div>
 
-      {/* Bottom curve — into SolutionsScroll (#FFF5E6 cream) */}
-      {/* <div className={styles.curveBottom}>
+      {/* Bottom curve — into SolutionsScroll (also dark #0E0904) */}
+      <div className={styles.curveBottom}>
         <svg viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,0 Q720,90 1440,0 L1440,90 L0,90 Z" fill="#FFF5E6"/>
+          <path d="M0,0 Q720,90 1440,0 L1440,90 L0,90 Z" fill="#0E0904"/>
         </svg>
-      </div> */}
-{/* Bottom curve — into SolutionsScroll (also dark #0E0904) */}
-<div className={styles.curveBottom}>
-  <svg viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,0 Q720,90 1440,0 L1440,90 L0,90 Z" fill="#0E0904"/>
-  </svg>
-</div>
+      </div>
+
     </section>
   )
 }

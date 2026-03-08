@@ -136,9 +136,12 @@
   bottom: 0; left: 0; right: 0;
 }
 .cardIcon {
-  font-size: 1.6rem; margin-bottom: 8px;
-  display: block;
+  display: flex;
+  align-items: center;
+  color: var(--sun-core);
+  margin-bottom: 10px;
 }
+
 .cardTitleHi {
   font-family: var(--font-heading); font-size: 1.45rem; font-weight: 900;
   color: #FFFBF4; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 2px;
@@ -162,7 +165,13 @@
   font-family: var(--font-body); font-size: 0.78rem;
   color: rgba(255,251,244,0.7);
 }
-.bIcon { font-size: 0.9rem; flex-shrink: 0; }
+.bIcon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--sun-core);
+  opacity: 0.8;
+}
 
 /* Meta row */
 .cardMeta {

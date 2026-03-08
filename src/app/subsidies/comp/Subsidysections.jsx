@@ -159,7 +159,7 @@ export function SubsidySteps() {
 export function SubsidyFAQ() {
   const [open, setOpen] = useState(null)
   return (
-    <section className={styles.panel}>
+    <section className={styles.panel} id='f&q'>
       <div className={styles.inner}>
         <div className={styles.headCenter}>
           <span className={styles.eyebrow}>अक्सर पूछे जाने वाले सवाल · FAQ</span>
