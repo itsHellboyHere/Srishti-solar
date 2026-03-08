@@ -4,7 +4,7 @@ import styles from '../css/ZeroBillProof.module.css'
 
 export default function ZeroBillProof() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id='zerobill'>
       <div className={styles.inner}>
 
         {/* Left — bill image */}

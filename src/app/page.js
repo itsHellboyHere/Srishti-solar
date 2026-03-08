@@ -7,6 +7,7 @@ import Subsidy from '@/components/subsidy/Subsidy'
 import SolarCTA from '@/components/Cta/SolarCTA'
 import MediaStrip from '@/components/MediaStrip'
 import JingleVideo from '@/components/JingleVideo'
+import ZeroBillStrip from '@/components/ZeroBillStrip'
 
 
 export const metadata = {
@@ -35,7 +36,9 @@ export default function HomePage() {
       </StickyCanvas>
       <Subsidy/>
       <MediaStrip/>
+     
       <JingleVideo/>
+       <ZeroBillStrip/>
       <SolarCTA/>
       {/* <div style={{
         padding:"100px 100px",
