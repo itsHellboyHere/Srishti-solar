@@ -43,8 +43,6 @@ export default function JingleVideo() {
 
   return (
     <section className={styles.section}>
-
-
       {/* Grid lines */}
       <div className={styles.gridLines} aria-hidden="true"/>
 
@@ -150,12 +148,7 @@ export default function JingleVideo() {
 
       </div>
 
-      {/* Bottom curve — into SolarCTA dark */}
-      <div className={styles.curveBottom}>
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,0 Q720,80 1440,0 L1440,80 L0,80 Z" fill="#0E0904"/>
-        </svg>
-      </div>
+  
 
     </section>
   )
