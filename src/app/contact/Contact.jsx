@@ -22,7 +22,7 @@ const CONTACTS = [
   { label: 'Call / WhatsApp', value: '99310 13345',                href: 'tel:+919931013345'              },
   { label: 'Call / WhatsApp', value: '99310 67798',                href: 'tel:+919931067798'              },
   { label: 'Email',           value: 'info@srishtisolarpower.com', href: 'mailto:info@srishtisolarpower.com' },
-  { label: 'Office',          value: 'Vishweshraiya Nagar, Danapur, Patna 801503', href: null             },
+{ label: 'Office', value: 'Road No-6, Corner, East Patel Nagar, Near Gandhi Murti, Patna 800023', href: null },
 ]
 
 export default function ContactForm() {
