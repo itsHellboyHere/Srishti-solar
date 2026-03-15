@@ -35,6 +35,9 @@ export const metadata = {
     'घरेलू सोलर पैनल बिहार','सोलर सब्सिडी बिहार',
     'solar energy Bihar','best solar company Bihar','solar panel price Bihar',
     '1kW 2kW 3kW solar Bihar','MNRE solar Bihar',
+    'solar energy',
+    'srishti solar',
+    'solar power',
   ],
   authors:   [{ name: SITE_NAME, url: SITE_URL }],
   creator:   SITE_NAME,
@@ -64,15 +67,6 @@ export const metadata = {
   // ── Manifest — Next.js injects <link rel="manifest"> automatically ──
   manifest: '/manifest.json',
 
-  // ── App icons — only needed if NOT using src/app/icon.* file convention ──
-  // If you have src/app/favicon.ico, src/app/icon.svg, src/app/apple-icon.png
-  // then DELETE the icons block below — Next.js handles them automatically.
-  // If your icons are only in /public/, keep this block:
-  // icons: {
-  //   icon:             [{ url: '/favicon.ico' }, { url: '/icon.svg', type: 'image/svg+xml' }],
-  //   apple:            [{ url: '/apple-touch-icon.png' }],
-  //   other:            [{ rel: 'mask-icon', url: '/icon.svg' }],
-  // },
 
   // verification: { google: 'REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_CODE' },
   applicationName: SITE_NAME,
@@ -83,15 +77,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="hi" dir="ltr" className={`${figtree.variable} ${lexend.variable}`}>
       <head>
-        {/*
-           NO <link> tags needed here — Next.js metadata API above handles:
-             - favicon.ico, icon.svg, apple-touch-icon  → via icons: {}
-             - manifest.json                            → via manifest: ''
-             - og-image, twitter card                   → via openGraph/twitter
-             - canonical, robots                        → via alternates/robots
-
-          Only put things here that metadata API cannot express:
-        */}
+     
         <meta name="theme-color"              content="#F4A300"/>
         <meta name="msapplication-TileColor"  content="#0A0602"/>
 

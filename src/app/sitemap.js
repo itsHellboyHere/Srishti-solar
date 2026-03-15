@@ -1,43 +1,42 @@
 export default function sitemap() {
   const base = 'https://srishtisolarpower.com'
-  const now  = new Date().toISOString()
 
   return [
     {
-      url:              base,
-      lastModified:     now,
-      changeFrequency: 'weekly',
-      priority:         1.0,
+      url: base,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 1,
     },
     {
-      url:              `${base}/solutions`,
-      lastModified:     now,
+      url: `${base}/solutions`,
+      lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority:         0.9,
+      priority: 0.9,
     },
     {
-      url:              `${base}/subsidies`,
-      lastModified:     now,
+      url: `${base}/subsidies`,
+      lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority:         0.9,
+      priority: 0.9,
     },
     {
-      url:              `${base}/projects`,
-      lastModified:     now,
+      url: `${base}/projects`,
+      lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority:         0.8,
+      priority: 0.8,
     },
     {
-      url:              `${base}/about`,
-      lastModified:     now,
+      url: `${base}/about`,
+      lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority:         0.7,
+      priority: 0.7,
     },
     {
-      url:              `${base}/contact`,
-      lastModified:     now,
-      changeFrequency: 'yearly',
-      priority:         0.6,
-    },
+      url: `${base}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    }
   ]
 }
