@@ -5,7 +5,7 @@ import styles from '../css/SubsidyStrip.module.css'
 
 export default function SubsidyStrip() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id='subsidy'>
 
       <div className={styles.gridLines} aria-hidden="true"/>
 

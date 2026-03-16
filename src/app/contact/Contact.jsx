@@ -12,7 +12,7 @@ const KW_OPTIONS = [
 ]
 
 const TRUST = [
-  { num: '2,500+', label: 'Installations' },
+  { num: '41+', label: 'Installations' },
   { num: '72 Hrs', label: 'Install Time'  },
   { num: '₹78k',   label: 'Max Subsidy'  },
   { num: '5 Yr',   label: 'Free AMC'     },

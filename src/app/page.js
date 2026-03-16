@@ -1,89 +1,78 @@
-import HeroSlider from '@/components/HeroSlider/HeroSlider'
-import WhyUs from '@/components/Whyus/Whyus'
-import Process from '@/components/Process/Process'
-import StickyCanvas from '@/components/StickyCanvas/StickyCanvas'
-import Subsidy from '@/components/subsidy/Subsidy'
-import SolarCTA from '@/components/Cta/SolarCTA'
-import MediaStrip from '@/components/MediaStrip'
-import JingleVideo from '@/components/JingleVideo'
+import HeroSlider    from '@/components/HeroSlider/HeroSlider'
+import WhyUs         from '@/components/Whyus/Whyus'
+import Process       from '@/components/Process/Process'
+import StickyCanvas  from '@/components/StickyCanvas/StickyCanvas'
+import Subsidy       from '@/components/subsidy/Subsidy'
+import SolarCTA      from '@/components/Cta/SolarCTA'
+import MediaStrip    from '@/components/MediaStrip'
+import JingleVideo   from '@/components/JingleVideo'
 import ZeroBillStrip from '@/components/ZeroBillStrip'
 
-const SITE_URL = "https://srishtisolarpower.com"
+const SITE_URL = 'https://srishtisolarpower.com'
+
 
 export const metadata = {
-  title: 'Srishti Solar Power — Bihar की #1 Solar Company | Solar Panel Installation Patna',
-  description:
-    'Bihar की #1 Solar Company — Bihar Solar Expo 2026 में #1 ranked। घर और दुकान के लिए rooftop solar installation। PM Surya Ghar subsidy ₹78,000 तक। Patna, Gaya, Muzaffarpur, Bhagalpur में free site visit।',
-  keywords: [
-    'solar panel Bihar',
-    'solar panel Patna',
-    'solar company Bihar',
-    'rooftop solar Bihar',
-    'solar installation Patna',
-    'PM Surya Ghar subsidy Bihar',
-    'solar energy Bihar',
-    'solar panel price Bihar',
-    'Srishti Solar Power'
-  ],
-  alternates: {
-    canonical: SITE_URL
-  },
+  title: 'Bihar की #1 Solar Company | Solar Panel Installation Patna',
+  description: 'Srishti Solar Power — Bihar Solar Expo 2026 में #1 ranked। घर और दुकान के लिए rooftop solar installation। PM Surya Ghar subsidy ₹78,000 तक। Patna, Gaya, Muzaffarpur, Bhagalpur में free site visit। Call: 99310 13345',
+  alternates: { canonical: SITE_URL },
   openGraph: {
     title: 'Srishti Solar Power — Bihar की #1 Solar Company',
-    description:
-      'Bihar Solar Expo 2026 में #1 ranked। PM Surya Ghar subsidy ₹78,000 तक। Free site visit। 41+ installations across Bihar.',
+    description: 'Bihar Solar Expo 2026 में #1 ranked। PM Surya Ghar subsidy ₹78,000 तक। Free site visit। 41+ installations across Bihar.',
     url: SITE_URL,
-    siteName: 'Srishti Solar Power',
-    locale: 'hi_IN',
-    type: 'website',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Solar Panel Installation in Bihar – Srishti Solar Power'
-      }
-    ]
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Solar Panel Installation in Bihar – Srishti Solar Power' }],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Srishti Solar Power — Bihar की #1 Solar Company',
-    description:
-      'PM Surya Ghar subsidy ₹78,000 तक। Rooftop solar installation across Bihar.',
-    images: ['/og-image.jpg']
-  }
+}
+
+// Static H1 for Google — HeroSlider is client-side so Google may miss its H1
+// This is visually hidden but legitimate — it describes real page content
+const homePageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${SITE_URL}/#service`,
+  name: 'Rooftop Solar Panel Installation Bihar',
+  alternateName: 'Bihar Solar Installation',
+  provider: {
+    '@type': 'LocalBusiness',
+    '@id': `${SITE_URL}/#business`,
+    name: 'Srishti Solar Power',
+    url: SITE_URL,
+    telephone: '+91-99310-13345',
+  },
+  areaServed: { '@type': 'State', name: 'Bihar' },
+  serviceType: 'Rooftop Solar Installation',
+  description: 'Professional rooftop solar panel installation in Bihar with PM Surya Ghar subsidy assistance up to ₹78,000. MNRE certified, SBPDCL/NBPDCL registered.',
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'INR',
+    lowPrice: '30000',
+    highPrice: '78000',
+    offerCount: '3',
+    description: 'Solar installation with PM Surya Ghar subsidy. 1kW: ₹30,000 subsidy. 2kW: ₹60,000. 3kW: ₹78,000.',
+  },
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+  ],
 }
 
 export default function HomePage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      {/* Structured Data for Google */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Solar Panel Installation Bihar",
-            "provider": {
-              "@type": "LocalBusiness",
-              "name": "Srishti Solar Power",
-              "url": SITE_URL
-            },
-            "areaServed": {
-              "@type": "State",
-              "name": "Bihar"
-            },
-            "serviceType": "Rooftop Solar Installation",
-            "offers": {
-              "@type": "Offer",
-              "priceCurrency": "INR",
-              "description": "Solar installation with PM Surya Ghar subsidy up to ₹78,000"
-            }
-          })
-        }}
-      />
+      {/*
+        Static SEO H1 — visible and real, positioned under the hero visually.
+        Do NOT use display:none or visibility:hidden — Google penalizes that.
+        This uses sr-only pattern which is accessibility-safe AND Google-safe.
+      */}
+      <h1 className="sr-only">
+        Srishti Solar Power — Bihar की #1 Solar Company | Rooftop Solar Installation Patna
+      </h1>
 
       <HeroSlider />
 
@@ -97,38 +86,9 @@ export default function HomePage() {
       </StickyCanvas>
 
       <Subsidy />
-
       <MediaStrip />
-
       <ZeroBillStrip />
-
       <SolarCTA />
-<section className="visually-hidden-seo">
-  <h1>Bihar की #1 Solar Company – Srishti Solar Power</h1>
-
-  <p>
-    Srishti Solar Power Patna, Bihar की leading rooftop solar installation company है।
-    हम घर और commercial buildings के लिए solar panel installation करते हैं।
-    PM Surya Ghar Muft Bijli Yojana के तहत ₹78,000 तक की solar subsidy उपलब्ध है।
-  </p>
-
-  <h2>Solar Panel Installation in Bihar</h2>
-
-  <p>
-    अगर आप अपने घर या दुकान के लिए solar panel लगवाना चाहते हैं तो
-    Srishti Solar Power complete solar solution प्रदान करती है।
-    हमारी services में site survey, solar system design,
-    net metering, subsidy assistance और installation शामिल है।
-  </p>
-
-  <h2>Solar Installation Cities</h2>
-
-  <p>
-    Patna, Gaya, Muzaffarpur, Bhagalpur, Darbhanga, Nalanda,
-    Begusarai और पूरे Bihar में rooftop solar installation उपलब्ध है।
-  </p>
-</section>
-
     </main>
   )
 }
