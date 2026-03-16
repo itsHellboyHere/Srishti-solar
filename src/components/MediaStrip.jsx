@@ -62,11 +62,11 @@ export default function MediaStrip() {
       </div>
 
       {/* Curve out: cream → dark (#0E0904 SolarCTA) */}
-      <div className={styles.curveBottom}>
+      {/* <div className={styles.curveBottom}>
         <svg viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" className={styles.curveSvg}>
           <path d="M0,0 Q720,90 1440,0 L1440,90 L0,90 Z" fill="#0E0904"/>
         </svg>
-      </div>
+      </div> */}
     </section>
   )
 }

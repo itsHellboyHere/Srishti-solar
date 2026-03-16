@@ -8,8 +8,8 @@ const SLIDES = [
   {
     tag: 'छत पर सोलर — Rooftop Solar',
     lines: ['छत पर सोलर लगाइए,'],
-    accent: 'बिजली का खर्च बचाइए',
-    desc: 'सभी प्रकार का सोलर सिस्टम इंस्टॉलेशन — 5 साल निःशुल्क सेवा, EMI सुविधा, मोबाइल मॉनिटरिंग।',
+    accent: 'बिजली के खर्च से छुटकारा पाइए',
+    desc: 'सभी प्रकार का सोलर सिस्टम इंस्टॉलेशन — 5 साल निःशुल्क सेवा, मोबाइल मॉनिटरिंग।',
     cta:      'Get Free Assessment',
     ctaHref:  '/contact',
     ghost:     'See How It Works',
@@ -18,8 +18,8 @@ const SLIDES = [
   },
   {
     tag: 'PM Surya Ghar Yojana · मुफ्त बिजली योजना',
-    lines: ['सरकार की सब्सिडी'],
-    accent: 'का पूरा लाभ पाएँ',
+    lines: ['घरेलू उपभोक्ता — प्रधानमंत्री'],
+    accent: 'सूरज घर योजना के तहत पाएँ',
     desc: '₹78,000 तक सीधे बैंक में। SBPDCL / NBPDCL से पंजीकृत · MNRE के नियम अनुसार कार्य।',
     cta:      'Check Eligibility · पात्रता जांचें',
     ctaHref:  '/subsidies',
@@ -31,7 +31,7 @@ const SLIDES = [
     tag: 'MNRE Certified · SBPDCL/NBPDCL Registered',
     lines: ['Srishti Solar Power'],
     accent: 'से सोलर लगवाएँ।',
-    desc: '5 साल निःशुल्क सेवा · EMI सुविधा · मोबाइल मॉनिटरिंग। Bihar\'s most trusted installer since day one.',
+    desc: '5 साल निःशुल्क सेवा · मोबाइल मॉनिटरिंग। Bihar\'s most trusted installer since day one.',
     cta:      'Call Now · अभी कॉल करें',
     ctaHref:  '/contact',
     ghost:     'Our Projects',
@@ -50,7 +50,7 @@ const STATS = [
   { val: '100',      unit: '%',  label: 'Subsidy Assisted · सब्सिडी सहायता' },
 ]
 
-const DURATION = 6000
+const DURATION = 7000;
 
 export default function HeroSlider() {
   const [current,  setCurrent]  = useState(0)

@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react'
 import { Zap, ShieldCheck, TrendingUp, Wrench, Star, WalletCards } from 'lucide-react'
 import styles from './Whyus.module.css'
 
-/* ── 6 benefit cards — data from your marketing materials ── */
 const REASONS = [
   {
     Icon: Zap,
@@ -28,7 +27,7 @@ const REASONS = [
     tag: 'प्रतिदिन · Per Day',
     title: 'एक्स्ट्रा बिजली उत्पादन',
     titleEn: 'Extra Generation Daily',
-    desc: 'N-Type Advanced 16BB/18BB पैनल से 1 unit/kW/day extra generation — सामान्य पैनल से ज़्यादा।',
+    desc: 'Hand Type Topcon Advanced Panel — N-Type 16BB/18BB टेक्नोलॉजी से 1 unit/kW/day extra generation। बेहतर durability और output — सामान्य पैनल से कहीं आगे।',
   },
   {
     Icon: Wrench,
@@ -56,12 +55,11 @@ const REASONS = [
   },
 ]
 
-/* ── Comparison: सामान्य सोलर vs हमारा सोलर — from Image 6 ── */
 const COMPARE = [
-  { label: 'पैनल टेक्नोलॉजी', them: 'Poly / Basic',    us: 'N-Type Advanced'   },
-  { label: 'बस-बार',          them: '5BB',               us: '16BB / 18BB'       },
-  { label: 'स्ट्रक्चर',       them: 'साधारण MS',         us: 'HDG Coated'        },
-  { label: 'मॉनिटरिंग',       them: 'मॉनिटरिंग नहीं',   us: 'Mobile Monitoring' },
+  { hi: 'पैनल टेक्नोलॉजी', en: 'Panel Technology', them: 'Poly / Basic',       us: 'Hand Type Topcon N-Type Advanced' },
+  { hi: 'बस-बार',           en: 'Bus Bar',           them: '5BB',                us: '16BB / 18BB'             },
+  { hi: 'स्ट्रक्चर',        en: 'Structure',         them: 'साधारण MS',          us: 'HDG Coated'              },
+  { hi: 'मॉनिटरिंग',        en: 'Monitoring',        them: 'मॉनिटरिंग नहीं',    us: 'Mobile Monitoring'       },
 ]
 
 export default function WhyUs() {
@@ -85,7 +83,6 @@ export default function WhyUs() {
   return (
     <section className={styles.section}>
 
-      {/* Wave — dark hero → light */}
       <div className={styles.waveTop} aria-hidden="true">
         <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
           <path d="M0,0 L0,60 C80,100 160,120 280,105 C400,90 520,45 640,55 C760,65 880,100 1000,95 C1120,90 1280,55 1440,65 L1440,0 Z" fill="#0E0904"/>
@@ -94,7 +91,7 @@ export default function WhyUs() {
 
       <div className={styles.container}>
 
-        {/* ── Header ── */}
+        {/* Header */}
         <div className={styles.header} ref={headerRef}>
           <span className={styles.eyebrow}>हमारा सोलर क्यों? · Why Choose Us</span>
           <h2 className={styles.title}>
@@ -107,11 +104,15 @@ export default function WhyUs() {
           </p>
         </div>
 
-        {/* ── 6 Benefit Cards ── */}
+        {/* 6 Benefit Cards */}
         <div className={styles.grid}>
           {REASONS.map((r, i) => (
-            <div key={i} ref={el => cardsRef.current[i] = el}
-              className={styles.card} style={{ '--delay': `${i * 0.11}s` }}>
+            <div
+              key={i}
+              ref={el => cardsRef.current[i] = el}
+              className={styles.card}
+              style={{ '--delay': `${i * 0.11}s` }}
+            >
               <div className={styles.cardHeader}>
                 <div className={styles.iconBox}><r.Icon size={20} strokeWidth={2.5} /></div>
                 <span className={styles.tag}>{r.tag}</span>
@@ -130,7 +131,7 @@ export default function WhyUs() {
           ))}
         </div>
 
-        {/* ── Comparison Table ── */}
+        {/* Comparison Table */}
         <div className={styles.compareWrap} ref={compareRef}>
           <div className={styles.compareHead}>
             <h3 className={styles.compareTitle}>
@@ -139,6 +140,7 @@ export default function WhyUs() {
             </h3>
             <p className={styles.compareSub}>Why Srishti's technology outperforms the rest</p>
           </div>
+
           <div className={styles.compareTable}>
             {/* Column headers */}
             <div className={styles.compareColHeaders}>
@@ -146,15 +148,26 @@ export default function WhyUs() {
               <div className={`${styles.compareColHead} ${styles.compareColThem}`}>सामान्य सोलर</div>
               <div className={`${styles.compareColHead} ${styles.compareColOurs}`}>✦ हमारा सोलर</div>
             </div>
+
+            {/* Rows */}
             {COMPARE.map((row, i) => (
               <div key={i} className={styles.compareRow} style={{ '--ri': i }}>
-                <div className={styles.compareRowLabel}>{row.label}</div>
+
+                {/* Label — Hindi bold + English soft below */}
+                <div className={styles.compareRowLabel}>
+                  <span className={styles.compareRowLabelHi}>{row.hi}</span>
+                  <span className={styles.compareRowLabelEn}>{row.en}</span>
+                </div>
+
                 <div className={styles.compareRowThem}>
-                  <span className={styles.crossIcon}>✗</span> {row.them}
+                  <span className={styles.crossIcon}>✗</span>
+                  {row.them}
                 </div>
                 <div className={styles.compareRowUs}>
-                  <span className={styles.checkIcon}>✓</span> {row.us}
+                  <span className={styles.checkIcon}>✓</span>
+                  {row.us}
                 </div>
+
               </div>
             ))}
           </div>
