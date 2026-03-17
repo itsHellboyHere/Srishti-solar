@@ -10,7 +10,6 @@ import ZeroBillStrip from '@/components/ZeroBillStrip'
 
 const SITE_URL = 'https://srishtisolarpower.com'
 
-
 export const metadata = {
   title: 'Bihar की #1 Solar Company | Solar Panel Installation Patna',
   description: 'Srishti Solar Power — Bihar Solar Expo 2026 में #1 ranked। घर और दुकान के लिए rooftop solar installation। PM Surya Ghar subsidy ₹78,000 तक। Patna, Gaya, Muzaffarpur, Bhagalpur में free site visit। Call: 99310 13345',
@@ -23,8 +22,6 @@ export const metadata = {
   },
 }
 
-// Static H1 for Google — HeroSlider is client-side so Google may miss its H1
-// This is visually hidden but legitimate — it describes real page content
 const homePageSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -59,23 +56,37 @@ const breadcrumbSchema = {
   ],
 }
 
+const videoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: 'Srishti Solar — Official Jingle 2026',
+  description: 'Bihar की हर छत पर सौर ऊर्जा — यही है हमारा सपना। Srishti Solar Power का official jingle 2026। बिहार की हर छत चमकेगी, अब बिजली खुद ही दमकेगी।',
+  thumbnailUrl: 'https://res.cloudinary.com/dgifa4wgb/video/upload/so_15/v1772943166/f4d8fc7a-c497-4d75-83d8-52d71ee41ec7_t9a4lo.jpg',
+  uploadDate: '2026-01-01',
+  contentUrl: 'https://res.cloudinary.com/dgifa4wgb/video/upload/v1772943166/f4d8fc7a-c497-4d75-83d8-52d71ee41ec7_t9a4lo.mp4',
+  embedUrl: `${SITE_URL}/jingle`,
+  duration: 'PT1M30S',
+  inLanguage: 'hi',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Srishti Solar Power',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/logo.png`,
+    },
+  },
+}
+
 export default function HomePage() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
-      {/*
-        Static SEO H1 — visible and real, positioned under the hero visually.
-        Do NOT use display:none or visibility:hidden — Google penalizes that.
-        This uses sr-only pattern which is accessibility-safe AND Google-safe.
-      */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }} />
       <h1 className="sr-only">
         Srishti Solar Power — Bihar की #1 Solar Company | Rooftop Solar Installation Patna
       </h1>
-
       <HeroSlider />
-
       <StickyCanvas
         image="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072"
         watermark="SOLAR"
@@ -84,7 +95,6 @@ export default function HomePage() {
         <WhyUs />
         <Process />
       </StickyCanvas>
-
       <Subsidy />
       <MediaStrip />
       <ZeroBillStrip />
