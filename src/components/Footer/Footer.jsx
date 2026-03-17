@@ -11,6 +11,7 @@ const PAGES = [
   { label: 'Subsidies', href: '/subsidies' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
+  {label:'Jingle' ,href: '/jingle'}
 ]
 
 const SERVICES = [

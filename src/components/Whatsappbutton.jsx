@@ -14,8 +14,8 @@ export default function WhatsAppButton() {
   const [modalOpen,   setModalOpen]   = useState(false)
   const [mounted,     setMounted]     = useState(false)
 
-  // Hide on /contact page
-  const hidden = pathname === '/contact'
+  // Hide on /contact page and /jingle
+  const hidden = pathname === '/contact' || pathname === '/jingle'
 
   // Detect if LeadModal is visible — it sets sessionStorage when dismissed,
   // but we need to know if it's currently open (not yet dismissed this session)

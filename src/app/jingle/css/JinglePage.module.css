@@ -1,0 +1,260 @@
+/* ═══════════════════════════════════════════
+   JinglePage — full-screen cinematic theatre
+   Dark bg · gold accents · film grain overlay
+═══════════════════════════════════════════ */
+
+
+.root {
+  position: relative;
+  width: 100%;
+  height: 100vh;        
+  padding-top: 72px;    /* match your navbar height */
+  background: #050301;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+    opacity: 0;
+  transition: opacity 0.6s ease;
+  cursor: default;
+}
+.root.entered { opacity: 1; }
+
+/* ── Ambient pulse bg ── */
+.ambientBg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(244,163,0,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 10%, rgba(244,163,0,0.04) 0%, transparent 50%);
+  pointer-events: none; z-index: 0;
+  animation: ambientPulse 8s ease-in-out infinite;
+}
+@keyframes ambientPulse {
+  0%,100% { opacity: 1; }
+  50%      { opacity: 0.5; }
+}
+
+/* ── Film grain ── */
+.grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 1; opacity: 0.4;
+}
+
+/* ── Top bar ── */
+.topBar {
+  position: relative; z-index: 10;
+  display: flex; align-items: center;
+  padding: 20px 32px;
+  background: linear-gradient(to bottom, rgba(5,3,1,0.9) 0%, transparent 100%);
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+.topBar.visible {
+  opacity: 1; transform: translateY(0); pointer-events: all;
+}
+
+.backBtn {
+  display: flex; align-items: center; gap: 8px;
+  color: rgba(255,251,244,0.6);
+  text-decoration: none;
+  font-family: var(--font-heading); font-size: 0.75rem;
+  font-weight: 600; letter-spacing: 0.06em;
+  transition: color 0.2s;
+}
+.backBtn:hover { color: var(--sun-core, #F4A300); }
+
+.brandMark {
+  flex: 1; text-align: center;
+  font-family: var(--font-heading); font-size: 0.7rem;
+  font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(244,163,0,0.5);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.brandDot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(244,163,0,0.5);
+  animation: dotPulse 2s ease infinite;
+}
+@keyframes dotPulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.7); }
+}
+
+.topRight { min-width: 160px; text-align: right; }
+.liveBadge {
+  font-family: var(--font-heading); font-size: 0.65rem;
+  font-weight: 700; letter-spacing: 0.08em;
+  color: rgba(244,163,0,0.55);
+}
+
+/* ── Theatre (video area) ── */
+.theatre {
+  flex: 1;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain; /* letterbox — preserves ratio */
+  background: #000;
+}
+
+/* Cinematic vignette */
+.vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(5,3,1,0.7) 100%);
+  pointer-events: none; z-index: 3;
+}
+
+/* ── Big center play button ── */
+.bigPlay {
+  position: absolute; z-index: 5;
+  width: 90px; height: 90px; border-radius: 50%;
+  background: rgba(244,163,0,0.9);
+  display: flex; align-items: center; justify-content: center;
+  color: #1A0A00;
+  box-shadow: 0 0 60px rgba(244,163,0,0.4), 0 8px 32px rgba(0,0,0,0.5);
+  animation: playEntrance 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes playEntrance {
+  from { transform: scale(0.6); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.bigPlayRing {
+  position: absolute; inset: -12px; border-radius: 50%;
+  border: 2px solid rgba(244,163,0,0.25);
+  animation: ringPulse 2.2s ease infinite;
+}
+.bigPlayRing2 {
+  position: absolute; inset: -24px; border-radius: 50%;
+  border: 1px solid rgba(244,163,0,0.12);
+  animation: ringPulse 2.2s ease 0.7s infinite;
+}
+@keyframes ringPulse {
+  0%,100% { transform: scale(1); opacity: 0.8; }
+  50%      { transform: scale(1.1); opacity: 0; }
+}
+
+/* ── Overlay title (shown when paused) ── */
+.overlayTitle {
+  position: absolute; bottom: 100px; left: 0; right: 0;
+  text-align: center; z-index: 5;
+  padding: 0 40px;
+  animation: fadeUp 0.5s ease both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.overlayEyebrow {
+  font-family: var(--font-heading); font-size: 0.6rem;
+  font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(244,163,0,0.5); margin-bottom: 10px;
+}
+.overlayH1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900; letter-spacing: -0.03em;
+  color: #FFFBF4; margin-bottom: 12px; line-height: 1.1;
+}
+.overlayH1 em {
+  font-style: normal;
+  color: var(--sun-core, #F4A300);
+}
+.overlayTagline {
+  font-family: var(--font-heading); font-size: clamp(0.8rem, 1.5vw, 1rem);
+  font-weight: 600; letter-spacing: 0.04em;
+  color: rgba(255,251,244,0.35);
+}
+
+/* ── Bottom controls ── */
+.controls {
+  position: relative; z-index: 10;
+  padding: 0 32px 28px;
+  background: linear-gradient(to top, rgba(5,3,1,0.95) 0%, transparent 100%);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+.controls.visible {
+  opacity: 1; transform: translateY(0); pointer-events: all;
+}
+
+/* Progress bar */
+.progressTrack {
+  position: relative;
+  height: 3px; border-radius: 2px;
+  background: rgba(255,251,244,0.1);
+  cursor: pointer; margin-bottom: 16px;
+  transition: height 0.15s;
+}
+.progressTrack:hover { height: 5px; }
+
+.progressFill {
+  position: absolute; top: 0; left: 0; height: 100%;
+  background: linear-gradient(90deg, rgba(244,163,0,0.7), var(--sun-core, #F4A300));
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+.progressThumb {
+  position: absolute; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--sun-core, #F4A300);
+  box-shadow: 0 0 8px rgba(244,163,0,0.6);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.progressTrack:hover .progressThumb { opacity: 1; }
+
+/* Controls row */
+.controlsRow {
+  display: flex; align-items: center; gap: 16px;
+}
+
+.ctrlBtn {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,251,244,0.07);
+  border: 1px solid rgba(255,251,244,0.1);
+  color: rgba(255,251,244,0.7);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; flex-shrink: 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.ctrlBtn:hover {
+  background: rgba(244,163,0,0.15);
+  color: var(--sun-core, #F4A300);
+  border-color: rgba(244,163,0,0.3);
+}
+
+.timeDisplay {
+  font-family: var(--font-heading); font-size: 0.68rem;
+  font-weight: 600; letter-spacing: 0.05em;
+  color: rgba(255,251,244,0.4);
+  white-space: nowrap;
+}
+
+.controlLabel {
+  font-family: var(--font-heading); font-size: 0.65rem;
+  font-weight: 700; letter-spacing: 0.08em;
+  color: rgba(255,251,244,0.3);
+  white-space: nowrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .topBar, .controls { padding-left: 20px; padding-right: 20px; }
+  .overlayH1 { font-size: clamp(1.5rem, 7vw, 2.5rem); }
+  .controlLabel { display: none; }
+  .brandMark { font-size: 0.6rem; }
+}
