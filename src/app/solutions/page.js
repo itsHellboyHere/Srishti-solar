@@ -4,7 +4,7 @@ const SITE_URL = 'https://srishtisolarpower.com'
 const PAGE_URL = `${SITE_URL}/solutions`
 
 export const metadata = {
-  title: 'Solar Solutions Bihar | Residential, Commercial & Off-Grid Solar | Srishti Solar Power',
+  title: 'Solar Solutions Bihar | Residential, Commercial & Off-Grid Solar',
   description: 'Bihar के लिए complete solar solutions — residential rooftop solar (1–3kW), commercial solar (5–10kW), off-grid battery solar, और PM Surya Ghar subsidy ₹78,000 तक। IIT BHU engineer supervised installation। Free site visit across Bihar।',
   keywords: [
     'solar solutions Bihar',

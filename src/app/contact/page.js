@@ -4,7 +4,7 @@ const SITE_URL = 'https://srishtisolarpower.com'
 const PAGE_URL = `${SITE_URL}/contact`
 
 export const metadata = {
-  title: 'Contact Srishti Solar Power | Free Solar Site Visit Bihar | 99310 13345',
+  title: 'Contact | Free Solar Site Visit Bihar | 99310 13345',
   description: 'Free solar site visit book करें — Patna, Gaya, Muzaffarpur, Bhagalpur, Darbhanga और Bihar के 9 जिलों में। Call/WhatsApp: 99310 13345 या 99310 67798। Office: East Patel Nagar, Patna 800023।',
   keywords: [
     'contact Srishti Solar Power',

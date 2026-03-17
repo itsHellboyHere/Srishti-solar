@@ -4,7 +4,7 @@ const SITE_URL = 'https://srishtisolarpower.com'
 const PAGE_URL = `${SITE_URL}/projects`
 
 export const metadata = {
-  title: 'Solar Installation Projects Bihar | 41+ Installs | Srishti Solar Power',
+  title: 'Solar Installation Projects Bihar | 41+ Installs',
   description: 'Srishti Solar Power के 41+ real rooftop solar installations देखें — Patna, Gaya, Muzaffarpur, Bhagalpur, Darbhanga और Bihar के 9 जिलों में। 1kW से 10kW तक residential और commercial solar projects। MNRE certified installations।',
   keywords: [
     'solar projects Bihar',

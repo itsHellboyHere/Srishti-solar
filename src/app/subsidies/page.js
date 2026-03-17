@@ -23,7 +23,7 @@ export const metadata = {
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: 'website',
-    title: 'PM Surya Ghar Subsidy Bihar — ₹78,000 तक सरकारी सहायता | Srishti Solar',
+    title: 'PM Surya Ghar Subsidy Bihar — ₹78,000 तक सरकारी सहायता',
     description: '₹30K / ₹60K / ₹78K subsidy slabs। Srishti Solar ने 41+ families को ₹31,98,000 subsidy दिलाई। Complete solar process handled — free site visit।',
     url: PAGE_URL,
     siteName: 'Srishti Solar Power',

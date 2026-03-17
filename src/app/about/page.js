@@ -4,7 +4,7 @@ const SITE_URL = 'https://srishtisolarpower.com'
 const PAGE_URL = `${SITE_URL}/about`
 
 export const metadata = {
-  title: 'About Srishti Solar Power | Bihar की #1 Solar Company | Founded 2024',
+  title: 'About',
   description: 'Srishti Solar Power — Founded 2024 by Dayamani। Bihar Solar Expo 2026 में #1 Technical Efficiency award by Energy Secretary of Bihar। 29 team members, 41+ installations, 9 districts, ₹31,98,000 subsidy assisted। IIT BHU engineer supervised installations।',
   keywords: [
     'Srishti Solar Power',
