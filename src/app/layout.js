@@ -27,9 +27,7 @@ export const metadata = {
     default:  'Srishti Solar Power — Bihar की #1 Solar Company',
     template: '%s | Srishti Solar Power',
   },
-   icons: {
-    icon: '/favicon.ico',
-  },
+  icons: { icon: '/favicon.ico' },
   description: 'Bihar की #1 Solar Company — Ranked #1 at Bihar Solar Expo 2026. Residential & commercial rooftop solar installation. PM Surya Ghar subsidy up to ₹78,000. Free site visit in Patna, Gaya, Muzaffarpur & across Bihar.',
   keywords: [
     'Srishti Solar Power',
@@ -93,7 +91,6 @@ export const metadata = {
   manifest: '/manifest.json',
   applicationName: SITE_NAME,
   category: 'Solar Energy',
-  // verification: { google: 'REPLACE_WITH_SEARCH_CONSOLE_CODE' },
 }
 
 const localBusinessSchema = {
@@ -124,14 +121,14 @@ const localBusinessSchema = {
     longitude: 85.1376,
   },
   areaServed: [
-    { '@type': 'State',  name: 'Bihar'        },
-    { '@type': 'City',   name: 'Patna'        },
-    { '@type': 'City',   name: 'Gaya'         },
-    { '@type': 'City',   name: 'Muzaffarpur'  },
-    { '@type': 'City',   name: 'Bhagalpur'    },
-    { '@type': 'City',   name: 'Darbhanga'    },
-    { '@type': 'City',   name: 'Nalanda'      },
-    { '@type': 'City',   name: 'Begusarai'    },
+    { '@type': 'State', name: 'Bihar'       },
+    { '@type': 'City',  name: 'Patna'       },
+    { '@type': 'City',  name: 'Gaya'        },
+    { '@type': 'City',  name: 'Muzaffarpur' },
+    { '@type': 'City',  name: 'Bhagalpur'   },
+    { '@type': 'City',  name: 'Darbhanga'   },
+    { '@type': 'City',  name: 'Nalanda'     },
+    { '@type': 'City',  name: 'Begusarai'   },
   ],
   serviceType: [
     'Rooftop Solar Installation',
@@ -148,14 +145,6 @@ const localBusinessSchema = {
   sameAs: [
     'https://www.instagram.com/srishtisolarpower',
     'https://www.facebook.com/srishtisolarpower',
-    // Add your real URLs below when ready:
-    // 'https://www.facebook.com/srishtisolarpower',
-    // 'https://www.instagram.com/srishtisolarpower',
-    // 'https://www.youtube.com/@srishtisolarpower',
-    // 'https://maps.app.goo.gl/YOUR_GOOGLE_MAPS_LINK',
-    // 'https://www.justdial.com/YOUR_LISTING'
-
-    
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -171,42 +160,8 @@ const localBusinessSchema = {
   ],
 }
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Bihar में solar panel लगवाने पर कितनी subsidy मिलती है?',
-      acceptedAnswer: { '@type': 'Answer', text: 'PM Surya Ghar Muft Bijli Yojana के तहत: 1kW पर ₹30,000, 2kW पर ₹60,000, और 3kW+ पर ₹78,000 सब्सिडी सीधे बैंक में मिलती है।' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Patna में solar panel installation का खर्च कितना है?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Srishti Solar Power में 1kW system लगभग ₹60,000–₹70,000 से शुरू होता है, जिसमें से ₹30,000 सरकारी सब्सिडी मिलती है।' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Solar panel लगवाने में कितना समय लगता है?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Site visit के 72 घंटे में installation पूरी। Subsidy 30–45 दिन में bank account में। Srishti Solar पूरी process handle करती है।' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Bihar की सबसे अच्छी solar company कौन सी है?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Srishti Solar Power को Bihar Solar Expo 2026 में Energy Secretary ने #1 Technical Efficiency का खिताब दिया। 41+ installations, 9 districts, MNRE certified।' },
-    },
-    {
-      '@type': 'Question',
-      name: 'PM Surya Ghar के लिए कैसे apply करें?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Srishti Solar Power पूरी process करती है — DISCOM registration, net metering, सभी 14 documents, subsidy application। बस free site visit book करें: 99310 13345।' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Srishti Solar Power का contact number क्या है?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Srishti Solar Power का contact number है: +91 99310 13345। Email: srishtisolarpower@gmail.com। Free site visit के लिए call करें।' },
-    },
-  ],
-}
+// ← faqSchema REMOVED from here — now lives only in app/page.js
+// This prevents "Duplicate FAQPage" errors on all other pages
 
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -229,7 +184,6 @@ export default function RootLayout({ children }) {
         <meta name="theme-color"             content="#F4A300" />
         <meta name="msapplication-TileColor" content="#0A0602" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </head>
       <body>

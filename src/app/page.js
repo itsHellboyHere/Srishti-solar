@@ -48,6 +48,44 @@ const homePageSchema = {
   },
 }
 
+// Moved here from layout.js — only home page gets this FAQPage schema
+const homeFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Bihar में solar panel लगवाने पर कितनी subsidy मिलती है?',
+      acceptedAnswer: { '@type': 'Answer', text: 'PM Surya Ghar Muft Bijli Yojana के तहत: 1kW पर ₹30,000, 2kW पर ₹60,000, और 3kW+ पर ₹78,000 सब्सिडी सीधे बैंक में मिलती है।' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Patna में solar panel installation का खर्च कितना है?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Srishti Solar Power में 1kW system लगभग ₹60,000–₹70,000 से शुरू होता है, जिसमें से ₹30,000 सरकारी सब्सिडी मिलती है।' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Solar panel लगवाने में कितना समय लगता है?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Site visit के 72 घंटे में installation पूरी। Subsidy 30–45 दिन में bank account में। Srishti Solar पूरी process handle करती है।' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Bihar की सबसे अच्छी solar company कौन सी है?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Srishti Solar Power को Bihar Solar Expo 2026 में Energy Secretary ने #1 Technical Efficiency का खिताब दिया। 41+ installations, 9 districts, MNRE certified।' },
+    },
+    {
+      '@type': 'Question',
+      name: 'PM Surya Ghar के लिए कैसे apply करें?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Srishti Solar Power पूरी process करती है — DISCOM registration, net metering, सभी 14 documents, subsidy application। बस free site visit book करें: 99310 13345।' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Srishti Solar Power का contact number क्या है?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Srishti Solar Power का contact number है: +91 99310 13345। Email: info@srishtisolarpower.com। Free site visit के लिए call करें।' },
+    },
+  ],
+}
+
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -81,6 +119,7 @@ export default function HomePage() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }} />
       <h1 className="sr-only">
