@@ -27,10 +27,15 @@ export const metadata = {
     default:  'Srishti Solar Power — Bihar की #1 Solar Company',
     template: '%s | Srishti Solar Power',
   },
+   icons: {
+    icon: '/favicon.ico',
+  },
   description: 'Bihar की #1 Solar Company — Ranked #1 at Bihar Solar Expo 2026. Residential & commercial rooftop solar installation. PM Surya Ghar subsidy up to ₹78,000. Free site visit in Patna, Gaya, Muzaffarpur & across Bihar.',
   keywords: [
     'Srishti Solar Power',
     'srishti solar',
+    'shrishti solar',
+    'shrishti solar power',
     'srishti solar power patna',
     'solar panel Bihar',
     'solar company Patna',
@@ -142,7 +147,7 @@ const localBusinessSchema = {
   ],
   sameAs: [
     'https://www.instagram.com/srishtisolarpower',
-    
+    'https://www.facebook.com/srishtisolarpower',
     // Add your real URLs below when ready:
     // 'https://www.facebook.com/srishtisolarpower',
     // 'https://www.instagram.com/srishtisolarpower',

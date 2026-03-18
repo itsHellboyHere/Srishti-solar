@@ -37,7 +37,7 @@ export default function ZeroBillStrip() {
         <div className={styles.divider}/>
 
         {/* Right — CTA */}
-        <Link href="/subsidies#zerobill" className={styles.cta}>
+        <Link href="/zero-electricity-bill" className={styles.cta}>
           बिल देखें
           <ArrowRight size={14} strokeWidth={2.5}/>
         </Link>

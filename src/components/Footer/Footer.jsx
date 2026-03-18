@@ -11,18 +11,21 @@ const PAGES = [
   { label: 'Subsidies', href: '/subsidies' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
+    { label: 'Zero Electricity Bill',   href: '/zero-electricity-bill'     },
+  { label: 'Topcon Solar Panel',      href: '/topcon-solar-panel-bihar'  },
   {label:'Jingle' ,href: '/jingle'}
 ]
 
 const SERVICES = [
-  { label: 'Residential Solar', href: '/solutions#residential' },
-  { label: 'Commercial Solar', href: '/solutions#commercial' },
-  { label: 'Our Technology', href: '/solutions#tech' },
-  // { label: 'Industrial Solar',   href: '/solutions#offgrid' },
-  { label: 'PM Surya Ghar', href: '/subsidies' },
-  { label: 'Free Site Visit', href: '/contact' },
-  { label: 'Subsidy Calculator', href: '/subsidies#calculator' },
-  { label: 'F & Q', href: '/subsidies#f&q' },
+  { label: 'Residential Solar',      href: '/solutions#residential'          },
+  { label: 'Commercial Solar',       href: '/solutions#commercial'           },
+  { label: 'Our Technology',         href: '/solutions#tech'                 },
+  { label: 'PM Surya Ghar',          href: '/subsidies'                      },
+  { label: 'Free Site Visit',        href: '/contact'                        },
+  { label: 'Subsidy Calculator',     href: '/subsidies#calculator'           },
+  // { label: 'Zero Electricity Bill',  href: '/zero-electricity-bill'          },
+  { label: 'Topcon N-Type Panels',   href: '/topcon-solar-panel-bihar'       },
+  { label: 'F & Q',                  href: '/subsidies#faq'                  },
 ]
 
 const SOCIALS = [

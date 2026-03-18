@@ -23,7 +23,7 @@ export default function sitemap() {
     {
       url: `${base}/projects`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
@@ -37,6 +37,9 @@ export default function sitemap() {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
-    }
+    },
+    { url: `${base}/zero-electricity-bill`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    
+    { url: `${base}/topcon-solar-panel-bihar`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   ]
 }

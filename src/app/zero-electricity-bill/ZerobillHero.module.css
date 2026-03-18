@@ -1,0 +1,300 @@
+.hero {
+  background: var(--bg-warm);
+  padding: 120px 0 88px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(244,163,0,0.1);
+}
+
+/* Ambient orbs */
+.orb1 {
+  position: absolute;
+  top: -120px; right: -100px;
+  width: 560px; height: 560px;
+  background: radial-gradient(circle, rgba(244,163,0,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.orb2 {
+  position: absolute;
+  bottom: -80px; left: -60px;
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(244,163,0,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(22,163,74,0.08);
+  border: 1px solid rgba(22,163,74,0.22);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #16a34a;
+  margin-bottom: 24px;
+}
+.badgeDot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #16a34a;
+  animation: pulse 2s ease infinite;
+  flex-shrink: 0;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.6); }
+  60%      { box-shadow: 0 0 0 6px rgba(22,163,74,0); }
+}
+
+/* ── Title ── */
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.zeroLine {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.zeroStrike {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  font-size: 0.7em;
+  opacity: 0.5;
+}
+.zeroAmt {
+  color: #16a34a;
+  font-size: clamp(3rem, 6vw, 4.6rem);
+}
+
+/* ── Desc ── */
+.desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 2;
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+.desc strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* ── Pills ── */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.pill {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--sun-core);
+  background: rgba(244,163,0,0.08);
+  border: 1px solid rgba(244,163,0,0.2);
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+
+/* ── CTAs ── */
+.ctas {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #16a34a;
+  color: #fff;
+  padding: 15px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(22,163,74,0.35);
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+.ctaPrimary:hover {
+  box-shadow: 0 14px 36px rgba(22,163,74,0.5);
+  transform: translateY(-2px);
+}
+.ctaSecondary {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.ctaSecondary:hover { color: var(--sun-core); }
+
+/* ── Proof Card ── */
+.proofCard {
+  background: #0E0904;
+  border-radius: 24px;
+  padding: 32px 28px;
+  border: 1px solid rgba(22,163,74,0.2);
+  box-shadow:
+    0 0 0 1px rgba(22,163,74,0.08),
+    0 24px 60px rgba(14,9,4,0.22);
+  position: relative;
+  overflow: hidden;
+}
+.proofCard::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(22,163,74,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.proofHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.proofDot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34,197,94,0.7);
+  animation: pulse 2s ease infinite;
+  flex-shrink: 0;
+}
+.proofLabel {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,251,244,0.35);
+  flex: 1;
+}
+.proofVerified {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  color: #22c55e;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.2);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.proofBillAmt {
+  font-family: var(--font-heading);
+  font-size: 3.8rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: #22c55e;
+  line-height: 1;
+  margin-bottom: 6px;
+  text-shadow: 0 0 40px rgba(34,197,94,0.3);
+}
+.proofBillSub {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: rgba(255,251,244,0.35);
+  margin-bottom: 4px;
+}
+.proofBillLoc {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: rgba(255,251,244,0.2);
+  margin-bottom: 20px;
+}
+
+.proofDivider {
+  height: 1px;
+  background: rgba(255,251,244,0.06);
+  margin-bottom: 20px;
+}
+
+.proofStats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.proofStat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.proofStatVal {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--sun-core);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.proofStatLabel {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255,251,244,0.6);
+  line-height: 1.3;
+}
+.proofStatSub {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  color: rgba(255,251,244,0.22);
+}
+
+.proofFooter {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  color: rgba(255,251,244,0.15);
+  text-align: center;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,251,244,0.05);
+  line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .proofCard { max-width: 420px; }
+}
+@media (max-width: 600px) {
+  .inner { padding: 0 20px; }
+  .title { font-size: 2.4rem; }
+  .zeroAmt { font-size: 2.8rem; }
+  .proofBillAmt { font-size: 3rem; }
+  .proofStats { grid-template-columns: repeat(2, 1fr); }
+}

@@ -1,198 +1,429 @@
+/* ═══════════════════════════════════════════════
+   SubsidyHero v3 — Fixed for desktop + mobile
+═══════════════════════════════════════════════ */
+
 .hero {
-  background: var(--bg-warm);
-  border-bottom: 1px solid rgba(244,163,0,0.12);
-  padding: 72px 0 80px;
+  background: #FFFBF4;
   position: relative;
   overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 480px; height: 480px;
-  background: radial-gradient(circle, rgba(244,163,0,0.07) 0%, transparent 65%);
-  pointer-events: none;
+  padding: 0 0 60px;
 }
 
+.topBand { display: flex; height: 6px; width: 100%; }
+.bandSaffron { flex: 1; background: #FF9933; }
+.bandWhite   { flex: 1; background: #E8E0D0; }
+.bandGreen   { flex: 1; background: #138808; }
+
+.watermark {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-heading);
+  font-size: clamp(60px, 10vw, 120px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: rgba(244,163,0,0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+.sunRays {
+  position: absolute;
+  right: -100px; top: -100px;
+  width: 500px; height: 500px;
+  pointer-events: none; z-index: 0;
+}
+.ray {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 250px; height: 1px;
+  background: linear-gradient(90deg, rgba(255,153,51,0.1), transparent);
+  transform-origin: left center;
+}
+
+/* ── Inner — tighter padding, fit in viewport ── */
 .inner {
+  position: relative;
+  z-index: 2;
   max-width: 1160px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 40px 40px 0;
   display: grid;
   grid-template-columns: 1fr 400px;
-  gap: 64px;
-  align-items: center;
+  gap: 48px;
+  align-items: start;
 }
 
-.eyebrow {
+/* ── Govt badge — more compact ── */
+.govtBadge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-heading);
-  font-size: 0.63rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--sun-core);
+  gap: 10px;
+  background: #fff;
+  border: 1.5px solid rgba(26,14,4,0.1);
+  border-radius: 12px;
+  padding: 8px 14px 8px 8px;
   margin-bottom: 18px;
+  box-shadow: 0 2px 12px rgba(26,14,4,0.06);
 }
-.dot {
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--sun-core);
-  animation: pulse 2.2s ease infinite;
+.govtFlag {
+  display: flex;
+  flex-direction: column;
+  width: 26px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,0.08);
 }
-@keyframes pulse {
-  0%,100% { box-shadow: 0 0 0 0 rgba(244,163,0,0.7); }
-  60%      { box-shadow: 0 0 0 6px rgba(244,163,0,0); }
+.flagSaffron { height: 7px; background: #FF9933; }
+.flagWhite {
+  height: 7px; background: #fff;
+  display: flex; align-items: center; justify-content: center;
 }
+.flagChakra { font-size: 5px; color: #000080; line-height: 1; }
+.flagGreen { height: 7px; background: #138808; }
 
-.title {
+.govtBadgeText { display: flex; flex-direction: column; gap: 1px; flex: 1; }
+.govtBadgeTop {
   font-family: var(--font-heading);
-  font-size: clamp(2.6rem, 5vw, 3.8rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1.06;
-  color: var(--text-primary);
-  margin-bottom: 20px;
+  font-size: 0.7rem; font-weight: 800;
+  color: var(--text-primary); letter-spacing: 0.02em;
 }
-.gold { color: var(--sun-core); display: block; margin-top: 4px;}
+.govtBadgeSub {
+  font-family: var(--font-body);
+  font-size: 0.58rem; color: var(--text-muted);
+}
+.liveTag {
+  font-family: var(--font-heading);
+  font-size: 0.58rem; font-weight: 700;
+  color: #138808;
+  background: rgba(19,136,8,0.08);
+  border: 1px solid rgba(19,136,8,0.2);
+  padding: 2px 7px; border-radius: 100px;
+  white-space: nowrap;
+}
 
+/* ── Title — tighter, fits one screen ── */
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.schemeTag {
+  font-family: var(--font-heading);
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: #FF9933;
+}
+.titleHindi {
+  font-family: var(--font-heading);
+  display: inline-block;
+  margin-top: 4px;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 900; letter-spacing: -0.04em;
+  line-height: 1.05; color: var(--text-primary);
+}
+.titleAmt {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-weight: 900; letter-spacing: -0.05em;
+  line-height: 1; color: #FF9933;
+  display: flex; align-items: baseline;
+  gap: 8px; flex-wrap: wrap;
+}
+.titleAmtSub {
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  color: var(--text-secondary); font-weight: 700;
+}
+
+/* ── Desc — tighter ── */
 .desc {
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 2;
-  margin-bottom: 24px;
-  max-width: 520px;
+  font-size: 0.88rem; color: var(--text-secondary);
+  line-height: 1.8; margin-bottom: 18px;
+  max-width: 500px;
+}
+.desc strong { color: var(--text-primary); font-weight: 700; }
+
+/* ── Facts — compact, no wrapping ── */
+.facts {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: #fff;
+  border: 1.5px solid rgba(26,14,4,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(26,14,4,0.05);
+}
+.fact {
+  flex: 1;
+  padding: 10px 8px;
+  text-align: center;
+  display: flex; flex-direction: column; gap: 2px;
+  transition: background 0.2s;
+  min-width: 0;
+}
+.fact:hover { background: rgba(255,153,51,0.04); }
+.factNum {
+  font-family: var(--font-heading);
+  font-size: 0.95rem; font-weight: 900;
+  color: #FF9933; letter-spacing: -0.02em; line-height: 1;
+}
+.factLabel {
+  font-family: var(--font-body);
+  font-size: 0.58rem; color: var(--text-muted); line-height: 1.3;
+}
+.factDiv {
+  width: 1px; align-self: stretch;
+  background: rgba(26,14,4,0.08); flex-shrink: 0;
 }
 
-.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+/* ── Pills ── */
+.pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
 .pill {
   font-family: var(--font-heading);
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.64rem; font-weight: 700;
   color: var(--sun-core);
-  background: rgba(244,163,0,0.08);
-  border: 1px solid rgba(244,163,0,0.2);
-  padding: 5px 12px;
-  border-radius: 100px;
+  background: rgba(244,163,0,0.07);
+  border: 1px solid rgba(244,163,0,0.18);
+  padding: 4px 10px; border-radius: 100px;
 }
 
-.ctas { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-
+/* ── CTAs ── */
+.ctas { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
 .ctaPrimary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-flex; align-items: center; gap: 8px;
   background: linear-gradient(135deg, var(--sun-bright), var(--sun-core));
-  color: #1A0E04;
-  padding: 15px 28px;
-  border-radius: 100px;
-  text-decoration: none;
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 800;
+  color: #1A0E04; padding: 13px 24px; border-radius: 100px;
+  text-decoration: none; font-family: var(--font-heading);
+  font-size: 0.9rem; font-weight: 800;
   box-shadow: 0 8px 24px rgba(244,163,0,0.4);
   transition: box-shadow 0.3s, transform 0.2s;
 }
 .ctaPrimary:hover { box-shadow: 0 14px 36px rgba(244,163,0,0.55); transform: translateY(-2px); }
-
-.ctaSecondary {
+.ctaCall {
   font-family: var(--font-heading);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  text-decoration: none;
+  font-size: 0.88rem; font-weight: 700;
+  color: var(--text-secondary); text-decoration: none;
   transition: color 0.2s;
 }
-.ctaSecondary:hover { color: var(--sun-core); }
+.ctaCall:hover { color: var(--sun-core); }
 
-/* Card */
-.card {
+/* ── Trust line ── */
+.trustLine {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.74rem; color: var(--text-muted);
+}
+.trustLine strong { color: var(--sun-core); }
+.trustCheck {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: rgba(19,136,8,0.1); color: #138808;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; font-weight: 800; flex-shrink: 0;
+}
+
+/* ════════════════════════════════
+   RIGHT CARD — compact to fit screen
+════════════════════════════════ */
+.certWrap {
   background: #0E0904;
   border-radius: 20px;
-  padding: 32px 28px;
-  border: 1px solid rgba(244,163,0,0.15);
-  box-shadow: 0 24px 60px rgba(14,9,4,0.18);
+  padding: 22px 22px;
+  border: 1px solid rgba(255,153,51,0.2);
+  box-shadow:
+    0 0 0 1px rgba(255,153,51,0.06),
+    0 24px 60px rgba(14,9,4,0.25);
   position: relative;
   overflow: hidden;
 }
-.card::after {
-  content: '';
-  position: absolute;
-  bottom: -60px; right: -60px;
-  width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(244,163,0,0.09) 0%, transparent 65%);
-  pointer-events: none;
+
+.certSeal {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px;
 }
-.cardLabel {
+.sealRing {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: linear-gradient(135deg, #FF9933, #e67e00);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(255,153,51,0.4);
+}
+.sealInner { color: #0E0904; }
+.sealText { flex: 1; }
+.sealTitle {
   font-family: var(--font-heading);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255,251,244,0.3);
-  margin-bottom: 8px;
+  font-size: 0.78rem; font-weight: 800; color: #FFFBF4; margin-bottom: 2px;
 }
-.cardAmount {
+.sealSub {
+  font-family: var(--font-body);
+  font-size: 0.57rem; color: rgba(255,251,244,0.35);
+}
+.sealLive {
+  display: flex; align-items: center; gap: 5px;
   font-family: var(--font-heading);
-  font-size: 3.2rem;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  color: var(--sun-core);
-  line-height: 1;
-  margin-bottom: 4px;
+  font-size: 0.57rem; font-weight: 700; color: #22c55e;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.2);
+  padding: 2px 8px; border-radius: 100px; flex-shrink: 0;
 }
-.cardSub {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: rgba(255,251,244,0.35);
-  margin-bottom: 20px;
+.sealLive span {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #22c55e; flex-shrink: 0;
+  animation: pulse 2s ease infinite;
 }
-.cardDivider {
-  height: 1px;
-  background: rgba(244,163,0,0.12);
-  margin-bottom: 16px;
-}
-.cardRows { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
-.cardRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.cardRowLeft { display: flex; flex-direction: column; gap: 2px; }
-.cardRowLabel {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: rgba(255,251,244,0.55);
-}
-.cardRowPct {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  color: rgba(255,251,244,0.25);
-}
-.cardRowVal {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 0.95rem;
-  color: var(--sun-core);
-}
-.cardFooter {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  color: rgba(255,251,244,0.2);
-  text-align: center;
-  padding-top: 14px;
-  border-top: 1px solid rgba(244,163,0,0.08);
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
+  60%      { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
 }
 
-@media (max-width: 1024px) {
-  .inner { grid-template-columns: 1fr; gap: 40px; }
-  .right { display: flex; justify-content: center; }
-  .card  { max-width: 400px; width: 100%; }
+.certDivider {
+  height: 1px;
+  background: rgba(255,251,244,0.06);
+  margin: 14px 0;
 }
+
+/* Amount — smaller to fit */
+.certAmt { text-align: center; padding: 4px 0; }
+.certAmtLabel {
+  font-family: var(--font-heading);
+  font-size: 0.55rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,251,244,0.3); margin-bottom: 6px;
+}
+.certAmtNum {
+  font-family: var(--font-heading);
+  font-size: 3.2rem; font-weight: 900;
+  letter-spacing: -0.05em; color: #FF9933;
+  line-height: 1; margin-bottom: 4px;
+  text-shadow: 0 0 32px rgba(255,153,51,0.3);
+}
+.certAmtNote {
+  font-family: var(--font-body);
+  font-size: 0.64rem; color: rgba(255,251,244,0.3);
+}
+
+/* Slab rows — tighter */
+.certRows { display: flex; flex-direction: column; gap: 5px; }
+.certRow {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 12px; border-radius: 8px;
+  background: rgba(255,251,244,0.03);
+  border: 1px solid transparent;
+  transition: background 0.2s;
+}
+.certRow:hover { background: rgba(255,251,244,0.06); }
+.certRowFeatured {
+  background: rgba(255,153,51,0.08);
+  border-color: rgba(255,153,51,0.2);
+}
+.certRowLabel {
+  font-family: var(--font-body);
+  font-size: 0.8rem; color: rgba(255,251,244,0.6); margin-bottom: 1px;
+}
+.certRowPct {
+  font-family: var(--font-body);
+  font-size: 0.58rem; color: rgba(255,251,244,0.22);
+}
+.certRowVal {
+  font-family: var(--font-heading);
+  font-weight: 800; font-size: 0.9rem; color: #FF9933;
+}
+.certRowFeatured .certRowVal { color: #FFB84D; font-size: 1rem; }
+
+/* DBT */
+.certDbt {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.6rem; color: rgba(255,251,244,0.22); line-height: 1.5;
+}
+.certDbtDot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #138808; flex-shrink: 0;
+}
+
+/* Stamp */
+.stampDecor {
+  position: absolute; bottom: -10px; right: -10px;
+  width: 80px; height: 80px;
+  opacity: 0.06; transform: rotate(-15deg);
+}
+.stampRing {
+  width: 100%; height: 100%; border-radius: 50%;
+  border: 4px solid #FF9933;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.55rem; font-weight: 900;
+  letter-spacing: 0.15em; color: #FF9933;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 1024px) {
+  .inner { grid-template-columns: 1fr; gap: 36px; }
+  .certWrap { max-width: 460px; }
+  .watermark { font-size: 10vw; }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .inner { padding: 36px 28px 0; gap: 28px; }
+  .titleHindi { font-size: 2.4rem; }
+  .titleAmt { font-size: 2.6rem; }
+}
+
+/* Mobile */
 @media (max-width: 600px) {
-  .inner { padding: 0 20px; }
-  .title { font-size: 2.4rem; }
+  .inner { padding: 28px 18px 0; }
+  .govtBadge { flex-wrap: wrap; gap: 8px; }
+  .schemeTag { font-size: 0.58rem; }
+  .titleHindi { font-size: 2rem; }
+  .titleAmt { font-size: 2.2rem; }
+  .titleAmtSub { font-size: 1.1rem; }
+  .desc { font-size: 0.84rem; margin-bottom: 14px; }
+
+  /* Facts strip — 2x2 grid on mobile */
+  .facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 12px;
+  }
+  .factDiv {
+    display: none;
+  }
+  .fact {
+    padding: 10px;
+    border-bottom: 1px solid rgba(26,14,4,0.06);
+  }
+  .fact:nth-child(odd) {
+    border-right: 1px solid rgba(26,14,4,0.06);
+  }
+  .fact:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .pills { gap: 5px; margin-bottom: 16px; }
+  .pill { font-size: 0.6rem; padding: 3px 9px; }
+  .ctaPrimary { padding: 12px 20px; font-size: 0.86rem; }
+  .trustLine { font-size: 0.7rem; flex-wrap: wrap; }
+
+  /* Card on mobile */
+  .certWrap { padding: 18px; }
+  .certAmtNum { font-size: 2.6rem; }
+  .sealTitle { font-size: 0.72rem; }
+  .sunRays { display: none; }
+  .watermark { display: none; }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .titleHindi { font-size: 1.8rem; }
+  .titleAmt { font-size: 1.9rem; }
+  .certAmtNum { font-size: 2.2rem; }
 }
