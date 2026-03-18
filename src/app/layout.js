@@ -57,7 +57,13 @@ export const metadata = {
   authors:   [{ name: SITE_NAME, url: SITE_URL }],
   creator:   SITE_NAME,
   publisher: SITE_NAME,
-  alternates: { canonical: '/' },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'hi-IN': SITE_URL,
+      'en-IN': SITE_URL,
+    },
+  },
   robots: {
     index: true, follow: true,
     googleBot: {
