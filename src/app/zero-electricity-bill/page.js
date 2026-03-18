@@ -1,13 +1,13 @@
-import ZeroBillHero     from './ZeroBillHero'
-import ZeroBillProof from '../subsidies/comp/ZeroBillProof'
+import ZeroBillHero      from './ZeroBillHero'
+import ZeroBillProof     from '../subsidies/comp/ZeroBillProof'
 import SubsidyCalculator from '../subsidies/comp/Subsidycalculator'
-import { SubsidyCTA } from '../subsidies/comp/Subsidysections'
+import { SubsidyCTA }   from '../subsidies/comp/Subsidysections'
 
 const SITE_URL = 'https://srishtisolarpower.com'
 const PAGE_URL = `${SITE_URL}/zero-electricity-bill`
 
 export const metadata = {
-  title: 'Zero Electricity Bill with Solar | बिजली बिल ज़ीरो करें',
+  title: 'Zero Electricity Bill with Solar | बिजली बिल ज़ीरो करें | Srishti Solar Bihar',
   description: 'Solar panel लगाएँ और बिजली बिल हमेशा के लिए ज़ीरो करें। Real proof — Smt. Sita Devi, Patna का SBPDCL Zero Bill देखें। PM Surya Ghar subsidy ₹78,000 + free site visit across Bihar।',
   keywords: [
     'zero electricity bill solar Bihar',
@@ -39,6 +39,8 @@ export const metadata = {
   },
 }
 
+// Single combined schema — FAQPage nested inside Service
+// Fixes "Duplicate field FAQPage" error caused by layout.js global FAQPage
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -53,33 +55,36 @@ const schema = {
     priceCurrency: 'INR',
     description: 'Solar installation with PM Surya Ghar subsidy up to ₹78,000. Result: zero monthly electricity bill.',
   },
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Solar से बिजली बिल कैसे ज़ीरो होता है?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Rooftop solar panel दिन में बिजली बनाता है। Net metering से जो बिजली नहीं लगती वो DISCOM grid में जाती है और आपके account में credit होती है। महीने के अंत में credit और उपयोग बराबर होने पर बिल ₹0 आता है।' },
-    },
-    {
-      '@type': 'Question',
-      name: 'Bihar में Zero Bill के लिए कितने kW solar चाहिए?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Average Bihar household (500–700 units/month) के लिए 3kW system पर्याप्त है। इस पर PM Surya Ghar से ₹78,000 सब्सिडी मिलती है और net meter से बिल ज़ीरो हो जाता है।' },
-    },
-    {
-      '@type': 'Question',
-      name: 'क्या Zero Bill का कोई real proof है?',
-      acceptedAnswer: { '@type': 'Answer', text: 'हाँ — Smt. Sita Devi, Gardanibagh Patna का SBPDCL verified February 2026 का ₹0 bill। 292 units solar balance के साथ कुल देय राशि ₹0.00।' },
-    },
-    {
-      '@type': 'Question',
-      name: 'SBPDCL net metering क्या होता है?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Net metering एक system है जिसमें आपका solar meter दोनों तरफ measure करता है — बिजली जो आपने ली और जो आपने grid में दी। अंतर के आधार पर बिल बनता है। Srishti Solar SBPDCL net metering approval पूरी तरह handle करती है।' },
-    },
-  ],
+  mainEntityOfPage: {
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Solar से बिजली बिल कैसे ज़ीरो होता है?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Rooftop solar panel दिन में बिजली बनाता है। Net metering से जो बिजली नहीं लगती वो DISCOM grid में जाती है और आपके account में credit होती है। महीने के अंत में credit और उपयोग बराबर होने पर बिल ₹0 आता है।' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Bihar में Zero Bill के लिए कितने kW solar चाहिए?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Average Bihar household (500–700 units/month) के लिए 3kW system पर्याप्त है। इस पर PM Surya Ghar से ₹78,000 सब्सिडी मिलती है और net meter से बिल ज़ीरो हो जाता है।' },
+      },
+      {
+        '@type': 'Question',
+        name: 'क्या Zero Bill का कोई real proof है?',
+        acceptedAnswer: { '@type': 'Answer', text: 'हाँ — Smt. Sita Devi, Gardanibagh Patna का SBPDCL verified February 2026 का ₹0 bill। 292 units solar balance के साथ कुल देय राशि ₹0.00।' },
+      },
+      {
+        '@type': 'Question',
+        name: 'SBPDCL net metering क्या होता है?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Net metering में आपका solar meter दोनों तरफ measure करता है — बिजली जो आपने ली और जो आपने grid में दी। अंतर के आधार पर बिल बनता है। Srishti Solar SBPDCL net metering approval पूरी तरह handle करती है।' },
+      },
+      {
+        '@type': 'Question',
+        name: 'Srishti Solar Power का contact number क्या है?',
+        acceptedAnswer: { '@type': 'Answer', text: 'Srishti Solar Power: +91 99310 13345। Email: srishtisolarpower@gmail.com। Free site visit के लिए call करें।' },
+      },
+    ],
+  },
 }
 
 const breadcrumbSchema = {
@@ -95,7 +100,6 @@ export default function ZeroElectricityBillPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <ZeroBillHero />
       <ZeroBillProof />
