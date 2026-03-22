@@ -53,8 +53,8 @@ export default function JingleVideo() {
         <div className={styles.header}>
           <span className={styles.eyebrow}>हमारा सपना · Our Vision</span>
           <h2 className={styles.title}>
-            हर छत पर सूरज,{' '}
-            <span className={styles.gold}>हर घर में रोशनी</span>
+            हर घर की छत पर सोलर लगे,{' '}
+            <span className={styles.gold}>हर घर में अपनी बिजली जले</span>
           </h2>
           <p className={styles.sub}>
             Bihar की हर छत पर सौर ऊर्जा — यही है हमारा सपना

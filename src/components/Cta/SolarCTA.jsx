@@ -1,5 +1,4 @@
 'use client'
-
 import { useEffect, useRef } from 'react'
 import Magnetic from '@/components/utils/Magnetic'
 import styles from './SolarCTA.module.css'
@@ -21,7 +20,6 @@ export default function SolarCTA() {
       },
       { threshold: 0.2 }
     )
-
     if (contentRef.current) observer.observe(contentRef.current)
     return () => observer.disconnect()
   }, [])
@@ -31,20 +29,15 @@ export default function SolarCTA() {
       <div className={styles.inner}>
         <div className={styles.content} ref={contentRef}>
           <p className={styles.eyebrow}>Start Today</p>
-
           <h2 id="solar-cta-title" className={styles.title}>
             आपकी छत, <span className={styles.titleAccent}>आपकी बिजली</span>
           </h2>
-
-          <p className={styles.subtitle}>Your roof. Your energy. Your savings.</p>
-
+          <p className={styles.subtitle}>छत पर सोलर, घर में उजाला—बचत भी आपकी, कमाई भी निराला।</p>
           <p className={styles.desc}>
             Free site visit. No upfront cost. Subsidy assistance end to end.
             <span className={styles.descHi}> मुफ्त साइट विज़िट · ₹0 अग्रिम · MNRE certified</span>
           </p>
-
           <p className={styles.actionHint}>Tap the sun to call instantly.</p>
-
           <div className={styles.trust}>
             {TRUST_ITEMS.map(item => (
               <span key={item} className={styles.trustItem}>
@@ -54,7 +47,6 @@ export default function SolarCTA() {
             ))}
           </div>
         </div>
-
         <div className={styles.visual}>
           <Magnetic strength={0.22}>
             <a href="tel:+919931013345" className={styles.sunCta} aria-label="Call Srishti Solar at 99310 13345">
@@ -76,11 +68,6 @@ export default function SolarCTA() {
           <div className={styles.ring} />
         </div>
       </div>
-        {/* <div className={styles.waveBottom} aria-hidden="true">
-        <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
-          <path d="M0,0 Q720,90 1440,0 L1440,90 L0,90 Z" fill="var(--bg-muted)"/>
-        </svg>
-      </div> */}
     </section>
   )
 }

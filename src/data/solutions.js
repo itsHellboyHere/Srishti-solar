@@ -6,10 +6,10 @@
 
 export const SOLUTIONS_HERO = {
   eyebrow:   'हमारे समाधान · Our Solutions',
-  titleHi:   'बिहार के लिए',
-  titleHi2:  'सोलर समाधान',
+  titleHi:   'सोलर ऊर्जा अपनाएं',
+  titleHi2:  'और आज ही उपभोक्ता से ऊर्जा निर्माता बन जाएं!',
   titleEn:   'Solar Solutions for Every Need',
-  desc:      'घर हो, दुकान हो, या खेत — हर ज़रूरत के लिए सोलर। सरकारी सब्सिडी के साथ, सही कीमत पर।',
+  desc:      'घर हो, दुकान हो, या खेत — हर ज़रूरत के लिए सोलर। सही कीमत पर सोलर प्लांट लगवाएं',
   descEn:    'From homes to shops to farms — solar for every need. With government subsidy, at the right cost.',
   stats: [
     { num: '41+',          label: 'इंस्टॉलेशन',   sub: 'Installations'    },
@@ -22,7 +22,7 @@ export const SOLUTIONS_HERO = {
 export const SOLUTIONS = [
   {
     id:        'residential',
-    iconKey:   'home',                        
+    iconKey:   'home',
     icon:      '🏠',
     titleHi:   'घरेलू सोलर',
     titleEn:   'Residential Rooftop Solar',
@@ -48,7 +48,7 @@ export const SOLUTIONS = [
   },
   {
     id:        'commercial',
-    iconKey:   'building',                     // ← Lucide: Building2
+    iconKey:   'building',
     icon:      '🏢',
     titleHi:   'व्यावसायिक सोलर',
     titleEn:   'Commercial Rooftop Solar',
@@ -74,7 +74,7 @@ export const SOLUTIONS = [
   },
   {
     id:        'offgrid',
-    iconKey:   'battery',                      // ← Lucide: BatteryFull
+    iconKey:   'battery',
     icon:      '🔋',
     titleHi:   'ऑफ-ग्रिड सोलर',
     titleEn:   'Off-Grid Solar with Battery',
@@ -86,7 +86,7 @@ export const SOLUTIONS = [
     subsidy:   'राज्य सरकार सहायता',
     subsidyEn: 'State govt support',
     savingsHi: 'बिजली कटौती से पूरी आज़ादी',
-    savingsEn: 'Complete freedom from power cuts',
+    savingsEn: '完Complete freedom from power cuts',
     benefits: [
       { iconKey: 'battery',  icon: '🔋', hi: '24 घंटे बिजली',               en: '24-hour electricity'            },
       { iconKey: 'map-pin',  icon: '🌄', hi: 'दूरदराज़ क्षेत्रों में भी',    en: 'Works in remote areas too'     },
@@ -100,7 +100,7 @@ export const SOLUTIONS = [
   },
   {
     id:        'subsidy',
-    iconKey:   'landmark',                     // ← Lucide: Landmark
+    iconKey:   'landmark',
     icon:      '🏛️',
     titleHi:   'PM Surya Ghar योजना',
     titleEn:   'PM Surya Ghar Muft Bijli Yojana',
@@ -133,7 +133,7 @@ export const HOW_IT_WORKS = [
     titleEn: 'Free Site Visit',
     descHi:  'हमारी टीम आपके घर/दफ्तर आती है — छत की जांच, बिजली की खपत देखते हैं। पूरी तरह मुफ़्त।',
     descEn:  'Our team visits your home/office — checks roof, assesses electricity consumption. Completely free.',
-    iconKey: 'map-pin',                        // ← Lucide: MapPin
+    iconKey: 'map-pin',
     icon:    '🔍',
     time:    '1 दिन में',
     timeEn:  'Within 1 day',
@@ -144,7 +144,7 @@ export const HOW_IT_WORKS = [
     titleEn: 'Custom System Design',
     descHi:  'IIT BHU इंजीनियर आपकी ज़रूरत के अनुसार सिस्टम डिज़ाइन करते हैं — MNRE मानकों के अनुसार।',
     descEn:  'IIT BHU engineer designs system per your need — as per MNRE specifications.',
-    iconKey: 'pen-tool',                       // ← Lucide: PenTool
+    iconKey: 'pen-tool',
     icon:    '📐',
     time:    '2–3 दिन',
     timeEn:  '2–3 days',
@@ -155,7 +155,7 @@ export const HOW_IT_WORKS = [
     titleEn: 'Professional Installation',
     descHi:  'HDG structure, Topcon panels, Tier-1 inverter, Copper earthing — सब कुछ सही से। 1–2 दिन में पूरा।',
     descEn:  'HDG structure, Topcon panels, Tier-1 inverter, Copper earthing — done right. Completed in 1–2 days.',
-    iconKey: 'zap',                            // ← Lucide: Zap
+    iconKey: 'zap',
     icon:    '⚡',
     time:    '1–2 दिन',
     timeEn:  '1–2 days',
@@ -166,7 +166,7 @@ export const HOW_IT_WORKS = [
     titleEn: 'Subsidy & Activation',
     descHi:  'हम DISCOM registration, net metering, और PM Surya Ghar application सब करते हैं। पैसे सीधे बैंक में।',
     descEn:  'We handle DISCOM registration, net metering, and PM Surya Ghar application. Money goes straight to bank.',
-    iconKey: 'landmark',                       // ← Lucide: Landmark
+    iconKey: 'landmark',
     icon:    '🏛️',
     time:    '30–45 दिन',
     timeEn:  '30–45 days',

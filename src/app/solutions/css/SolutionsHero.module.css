@@ -12,8 +12,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 98px;    /* navbar height */
-  padding-bottom: 100px; /* space for curve */
+  padding-top: 98px;
+  padding-bottom: 100px;
   background: #0A0602;
   overflow: hidden;
 }
@@ -33,7 +33,7 @@
   to   { transform: scale(1.0);  }
 }
 
-/* ── Dark gradient overlay — heavier on left for text ── */
+/* ── Dark gradient overlay ── */
 .overlay {
   position: absolute;
   inset: 0;
@@ -47,11 +47,7 @@
   z-index: 1;
 }
 
-/* ── Grid line texture ─────────────────────────────────
-   Subtle grid drawn with CSS gradients — gives a
-   technical / engineering blueprint feel.
-   Works especially well over dark solar bg.
-──────────────────────────────────────────────────────── */
+/* ── Grid line texture ── */
 .grid {
   position: absolute;
   inset: 0;
@@ -63,11 +59,11 @@
   pointer-events: none;
 }
 
-/* ── Content above everything ── */
+/* ── Content ── */
 .inner {
   position: relative;
   z-index: 3;
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 40px;
   text-align: center;
@@ -89,7 +85,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .dot {
   width: 6px; height: 6px;
@@ -114,28 +110,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  margin-bottom: 24px;
+  gap: 4px;
+  margin-bottom: 20px;
 }
+
+/* Line 1 — faded white, smaller */
 .titleLine1 {
   font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   color: rgba(255,251,244,0.5);
 }
+
+/* Line 2 — gold, fits long text */
 .titleLine2 {
   font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
   color: var(--sun-core);
   position: relative;
   display: inline-block;
+  max-width: 100%;
 }
-/* Gold animated underline on title */
+
+/* Gold animated underline */
 .titleUnderline {
   position: absolute;
   bottom: -6px; left: 0;
@@ -154,11 +156,11 @@
 /* ── Desc ── */
 .desc {
   font-family: var(--font-body);
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: rgba(255,251,244,0.5);
   line-height: 1.8;
   max-width: 580px;
-  margin: 0 auto 32px;
+  margin: 0 auto 28px;
 }
 
 /* ── CTAs ── */
@@ -168,7 +170,7 @@
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 56px;
+  margin-bottom: 48px;
 }
 .btnPrimary {
   display: inline-flex; align-items: center; gap: 8px;
@@ -240,14 +242,17 @@
 }
 .curveSvg { display: block; width: 100%; height: 90px; }
 
+/* ── Responsive ── */
 @media (max-width: 768px) {
-  .inner       { padding: 0 24px; }
-  .statsRow    { grid-template-columns: repeat(2,1fr); }
-  .curveSvg    { height: 60px; }
+  .inner        { padding: 0 24px; }
+  .statsRow     { grid-template-columns: repeat(2,1fr); }
+  .curveSvg     { height: 60px; }
+  .titleLine1   { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+  .titleLine2   { font-size: clamp(1.3rem, 5vw, 2rem); }
 }
 @media (max-width: 480px) {
-  .inner       { padding: 0 20px; }
-  .titleLine1,
-  .titleLine2  { font-size: 2.4rem; }
-  .desc        { font-size: 0.9rem; }
+  .inner        { padding: 0 20px; }
+  .titleLine1   { font-size: 1.5rem; }
+  .titleLine2   { font-size: 1.2rem; }
+  .desc         { font-size: 0.9rem; }
 }

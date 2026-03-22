@@ -11,7 +11,7 @@ const REASONS = [
     tag: 'रिकॉर्ड · Record',
     title: 'सबसे तेज़ इंस्टॉलेशन',
     titleEn: 'Fastest Installation',
-    desc: 'साइट विज़िट से सिस्टम लाइव — सिर्फ 72 घंटे। Bihar\'s most efficient MNRE-certified teams.',
+    desc: 'साइट विज़िट से सिस्टम लाइव — सिर्फ 24 से 72 घंटों के भीतर। Bihar\'s most efficient MNRE-certified teams.',
   },
   {
     Icon: ShieldCheck,
@@ -19,7 +19,7 @@ const REASONS = [
     tag: 'सरकारी · Govt Scheme',
     title: 'पूरी सब्सिडी सहायता',
     titleEn: 'Max Subsidy Assisted',
-    desc: 'PM Surya Ghar के तहत ₹78,000 तक सीधे बैंक में। All 14 documents filed by us — SBPDCL/NBPDCL approved.',
+    desc: 'PM Surya Ghar के तहत ₹78,000 तक सीधे बैंक में। 78 हजार रुपये | All 14 documents filed by us — SBPDCL/NBPDCL approved.',
   },
   {
     Icon: TrendingUp,
@@ -27,7 +27,7 @@ const REASONS = [
     tag: 'प्रतिदिन · Per Day',
     title: 'एक्स्ट्रा बिजली उत्पादन',
     titleEn: 'Extra Generation Daily',
-    desc: 'Hand Type Topcon Advanced Panel — N-Type 16BB/18BB टेक्नोलॉजी से 1 unit/kW/day extra generation। बेहतर durability और output — सामान्य पैनल से कहीं आगे।',
+    desc: 'टॉपकॉन सोलर पैनल — प्रति किलोवाट एक यूनिट अधिक बिजली उत्पादन। N-Type 16BB/18BB टेक्नोलॉजी से extra generation। बेहतर durability और output — सामान्य पैनल से कहीं आगे।',
   },
   {
     Icon: Wrench,
@@ -35,7 +35,7 @@ const REASONS = [
     tag: 'निःशुल्क · Free AMC',
     title: '5 साल फ्री सर्विस',
     titleEn: 'Free Maintenance',
-    desc: '5 साल की मुफ्त AMC — पैनल सफाई, इन्वर्टर डायग्नोस्टिक्स, और Mobile Remote Monitoring शामिल।',
+    desc: 'सोलर प्लांट के लिए समर्पित सेवा — अब कहीं से भी अपने सोलर सिस्टम को मॉनिटर और कंट्रोल करें। 5 साल की मुफ्त AMC — पैनल सफाई, इन्वर्टर डायग्नोस्टिक्स, और Mobile Remote Monitoring शामिल।',
   },
   {
     Icon: Star,
@@ -43,23 +43,39 @@ const REASONS = [
     tag: 'मज़बूत · Premium Build',
     title: 'HDG कोटेड स्टील स्ट्रक्चर',
     titleEn: 'Strong HDG Structure',
-    desc: 'Hot-Dip Galvanized steel — जंग नहीं लगती, 25 साल तक मज़बूत। सामान्य MS स्ट्रक्चर से 10x बेहतर।',
+    desc: 'HDG (हॉट-डिप गैल्वेनाइज्ड, 80–120 माइक्रोन जिंक कोटेड) स्ट्रक्चर (2–3 मिमी) — जंग-रहित, सामान्य स्ट्रक्चर से 10 गुना अधिक मजबूत, 25 वर्षों की गारंटी के साथ।',
   },
   {
     Icon: WalletCards,
-    stat: '₹0', unit: '',
+    stat: '₹', unit: '',
     tag: 'आसान · Zero Upfront',
     title: 'आसान किस्तों में',
     titleEn: 'Easy Financing',
-    desc: '₹0 अग्रिम निवेश से सोलर लगवाएँ। Subsidy + Loan support — Free site visit भी उपलब्ध।',
+    desc: 'पीएम सूर्य घर मुफ्त बिजली योजना के तहत सोलर लगाने के लिए कम ब्याज दर पर ऋण सुविधा उपलब्ध है। Subsidy + Loan support — Free site visit भी उपलब्ध।',
   },
 ]
 
 const COMPARE = [
-  { hi: 'पैनल टेक्नोलॉजी', en: 'Panel Technology', them: 'Poly / Basic',       us: 'Hand Type Topcon N-Type Advanced' },
-  { hi: 'बस-बार',           en: 'Bus Bar',           them: '5BB',                us: '16BB / 18BB'             },
-  { hi: 'स्ट्रक्चर',        en: 'Structure',         them: 'साधारण MS',          us: 'HDG Coated'              },
-  { hi: 'मॉनिटरिंग',        en: 'Monitoring',        them: 'मॉनिटरिंग नहीं',    us: 'Mobile Monitoring'       },
+  {
+    hi: 'पैनल टेक्नोलॉजी', en: 'Panel Technology',
+    them: 'POLY CRISTLINE / MONO CRISTLINE',
+    us:   'N-Type Topcon BIFICIAL PANAL',
+  },
+  {
+    hi: 'बस-बार', en: 'Bus Bar',
+    them: '5 BUS BAR / 10 BUS BAR',
+    us:   '16 BUS BAR',
+  },
+  {
+    hi: 'स्ट्रक्चर', en: 'Structure',
+    them: 'साधारण MS',
+    us:   'HDG (हॉट-डिप गैल्वेनाइज्ड, 80–120 माइक्रोन जिंक कोटेड) स्ट्रक्चर (2–3 मिमी) — जंग-रहित, सामान्य स्ट्रक्चर से 10 गुना अधिक मजबूत',
+  },
+  {
+    hi: 'मॉनिटरिंग', en: 'Monitoring',
+    them: 'मॉनिटरिंग नहीं',
+    us:   'MOBILE DAWRA कहीं से भी अपने सोलर सिस्टम को मॉनिटर करें।',
+  },
 ]
 
 export default function WhyUs() {
@@ -95,11 +111,11 @@ export default function WhyUs() {
         <div className={styles.header} ref={headerRef}>
           <span className={styles.eyebrow}>हमारा सोलर क्यों? · Why Choose Us</span>
           <h2 className={styles.title}>
-            बिहार की हर छत चमकेगी,{' '}
-            <span className={styles.accent}>अब बिजली खुद ही दमकेगी</span>
+            सौर ऊर्जा अपनाइए, सस्ती और अच्छी बिजली पाइए —{' '}
+            <span className={styles.accent}>हर घर अपनी बिजली बनाइए</span>
           </h2>
           <p className={styles.subtext}>
-            41+ परिवार पहले से मुफ्त बिजली का आनंद ले रहे हैं।{' '}
+            सस्ती नहीं — अब मुफ्त सोलर ऊर्जा की ओर बढ़ता बिहार।{' '}
             <span className={styles.subtextEn}>Join Bihar's fastest-growing solar community.</span>
           </p>
         </div>
