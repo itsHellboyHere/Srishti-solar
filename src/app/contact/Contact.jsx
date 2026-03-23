@@ -12,7 +12,7 @@ const KW_OPTIONS = [
 ]
 
 const TRUST = [
-  { num: '41+', label: 'Installations' },
+  { num: '950+', label: 'Installations' },
   { num: '72 Hrs', label: 'Install Time'  },
   { num: '₹78k',   label: 'Max Subsidy'  },
   { num: '5 Yr',   label: 'Free AMC'     },
@@ -22,11 +22,11 @@ const CONTACTS = [
   { label: 'Call / WhatsApp', value: '99310 13345',                href: 'tel:+919931013345'              },
   { label: 'Call / WhatsApp', value: '99310 67798',                href: 'tel:+919931067798'              },
   { label: 'Email',           value: 'info@srishtisolarpower.com', href: 'mailto:info@srishtisolarpower.com' },
-{ label: 'Office', value: 'Road No-6, Corner, East Patel Nagar, Near Gandhi Murti, Patna 800023', href: null },
+  { label: 'Office', value: 'Road No-6, Corner, East Patel Nagar, Near Gandhi Murti, Patna 800023', href: null },
 ]
 
 export default function ContactForm() {
-  const [form, setForm]     = useState({ name: '', phone: '', city: '', kw: '', message: '' })
+  const [form, setForm]     = useState({ name: '', phone: '', consumerNumber: '', city: '', kw: '', message: '' })
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // idle | loading | success | error
   const [errMsg, setErrMsg] = useState('')
@@ -112,7 +112,6 @@ export default function ContactForm() {
             calculate savings, and handle all subsidy paperwork — at no cost.
           </p>
 
-          {/* Trust stats */}
           <div className={styles.stats}>
             {TRUST.map((t, i) => (
               <div key={i} className={styles.stat}>
@@ -122,7 +121,6 @@ export default function ContactForm() {
             ))}
           </div>
 
-          {/* Contact info */}
           <div className={styles.contactList}>
             {CONTACTS.map((c, i) => (
               <div key={i} className={styles.contactItem}>
@@ -135,7 +133,6 @@ export default function ContactForm() {
             ))}
           </div>
 
-          {/* Direct WhatsApp */}
           <a href="https://wa.me/919931013345" target="_blank"
             rel="noopener noreferrer" className={styles.waBtn}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -191,13 +188,24 @@ export default function ContactForm() {
 
                   <div className={styles.field}>
                     <label className={styles.label}>
-                      फ़ोन <span className={styles.req}>*</span>
+                      फ़ोन (WhatsApp) <span className={styles.req}>*</span>
                     </label>
                     <input type="tel" placeholder="10-digit number"
                       value={form.phone} onChange={set('phone')} maxLength={10}
                       className={`${styles.input} ${errors.phone ? styles.inputErr : ''}`}/>
                     {errors.phone && <span className={styles.errMsg}>{errors.phone}</span>}
                   </div>
+                </div>
+
+                {/* Consumer Number / CA Number */}
+                <div className={styles.field}>
+                  <label className={styles.label}>
+                    उपभोक्ता संख्या (CA Number) <span className={styles.labelHint}> — optional</span>
+                  </label>
+                  <input type="text" placeholder="CA NUMBER - UPBHOKTA SANKHYA"
+                    value={form.consumerNumber} onChange={set('consumerNumber')}
+                    className={styles.input}/>
+                  <span className={styles.labelHint}>सब्सिडी और लोड चेक करने के लिए (बिजली बिल से देखकर भरें)</span>
                 </div>
 
                 {/* City */}

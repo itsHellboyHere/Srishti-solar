@@ -10,7 +10,8 @@
 export async function POST(request) {
   try {
     const body = await request.json()
-    const { name, phone, city, kw, message } = body
+    // Added consumerNumber to the destructured body
+    const { name, phone, consumerNumber, city, kw, message } = body
 
     // ── Validation ──────────────────────────────
     if (!name || !phone || !city || !kw) {
@@ -41,6 +42,7 @@ export async function POST(request) {
       ``,
       `👤 <b>Name:</b> ${name}`,
       `📱 <b>Phone:</b> ${phone}`,
+      consumerNumber ? `🧾 <b>CA Number:</b> ${consumerNumber}` : null,
       `📍 <b>City:</b> ${city}`,
       `⚡ <b>Interest:</b> ${kw} kW System`,
       `💰 <b>Subsidy:</b> ${subsidy}`,
@@ -69,16 +71,14 @@ export async function POST(request) {
     if (!telegramRes.ok) {
       const err = await telegramRes.json()
       console.error('Telegram error:', err)
-      // Don't fail the whole request — still redirect user
     }
 
     // ════════════════════════════════════════════
-    //  2. RESEND EMAIL — uncomment when ready
+    //  2. RESEND EMAIL — updated with CA Number
     // ════════════════════════════════════════════
     /*
     const resend = new Resend(process.env.RESEND_API_KEY)
 
-    // Email to YOU (lead notification)
     await resend.emails.send({
       from:    'Srishti Solar Leads <noreply@srishtisolarpower.com>',
       to:      ['info@srishtisolarpower.com'],
@@ -89,40 +89,32 @@ export async function POST(request) {
           <table style="width:100%;border-collapse:collapse">
             <tr><td style="padding:8px 0;color:#666">Name</td><td style="font-weight:700">${name}</td></tr>
             <tr><td style="padding:8px 0;color:#666">Phone</td><td style="font-weight:700">${phone}</td></tr>
+            ${consumerNumber ? `<tr><td style="padding:8px 0;color:#666">CA Number</td><td style="font-weight:700">${consumerNumber}</td></tr>` : ''}
             <tr><td style="padding:8px 0;color:#666">City</td><td style="font-weight:700">${city}</td></tr>
             <tr><td style="padding:8px 0;color:#666">Interest</td><td style="font-weight:700">${kw} kW</td></tr>
             <tr><td style="padding:8px 0;color:#666">Subsidy</td><td style="font-weight:700">${subsidy}</td></tr>
             ${message ? `<tr><td style="padding:8px 0;color:#666">Message</td><td>${message}</td></tr>` : ''}
             <tr><td style="padding:8px 0;color:#666">Time</td><td>${timestamp}</td></tr>
           </table>
-          <a href="https://wa.me/919931013345" style="display:inline-block;margin-top:24px;background:#25D366;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700">
-            Reply on WhatsApp
-          </a>
         </div>
       `,
     })
-
-    // Email to USER (confirmation)
-    // Only send if user provided email — add email field to form first
-    // await resend.emails.send({
-    //   from:    'Srishti Solar Power <info@srishtisolarpower.com>',
-    //   to:      [userEmail],
-    //   subject: 'आपका अनुरोध मिल गया — Srishti Solar Power',
-    //   html: `...confirmation template...`,
-    // })
     */
 
     // ════════════════════════════════════════════
     //  3. BUILD WHATSAPP REDIRECT URL
     // ════════════════════════════════════════════
+    const caPart = consumerNumber ? `उपभोक्ता संख्या (CA): ${consumerNumber}\n` : ''
+    
     const waMessage = encodeURIComponent(
       `नमस्ते! मैं ${name} बोल रहा हूँ ${city} से।\n\n` +
       `मुझे ${kw} kW सोलर सिस्टम में रुचि है।\n` +
       `सरकारी सब्सिडी ${subsidy} के बारे में जानकारी चाहिए।\n\n` +
+      caPart +
       `कृपया मुझसे संपर्क करें: ${phone}`
     )
-    // 919931013345
-    const waUrl = `https://wa.me/917004671676?text=${waMessage}`
+    
+    const waUrl = `https://wa.me/919931013345?text=${waMessage}`
 
     return Response.json({
       success: true,

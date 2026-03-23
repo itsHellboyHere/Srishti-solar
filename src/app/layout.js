@@ -80,7 +80,7 @@ export const metadata = {
     url: SITE_URL,
     siteName: SITE_NAME,
     title: 'Srishti Solar Power — Bihar की #1 Solar Company',
-    description: 'Ranked #1 at Bihar Solar Expo 2026. PM Surya Ghar subsidy up to ₹78,000. Free site visit. 41+ installations across 9 districts of Bihar.',
+    description: 'Ranked #1 at Bihar Solar Expo 2026. PM Surya Ghar subsidy up to ₹78,000. Free site visit. 950+ installations across 27 districts of Bihar.',
     images: [{
       url: '/og-image.jpg',
       width: 1200,
@@ -91,7 +91,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Srishti Solar Power — Bihar की #1 Solar Company',
-    description: 'PM Surya Ghar subsidy ₹78,000. Free site visit. 41+ installations across Bihar.',
+    description: 'PM Surya Ghar subsidy ₹78,000. Free site visit. 950+ installations across Bihar.',
     images: ['/og-image.jpg'],
   },
   manifest: '/manifest.json',

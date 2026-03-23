@@ -82,7 +82,7 @@ const organizationSchema = {
     'Highly Honored at Solar Mela — Bihar State Power Holding Company (BSPHCL) 2026',
     'Featured in Dainik Jagran — February 26, 2026',
   ],
-  description: 'Bihar की #1 Solar Company। Founded 2024 by Dayamani। Ranked #1 in technical efficiency at Bihar Solar Expo 2026 by Energy Secretary of Bihar। 41+ rooftop solar installations across 9 districts। ₹31,98,000 PM Surya Ghar subsidy assisted।',
+  description: 'Bihar की #1 Solar Company। Founded 2024 by Dayamani। Ranked #1 in technical efficiency at Bihar Solar Expo 2026 by Energy Secretary of Bihar। 950+ rooftop solar installations across 27 districts। ₹7,41,00,000 PM Surya Ghar subsidy assisted।',
 }
 
 const teamSchema = {

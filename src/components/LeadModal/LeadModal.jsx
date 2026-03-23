@@ -99,8 +99,8 @@ export default function LeadModal() {
         {/* Stats row */}
         <div className={styles.stats}>
           {[
-            { num: '41+',  label: 'Installs' },
-            { num: '9',    label: 'Districts' },
+            { num: '950+',  label: 'Installs' },
+            { num: '27',    label: 'Districts' },
             { num: '₹0',   label: 'Site Visit' },
           ].map((s, i) => (
             <div key={i} className={styles.stat}>
