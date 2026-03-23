@@ -22,7 +22,7 @@ const SERVICES = [
   { label: 'Our Technology',         href: '/solutions#tech'                 },
   { label: 'PM Surya Ghar',          href: '/subsidies'                      },
   { label: 'Free Site Visit',        href: '/contact'                        },
-  { label: 'Subsidy Calculator',     href: '/subsidies#calculator'           },
+  // { label: 'Subsidy Calculator',     href: '/subsidies#calculator'           },
   // { label: 'Zero Electricity Bill',  href: '/zero-electricity-bill'          },
   { label: 'Topcon N-Type Panels',   href: '/topcon-solar-panel-bihar'       },
   { label: 'F & Q',                  href: '/subsidies#faq'                  },
