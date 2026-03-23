@@ -59,11 +59,11 @@ const FAQS = [
   },
   {
     q: 'क्या Srishti Solar सारा काम करती है?', qEn: 'Does Srishti handle everything?',
-    a: 'हाँ, बिल्कुल। Portal application से SBPDCL निरीक्षण तक — सब कुछ हम करते हैं। आपको बस दस्तावेज़ देने हैं।',
+    a: 'हाँ, बिल्कुल। Portal application से SBPDCL and NPPDCL निरीक्षण तक — सब कुछ हम करते हैं। आपको बस दस्तावेज़ देने हैं।',
   },
   {
     q: 'बिजली बिल कितना कम होगा?', qEn: 'How much will bill reduce?',
-    a: 'सरकारी अनुमान के अनुसार 3kW सिस्टम से ₹15,000 प्रति वर्ष की बचत होती है। यानी लगभग ₹1,250 प्रति महीना (EMI काटकर)। वास्तविक बचत आपके उपयोग और धूप पर निर्भर करती है।',
+    a: 'सरकारी अनुमान के अनुसार 3kW सिस्टम से  ₹40000/-  प्रति वर्ष की बचत होती है। यानी लगभग ₹3300 APROX प्रति महीना । वास्तविक बचत आपके उपयोग और धूप पर निर्भर करती है।',
   },
   {
     q: 'लोन की सुविधा है?', qEn: 'Is solar loan available?',
@@ -126,13 +126,13 @@ export function SubsidySteps() {
       <div className={styles.inner}>
         <div className={styles.headCenter}>
           <span className={`${styles.eyebrow} ${styles.eyebrowLight}`}>हमारी प्रक्रिया · How We Handle It</span>
-          <h2 className={`${styles.title} ${styles.titleLight}`}>
+          {/* <h2 className={`${styles.title} ${styles.titleLight}`}>
             सब्सिडी का सारा काम<br/>
             <span className={styles.goldLight}>हम करते हैं</span>
           </h2>
           <p className={`${styles.desc} ${styles.descLight}`}>
             आपको कहीं जाने की ज़रूरत नहीं — बस हमें बुलाएँ
-          </p>
+          </p> */}
         </div>
 
         <div className={styles.steps}>

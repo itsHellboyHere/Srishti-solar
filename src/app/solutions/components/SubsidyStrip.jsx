@@ -13,15 +13,15 @@ export default function SubsidyStrip() {
 
         {/* Header */}
         <div className={styles.header}>
-          <span className={`${styles.eyebrow} ${styles.fadeUp1}`}>
+          {/* <span className={`${styles.eyebrow} ${styles.fadeUp1}`}>
             PM Surya Ghar Muft Bijli Yojana
-          </span>
+          </span> */}
           <h2 className={`${styles.title} ${styles.fadeUp2}`}>
             सरकार देती है{' '}
-            <span className={styles.gold}>₹78,000 तक सब्सिडी</span>
+            <span className={styles.gold}>₹78,000 तक सरकारी सब्सिडी </span>
           </h2>
           <p className={`${styles.sub} ${styles.fadeUp3}`}>
-            सीधे आपके बैंक में — हम पूरी process करते हैं
+             सीधे आपके खाते में
           </p>
         </div>
 
@@ -72,11 +72,11 @@ export default function SubsidyStrip() {
             <div>
               <div className={styles.totalTitle}>
                 हमने अब तक दिलाई{' '}
-                <span className={styles.totalNum}>₹31,98,000</span>{' '}
+                <span className={styles.totalNum}>₹7,41,00,000</span>{' '}
                 की सब्सिडी
               </div>
               <div className={styles.totalSub}>
-                41+ परिवारों को PM Surya Ghar योजना का लाभ — Srishti Solar Power के साथ
+                950+ परिवारों को PM Surya Ghar योजना का लाभ — Srishti Solar Power के साथ
               </div>
             </div>
           </div>

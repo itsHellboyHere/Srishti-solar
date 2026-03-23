@@ -5,7 +5,7 @@
 
 export const STORY = {
   founded:      2024,
-  founderName:  'Dayamani',
+  founderName:  'MRS.DAYAMANI',
   founderTitle: 'Founder & Owner',
   mission:      'For the people of Bihar.',
   origin: `Renewable energy is necessary for the world to survive. Solar energy is the best and most abundant source. People worldwide desire to reduce CO₂, so my organization's goal is to help people achieve a cleaner atmosphere.`,
@@ -23,7 +23,7 @@ export const MISSION = {
 
 export const TEAM = [
   {
-    name:        'Dayamani',
+    name:        'Mrs.Dayamani',
     role:        'Founder & Owner',
     roleHindi:   'संस्थापक और मालिक',
     experience:  '25+ Years',
@@ -35,7 +35,7 @@ export const TEAM = [
   },
   {
     name:        'Bijendra Kr Nirala',
-    role:        'Technical Adviser',
+    role:        'Mentor',
     roleHindi:   'तकनीकी सलाहकार',
     experience:  '30 Years',
     education:   null,

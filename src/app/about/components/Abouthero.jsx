@@ -22,8 +22,8 @@ export default function AboutHero() {
             </span>
 
             <h1 className={`${styles.title} ${styles.fadeUp2}`}>
-              {STORY.founderName} की
-              <span className={styles.gold}>बिहार के लिए सोच</span>
+              {STORY.founderName}
+              <span className={styles.gold}>KA VISISON </span>
             </h1>
 
             <blockquote className={`${styles.quote} ${styles.fadeUp3}`}>
