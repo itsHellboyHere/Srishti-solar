@@ -42,8 +42,8 @@ const MODULES = [
     ],
     tech: [
       { label: 'Technology',    value: 'TOPcon, Glass to Glass'             },
-      { label: 'Cell Type',     value: 'Bifacial MBB with Circular Ribbon'  },
-      { label: 'Tolerance',     value: 'Positive tolerance offer'           },
+      { label: 'Cell Type',     value: 'Bifacial 16 BB with Circular Ribbon, GR12 ,3 VALVE  FOR OPTIMIZING THE ENERGY' },
+      // { label: 'Tolerance',     value: 'Positive tolerance offer'           },
     ],
     certs: ['IEC 61215', 'IEC 61730', 'UL 61730', 'CSA 61730'],
   },

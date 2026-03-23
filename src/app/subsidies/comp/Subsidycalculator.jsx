@@ -3,35 +3,33 @@ import { useState } from 'react'
 import Link from 'next/link'
 import styles from '../css/Subsidycalculator.module.css'
 
-// ── Verified data from PM Surya Ghar official portal ─────────────────────
-// Source: pmsuryaghar.gov.in & PIB press release PRID=2010133
-// Subsidy: 60% of cost up to 2kW, 40% of additional cost 2–3kW, capped at 3kW
-// Monthly saving based on official govt estimate: ₹15,000/year for 3kW household
+// ── Verified data updated per Client Instructions ─────────────────────
+// 1kW: 1.15L | 2kW: 1.55L | 3kW: 2.05L | 4+kW: 2.50L
 const TIERS = [
   {
     kw: 1, label: '1 kW',
-    subsidy: 30000, price: 65000, afterSubsidy: 35000,
+    subsidy: 30000, price: 115000, afterSubsidy: 85000,
     unitsDay: 4, saving: 1000, roofArea: 65,
     desc: 'छोटा घर · 2–3 पंखे + बल्ब', descEn: 'Small home · Fans + lights',
     tag: null,
   },
   {
     kw: 2, label: '2 kW',
-    subsidy: 60000, price: 130000, afterSubsidy: 70000,
+    subsidy: 60000, price: 155000, afterSubsidy: 95000,
     unitsDay: 8, saving: 1800, roofArea: 130,
     desc: 'मध्यम घर · AC + फ्रिज + बल्ब', descEn: 'Medium home · AC + fridge',
     tag: null,
   },
   {
     kw: 3, label: '3 kW',
-    subsidy: 78000, price: 189000, afterSubsidy: 111000,
+    subsidy: 78000, price: 205000, afterSubsidy: 127000,
     unitsDay: 12, saving: 2500, roofArea: 200,
     desc: 'पूरा घर · 2 AC + सब कुछ', descEn: 'Full home · 2 ACs + all',
     tag: 'Best Value',
   },
   {
     kw: '4+', label: '4+ kW',
-    subsidy: 78000, price: 260000, afterSubsidy: 182000,
+    subsidy: 78000, price: 250000, afterSubsidy: 172000,
     unitsDay: 16, saving: 3500, roofArea: 270,
     desc: 'बड़ा घर या व्यवसाय', descEn: 'Large home or business',
     tag: 'Commercial',
@@ -41,7 +39,7 @@ const TIERS = [
 function fmt(n) { return '₹' + Number(n).toLocaleString('en-IN') }
 
 export default function SubsidyCalculator() {
-  const [sel, setSel] = useState(2)
+  const [sel, setSel] = useState(0)
   const t        = TIERS[sel]
   const yearSave = t.saving * 12
   const payback  = (t.afterSubsidy / yearSave).toFixed(1)
@@ -97,21 +95,24 @@ export default function SubsidyCalculator() {
             </p>
           </div>
 
-          {/* Right — result card */}
+          {/* Right — Result card with "Sida Likhna" style */}
           <div className={styles.right}>
             <div className={styles.card}>
               <div className={styles.cardRows}>
                 <div className={styles.row}>
-                  <span className={styles.rowLbl}>सिस्टम की कीमत</span>
+                  <span className={styles.rowLbl}>सिस्टम की कुल कीमत</span>
                   <span className={styles.rowVal}>{fmt(t.price)}</span>
                 </div>
-                <div className={`${styles.row} ${styles.rowGreen}`}>
-                  <span className={styles.rowLbl}>सरकारी सब्सिडी</span>
-                  <span className={styles.rowVal}>− {fmt(t.subsidy)}</span>
+                
+                <div className={styles.row}>
+                  <span className={styles.rowLbl}>सरकारी सब्सिडी (अनुमानित)</span>
+                  <span className={styles.rowVal} style={{color: '#4ade80'}}>{fmt(t.subsidy)}</span>
                 </div>
+
                 <div className={styles.divider}/>
+                
                 <div className={`${styles.row} ${styles.rowFinal}`}>
-                  <span className={styles.rowFinalLbl}>आप देंगे सिर्फ</span>
+                  <span className={styles.rowFinalLbl}>सब्सिडी के बाद आपकी लागत</span>
                   <span className={styles.rowFinalVal}>{fmt(t.afterSubsidy)}</span>
                 </div>
               </div>
