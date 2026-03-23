@@ -15,7 +15,7 @@ export default function AboutCTA() {
               <span className={styles.gold}>हिस्सा बनें</span>
             </h2>
             <p className={`${styles.desc} ${styles.fadeUp3}`}>
-              41+ खुश परिवार। 9 जिले। शून्य शिकायतें।
+              950+ खुश परिवार। 27 जिले। शून्य शिकायतें।
               Bihar Solar Expo 2026 में #1 रैंक।
               Srishti Solar Power — बिहार की अपनी कंपनी।
             </p>

@@ -12,9 +12,9 @@ export const SOLUTIONS_HERO = {
   desc:      'घर हो, दुकान हो, या खेत — हर ज़रूरत के लिए सोलर। सही कीमत पर सोलर प्लांट लगवाएं',
   descEn:    'From homes to shops to farms — solar for every need. With government subsidy, at the right cost.',
   stats: [
-    { num: '41+',          label: 'इंस्टॉलेशन',   sub: 'Installations'    },
-    { num: '9',            label: 'जिले',          sub: 'Districts'        },
-    { num: '₹31,98,000',  label: 'सब्सिडी दिलाई', sub: 'Subsidy Assisted' },
+    { num: '950+',          label: 'इंस्टॉलेशन',   sub: 'Installations'    },
+    { num: '27',            label: 'जिले',          sub: 'Districts'        },
+    { num: '₹7,41,00,000',  label: 'सब्सिडी दिलाई', sub: 'Subsidy Assisted' },
     { num: '₹0',          label: 'शिकायतें',       sub: 'Complaints'       },
   ],
 }

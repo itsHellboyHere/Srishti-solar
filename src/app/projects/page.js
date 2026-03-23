@@ -4,8 +4,8 @@ const SITE_URL = 'https://srishtisolarpower.com'
 const PAGE_URL = `${SITE_URL}/projects`
 
 export const metadata = {
-  title: 'Solar Installation Projects Bihar | 41+ Installs',
-  description: 'Srishti Solar Power के 41+ real rooftop solar installations देखें — Patna, Gaya, Muzaffarpur, Bhagalpur, Darbhanga और Bihar के 9 जिलों में। 1kW से 10kW तक residential और commercial solar projects। MNRE certified installations।',
+  title: 'Solar Installation Projects Bihar | 950+ Installs',
+  description: 'Srishti Solar Power के 950+ real rooftop solar installations देखें — Patna, Gaya, Muzaffarpur, Bhagalpur, Darbhanga और Bihar के 9 जिलों में। 1kW से 10kW तक residential और commercial solar projects। MNRE certified installations।',
   keywords: [
     'solar projects Bihar',
     'solar installation Patna',
@@ -21,8 +21,8 @@ export const metadata = {
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: 'website',
-    title: 'Solar Projects — 41+ Installations Across Bihar | Srishti Solar Power',
-    description: '41+ real solar installations across Bihar. Residential 1–3kW और commercial 5–10kW solar projects। Patna, Gaya, Muzaffarpur, Bhagalpur, Darbhanga में completed installations।',
+    title: 'Solar Projects — 950+ Installations Across Bihar | Srishti Solar Power',
+    description: '950+ real solar installations across Bihar. Residential 1–3kW और commercial 5–10kW solar projects। Patna, Gaya, Muzaffarpur, Bhagalpur, Darbhanga में completed installations।',
     url: PAGE_URL,
     siteName: 'Srishti Solar Power',
     locale: 'hi_IN',
@@ -35,8 +35,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Solar Projects Gallery Bihar | 41+ Installs | Srishti Solar Power',
-    description: '41+ rooftop solar installations across Bihar. Residential and commercial solar projects by Srishti Solar Power.',
+    title: 'Solar Projects Gallery Bihar | 950+ Installs | Srishti Solar Power',
+    description: '950+ rooftop solar installations across Bihar. Residential and commercial solar projects by Srishti Solar Power.',
     images: ['/og-image.jpg'],
   },
 }
@@ -46,7 +46,7 @@ const projectsSchema = {
   '@type': 'CollectionPage',
   '@id': `${PAGE_URL}/#page`,
   name: 'Solar Installation Projects in Bihar — Srishti Solar Power',
-  description: 'Portfolio of 41+ rooftop solar installations completed by Srishti Solar Power across 9 districts of Bihar. Residential 1kW–3kW and commercial 5kW–10kW projects.',
+  description: 'Portfolio of 950+ rooftop solar installations completed by Srishti Solar Power across 9 districts of Bihar. Residential 1kW–3kW and commercial 5kW–10kW projects.',
   url: PAGE_URL,
   provider: {
     '@type': 'LocalBusiness',

@@ -81,10 +81,10 @@ export const TEAM = [
 ]
 
 export const ACHIEVEMENTS = {
-  installations:  '41+',
-  districts:      '09',
+  installations:  '950+',
+  districts:      '27',
   employees:      '29',
-  subsidyHelped:  '₹31,98,000',
+  subsidyHelped:  '₹7,41,00,000',
   awards: [
     {
       title: 'Ranked #1 — Technical Efficiency',
@@ -151,6 +151,6 @@ export const WHY_SOLAR = [
 
 export const TIMELINE = [
   { year: 2024, title: 'कंपनी की स्थापना',     titleEn: 'Company Founded',             desc: 'Srishti Solar Power launched in Bihar with a clear mission — quality solar at the right cost.' },
-  { year: 2025, title: '9 जिलों में पहुँचे',   titleEn: 'Expanded to 9 Districts',     desc: 'Grew operations across 9 districts of Bihar, installing 41+ systems with zero post-install complaints.' },
+  { year: 2025, title: '27 जिलों में पहुँचे',   titleEn: 'Expanded to 27 Districts',     desc: 'Grew operations across 27 districts of Bihar, installing 41+ systems with zero post-install complaints.' },
   { year: 2026, title: 'Bihar Solar Expo #1',   titleEn: '#1 Technical Efficiency',     desc: 'Ranked #1 in technical efficiency at the 2026 Bihar Solar Expo by Energy Secretary of Bihar. Featured in Dainik Jagran.' },
 ]

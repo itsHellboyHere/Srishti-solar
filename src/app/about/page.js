@@ -5,7 +5,7 @@ const PAGE_URL = `${SITE_URL}/about`
 
 export const metadata = {
   title: 'About',
-  description: 'Srishti Solar Power — Founded 2024 by Dayamani। Bihar Solar Expo 2026 में #1 Technical Efficiency award by Energy Secretary of Bihar। 29 team members, 41+ installations, 9 districts, ₹31,98,000 subsidy assisted। IIT BHU engineer supervised installations।',
+  description: 'Srishti Solar Power — Founded 2024 by Dayamani। Bihar Solar Expo 2026 में #1 Technical Efficiency award by Energy Secretary of Bihar। 29 team members, 950+ installations, 27 districts, ₹7,41,00,000 subsidy assisted।engineer supervised installations।',
   keywords: [
     'Srishti Solar Power',
     'about Srishti Solar Power',
@@ -24,7 +24,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     title: 'About Srishti Solar Power — Bihar की #1 Solar Company | Founded 2024',
-    description: 'Founded 2024 by Dayamani। #1 Technical Efficiency — Bihar Solar Expo 2026। 41+ installations, 9 districts, ₹31,98,000 subsidy assisted। Team of 29 professionals.',
+    description: 'Founded 2024 by Dayamani। #1 Technical Efficiency — Bihar Solar Expo 2026। 950+ installations, 27 districts, ₹7,41,00,000 subsidy assisted। Team of 29 professionals.',
     url: PAGE_URL,
     siteName: 'Srishti Solar Power',
     locale: 'hi_IN',

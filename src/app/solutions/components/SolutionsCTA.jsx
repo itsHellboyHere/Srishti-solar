@@ -18,8 +18,8 @@ const TRUST = [
   },
   {
     Icon: Home,
-    hi: '41+ इंस्टॉलेशन',
-    en: 'Across 9 districts of Bihar',
+    hi: '950+ इंस्टॉलेशन',
+    en: 'Across 27 districts of Bihar',
   },
   {
     Icon: CheckCircle2,
@@ -28,7 +28,7 @@ const TRUST = [
   },
   {
     Icon: Landmark,
-    hi: '₹31,98,000 सब्सिडी दिलाई',
+    hi: '₹7,41,00,000 सब्सिडी दिलाई',
     en: 'PM Surya Ghar assisted',
   },
 ]

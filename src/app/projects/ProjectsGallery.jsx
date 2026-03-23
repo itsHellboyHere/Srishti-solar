@@ -13,10 +13,10 @@ const BREAKPOINTS = {
 }
 
 const STATS = [
-  { num: '20+',        label: 'Installations'    },
-  { num: '5',          label: 'Districts Covered' },
+  { num: '950+',        label: 'Installations'    },
+  { num: '27',          label: 'Districts Covered' },
   { num: 'Residential & Commercial', label: 'Project Types' },
-  { num: '₹31,98,000', label: 'Subsidy Assisted'  },
+  { num: '₹7,41,00,000', label: 'Subsidy Assisted'  },
 ]
 
 /* ── Placeholder SVG (no kW shown) ── */
@@ -243,7 +243,7 @@ export default function ProjectsGallery() {
               <span className={styles.heroGold}>हमारी छाप</span>
             </h1>
             <p className={styles.heroDesc}>
-              Real installations. Real customers. Real savings.
+              Latest installations. Real customers. Real savings.
               <span className={styles.heroDescHi}> — हर तस्वीर एक खुश परिवार की कहानी है।</span>
             </p>
           </div>
@@ -312,7 +312,7 @@ export default function ProjectsGallery() {
               <span className={styles.ctaGold}>अगली सफलता की कहानी</span>
             </h2>
             <p className={styles.ctaDesc}>
-              Join 20+ happy families across Bihar.
+              Join 950+ happy families across Bihar.
               Free site visit · ₹78,000 subsidy assisted · 72-hour install.
             </p>
           </div>
