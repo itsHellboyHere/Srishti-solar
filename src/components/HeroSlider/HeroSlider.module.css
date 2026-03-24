@@ -101,7 +101,7 @@
     rgba(14, 9, 4, 0.92) 18%,
     rgba(14, 9, 4, 0.72) 36%,
     rgba(14, 9, 4, 0.3)  54%,
-    transparent 68%
+    transparent 65%
   );
   z-index: 2;
 }
@@ -154,8 +154,8 @@
   background: var(--sun-bright);
   box-shadow: 0 0 10px var(--sun-core);
 }
-.particle:nth-child(odd)  { width: 2px; height: 2px; }
-.particle:nth-child(even) { width: 4px; height: 4px; }
+.particle:nth-child(odd)  { width: 4px; height: 4px; }
+.particle:nth-child(even) { width: 6px; height: 6px; }
 .particle:nth-child(3n)   { width: 3px; height: 3px; background: var(--sun-core); }
 
 @keyframes rise {
@@ -233,8 +233,8 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-heading);
-  font-size: 0.65rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 720;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--sun-bright);
@@ -246,7 +246,7 @@
   margin-bottom: 22px;
   opacity: 0;
   transform: translateY(12px);
-  transition: opacity var(--dur-slow) 0.05s var(--ease-smooth),
+  transition:opacity var(--dur-slow) 0.05s var(--ease-smooth),
               transform var(--dur-slow) 0.05s var(--ease-smooth);
 }
 
@@ -280,6 +280,7 @@
 .line {
   display: block;
   opacity: 0;
+  padding: 6px;
   transform: translateY(30px);
   transition:
     opacity   var(--dur-slow) calc(0.1s + var(--li, 0) * 0.12s) var(--ease-smooth),
@@ -298,7 +299,7 @@
 .accentLine::after {
   content: '';
   position: absolute;
-  left: 0; bottom: -5px;
+  left: 0; bottom: -10px;
   height: 3px;
   width: 0%;
   background: linear-gradient(90deg, var(--sun-core), var(--sun-bright), transparent);
@@ -318,8 +319,8 @@
 /* ── Desc ── */
 .desc {
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 300;
+  font-size: 1.2rem;
+  font-weight: bolder;
   line-height: 1.8;
   color: rgba(255, 248, 238, 0.65);
   max-width: 420px;
@@ -606,6 +607,9 @@
 }
 
 @media (max-width: 900px) {
+  /* .maskBottom{
+    display: none;
+  } */
   .contentWrap { width: 100%; min-width: unset; }
   .accentBar   { display: none; }
   .slideContent { padding: 100px 32px 80px 24px; }

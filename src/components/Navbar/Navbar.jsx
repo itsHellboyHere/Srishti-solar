@@ -89,7 +89,7 @@ export default function Navbar() {
           {/* CTA + Hamburger */}
           <div className={styles.actions}>
             <Link href="/contact" className={styles.ctaButton}>
-              <span>Get Free Quote</span>
+              <span>Contact Us</span>
             </Link>
             <button
               className={`${styles.hamburger} ${menuOpen ? styles.hamburgerActive : ''}`}

@@ -14,7 +14,7 @@ const SLIDES = [
     ctaHref:  '/contact',
     ghost:     'See How It Works',
     ghostHref: '/solutions',
-    bg: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1800&q=90',
+    bg: 'https://res.cloudinary.com/dgifa4wgb/image/upload/f_webp,q_50,w_1200/v1774327640/ChatGPT_Image_Mar_24_2026_at_10_15_58_AM_g7vxu8.jpg',
   },
 {
     tag: 'प्रधानमंत्री सूर्य घर मुफ्त बिजली योजना',
@@ -36,7 +36,7 @@ const SLIDES = [
     ctaHref:  '/contact',
     ghost:     'Our Projects',
     ghostHref: '/projects',
-    bg: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1800&q=90',
+    bg: 'https://res.cloudinary.com/dgifa4wgb/image/upload/f_webp,q_50,w_1200/v1774328352/ChatGPT_Image_Mar_24_2026_at_10_28_12_AM_bvlqpx.jpg',
   },
 ]
 
@@ -104,7 +104,7 @@ export default function HeroSlider() {
             className={`${styles.slide} ${i === current ? styles.slideIn : ''} ${i === prev ? styles.slideOut : ''}`}
           >
             <div className={styles.bg} style={{ backgroundImage: `url('${slide.bg}')` }} />
-            <div className={styles.scrim} />
+            {/* <div className={styles.scrim} /> */}
             <div className={styles.maskLeft} />
             <div className={styles.maskTop} />
             <div className={styles.maskBottom} />
@@ -114,7 +114,7 @@ export default function HeroSlider() {
       </div>
 
       <div className={styles.particles} aria-hidden="true">
-        {[...Array(10)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <div key={i} className={styles.particle} style={{ '--pi': i }} />
         ))}
       </div>
