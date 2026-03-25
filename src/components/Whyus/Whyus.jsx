@@ -15,7 +15,7 @@ const REASONS = [
   },
   {
     Icon: ShieldCheck,
-    stat: '₹78k', unit: '',
+    stat: '₹78,000', unit: '',
     tag: 'सरकारी · Govt Scheme',
     title: 'पूरी सब्सिडी सहायता',
     titleEn: 'Max Subsidy Assisted',
