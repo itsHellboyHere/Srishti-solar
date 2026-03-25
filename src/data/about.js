@@ -34,7 +34,7 @@ export const TEAM = [
     featured:    true,
   },
   {
-    name:        'Bijendra Kr Nirala',
+    name:        'Mr.Bijendra Kr Nirala',
     role:        'Mentor',
     roleHindi:   'तकनीकी सलाहकार',
     experience:  '30 Years',
