@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
 import LeadModal from '@/components/LeadModal/LeadModal'
 import WhatsAppButton from '@/components/Whatsappbutton'
+import Script from "next/script";
 
 const figtree = Figtree({
   subsets: ['latin'],
@@ -18,13 +19,14 @@ const lexend = Lexend({
   display: 'swap',
 })
 
-const SITE_URL  = 'https://srishtisolarpower.com'
+const SITE_URL = 'https://srishtisolarpower.com'
 const SITE_NAME = 'Srishti Solar Power'
-
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+console.log(GA_ID);
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default:  'Srishti Solar Power — Bihar की #1 Solar Company',
+    default: 'Srishti Solar Power — Bihar की #1 Solar Company',
     template: '%s | Srishti Solar Power',
   },
   icons: { icon: '/favicon.ico' },
@@ -54,8 +56,8 @@ export const metadata = {
     'सोलर कंपनी पटना',
     'PM सूर्य घर योजना बिहार',
   ],
-  authors:   [{ name: SITE_NAME, url: SITE_URL }],
-  creator:   SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
   publisher: SITE_NAME,
   alternates: {
     canonical: '/',
@@ -127,14 +129,14 @@ const localBusinessSchema = {
     longitude: 85.1376,
   },
   areaServed: [
-    { '@type': 'State', name: 'Bihar'       },
-    { '@type': 'City',  name: 'Patna'       },
-    { '@type': 'City',  name: 'Gaya'        },
-    { '@type': 'City',  name: 'Muzaffarpur' },
-    { '@type': 'City',  name: 'Bhagalpur'   },
-    { '@type': 'City',  name: 'Darbhanga'   },
-    { '@type': 'City',  name: 'Nalanda'     },
-    { '@type': 'City',  name: 'Begusarai'   },
+    { '@type': 'State', name: 'Bihar' },
+    { '@type': 'City', name: 'Patna' },
+    { '@type': 'City', name: 'Gaya' },
+    { '@type': 'City', name: 'Muzaffarpur' },
+    { '@type': 'City', name: 'Bhagalpur' },
+    { '@type': 'City', name: 'Darbhanga' },
+    { '@type': 'City', name: 'Nalanda' },
+    { '@type': 'City', name: 'Begusarai' },
   ],
   serviceType: [
     'Rooftop Solar Installation',
@@ -162,7 +164,7 @@ const localBusinessSchema = {
     ],
   },
   openingHoursSpecification: [
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], opens: '09:00', closes: '19:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '09:00', closes: '19:00' },
   ],
 }
 
@@ -186,12 +188,44 @@ const websiteSchema = {
 export default function RootLayout({ children }) {
   return (
     <html lang="hi" dir="ltr" className={`${figtree.variable} ${lexend.variable}`}>
-      <head>
-        <meta name="theme-color"             content="#F4A300" />
-        <meta name="msapplication-TileColor" content="#0A0602" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
-      </head>
+<head>
+  <meta name="theme-color" content="#F4A300" />
+  <meta name="msapplication-TileColor" content="#0A0602" />
+
+  {/* Google Analytics */}
+  {GA_ID && (
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+
+          gtag('js', new Date());
+
+          gtag('config', '${GA_ID}', {
+            page_path: window.location.pathname,
+            anonymize_ip: true,
+          });
+        `}
+      </Script>
+    </>
+  )}
+
+  {/* Structured Data */}
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+  />
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+  />
+</head>
       <body>
         <Navbar />
         <LeadModal />
