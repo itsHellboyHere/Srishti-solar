@@ -22,7 +22,7 @@ const lexend = Lexend({
 const SITE_URL = 'https://srishtisolarpower.com'
 const SITE_NAME = 'Srishti Solar Power'
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-console.log(GA_ID);
+// console.log(GA_ID);
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -188,19 +188,19 @@ const websiteSchema = {
 export default function RootLayout({ children }) {
   return (
     <html lang="hi" dir="ltr" className={`${figtree.variable} ${lexend.variable}`}>
-<head>
-  <meta name="theme-color" content="#F4A300" />
-  <meta name="msapplication-TileColor" content="#0A0602" />
+      <head>
+        <meta name="theme-color" content="#F4A300" />
+        <meta name="msapplication-TileColor" content="#0A0602" />
 
-  {/* Google Analytics */}
-  {GA_ID && (
-    <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
+        {/* Google Analytics */}
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           window.gtag = gtag;
@@ -212,20 +212,20 @@ export default function RootLayout({ children }) {
             anonymize_ip: true,
           });
         `}
-      </Script>
-    </>
-  )}
+            </Script>
+          </>
+        )}
 
-  {/* Structured Data */}
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-  />
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-  />
-</head>
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+      </head>
       <body>
         <Navbar />
         <LeadModal />
