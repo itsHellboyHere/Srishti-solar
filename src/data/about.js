@@ -104,7 +104,7 @@ export const ACHIEVEMENTS = {
       outlet:    'Dainik Jagran',
       headline:  'Srishti Solar Power featured with CMD',
       date:      'February 26, 2026',
-      image:     '/media/dainik-jagran.jpg',  // ← upload client's image here
+      image:     'https://res.cloudinary.com/dgifa4wgb/image/upload/q_auto/f_auto/v1775636785/e9122355-459e-4895-9a29-572c7eda19ed_vuqpji.jpg',  // ← upload client's image here
       url:       null,
     },
     {

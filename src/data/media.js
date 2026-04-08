@@ -2,7 +2,7 @@
 
 export const MEDIA = [
   {
-    src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905684/daeb49a5-0f25-462d-adc7-80bacf0dd1f7_rxdiqo.jpg',
+    src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/q_auto/f_auto/v1775636785/e9122355-459e-4895-9a29-572c7eda19ed_vuqpji.jpg',
     caption: 'Dainik Jagran Feature',
     outlet:  'Dainik Jagran · Solar Mela 2026',
     tag:     'Press',

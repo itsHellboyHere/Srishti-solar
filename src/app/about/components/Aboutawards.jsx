@@ -25,7 +25,6 @@ export default function AboutAwards() {
           ))}
         </div>
 
-        <div className={`${styles.mediaLabel} ${styles.fadeUp3}`}>📰 Media Coverage</div>
         <div className={`${styles.mediaRow} ${styles.fadeUp4}`}>
           {ACHIEVEMENTS.media.map((m, i) => (
             m.image ? (
@@ -34,7 +33,7 @@ export default function AboutAwards() {
                   <img src={m.image} alt={`${m.outlet} coverage`} className={styles.mediaImg}
                     onError={e => { e.currentTarget.style.display='none' }}/>
                   <div className={styles.mediaImgFallback}>
-                    <span>📰</span>
+                    {/* <span>📰</span> */}
                     <span>Upload to /public/media/dainik-jagran.jpg</span>
                   </div>
                 </div>
