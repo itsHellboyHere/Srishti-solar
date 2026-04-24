@@ -66,18 +66,6 @@ export const TEAM = [
     photo:       null,
     featured:    false,
   },
-
-{
-  name:        'Dr. CP Singh',
-  role:        'Market Head',
-  roleHindi:   'मार्केट प्रमुख',
-  experience:  '10+ Years',
-  education:   '',
-  bio:         'Leads market strategy, partnerships, and expansion initiatives. With over 10 years of experience, he focuses on strengthening brand presence and building strong relationships with clients and partners.',
-  bioHindi:    '10 से अधिक वर्षों के अनुभव के साथ, ये बाजार रणनीति, साझेदारी और विस्तार कार्यों का नेतृत्व करते हैं। इनका मुख्य उद्देश्य ब्रांड की मजबूत पहचान बनाना और ग्राहकों व भागीदारों के साथ मजबूत संबंध स्थापित करना है।',
-  photo:       '/team/dr-cp-singh.jpg',
-  featured:    false,
-}
 ]
 
 export const ACHIEVEMENTS = {
