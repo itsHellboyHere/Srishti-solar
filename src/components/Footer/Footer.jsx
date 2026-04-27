@@ -25,7 +25,7 @@ const SERVICES = [
   // { label: 'Subsidy Calculator',     href: '/subsidies#calculator'           },
   // { label: 'Zero Electricity Bill',  href: '/zero-electricity-bill'          },
   { label: 'Topcon N-Type Panels',   href: '/topcon-solar-panel-bihar'       },
-  { label: 'F & Q',                  href: '/subsidies#faq'                  },
+  { label: 'FAQ',                  href: '/subsidies#faq'                  },
 ]
 
 const SOCIALS = [

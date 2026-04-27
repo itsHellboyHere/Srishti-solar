@@ -14,7 +14,7 @@ const SLIDES = [
     ctaHref:  '/contact',
     ghost:     'See How It Works',
     ghostHref: '/solutions',
-    bg: 'https://res.cloudinary.com/dgifa4wgb/image/upload/f_webp,q_50,w_1200/v1774327640/ChatGPT_Image_Mar_24_2026_at_10_15_58_AM_g7vxu8.jpg',
+    bg: 'https://res.cloudinary.com/dgifa4wgb/image/upload/v1777303082/ChatGPT_Image_Apr_27_2026_at_08_46_13_PM_n7gbgw.jpg',
   },
 {
     tag: 'प्रधानमंत्री सूर्य घर मुफ्त बिजली योजना',

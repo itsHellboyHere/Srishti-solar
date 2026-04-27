@@ -60,8 +60,8 @@ export default function Navbar() {
               <Image
                 src="/logo.png"
                 alt="Srishti Solar"
-                width={42}
-                height={42}
+                width={44}
+                height={44}
                 className={styles.logoImg}
                 priority
               />
