@@ -175,7 +175,6 @@ export default function Footer() {
                 <span className={styles.contactIcon}>☎</span>
                 <div>
                   <a href="tel:+919931013345" className={styles.contactLink}>99310 13345 · 99310 67798</a>
-                  <span className={styles.contactNote}>· 79911 74161</span>
                 </div>
               </li>
               <li className={styles.contactItem}>
