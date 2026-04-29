@@ -33,17 +33,6 @@ export const TEAM = [
     photo:       '/team/dayamani1.jpg',
     featured:    true,
   },
-  {
-    name:        'Mr.Bijendra Kr Nirala',
-    role:        'Mentor',
-    roleHindi:   'तकनीकी सलाहकार',
-    experience:  '30 Years',
-    education:   null,
-    bio:         '30 years of deep technical experience in electrical and solar energy systems across Bihar.',
-    bioHindi:    'बिहार में बिजली और सोलर सिस्टम में 30 साल का गहरा तकनीकी अनुभव।',
-    photo:       '/team/bijendra1.jpg',
-    featured:    false,
-  },
     {
     name:        'Dr. Srishti',
     role:        'HR Head',
