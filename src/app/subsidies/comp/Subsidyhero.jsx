@@ -67,7 +67,9 @@ export default function SubsidyHero() {
             <span className={styles.titleHindi}>सोलर लगाएँ —</span>
             <span className={styles.titleAmt}>
               ₹78,000
-              <span className={styles.titleAmtSub}> सब्सिडी पाएँ</span>
+              <span className={styles.titleAmtSub}> सब्सिडी <span style={{
+                marginLeft:"6px",
+              }}>पाएँ</span></span>
             </span>
           </h1>
 

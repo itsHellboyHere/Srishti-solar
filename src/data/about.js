@@ -8,7 +8,11 @@ export const STORY = {
   founderName:  'MRS.DAYAMANI',
   founderTitle: 'Founder & Owner',
   mission:      'For the people of Bihar.',
-  origin: `Renewable energy is necessary for the world to survive. Solar energy is the best and most abundant source. People worldwide desire to reduce CO₂, so my organization's goal is to help people achieve a cleaner atmosphere.`,
+  origin: `In today’s industrial age, our natural resources are being extinguished at an alarming
+rate. Renewable Energy is the need of the hour, and worldwide efforts are directed
+towards reducing 𝐶𝑂2
+emissions. We at Srishti Solar Power strive to help people
+achieve a cleaner, safer, and greener Earth.`,
   challenge:    `Customers had no knowledge of Rooftop Solar Plants. They only knew the cost, and many vendors were providing poor materials at high costs.`,
   today:        `Ranked #1 in technical efficiency at the 2026 Bihar Solar Expo, as stated by the Energy Secretary of Bihar.`,
 }

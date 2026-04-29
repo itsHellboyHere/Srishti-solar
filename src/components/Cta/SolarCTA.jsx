@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 import Magnetic from '@/components/utils/Magnetic'
 import styles from './SolarCTA.module.css'
 
-const TRUST_ITEMS = ['MNRE Certified', 'SBPDCL Registered', '2,500+ Installs', '5 Yr Free AMC']
+const TRUST_ITEMS = ['MNRE Certified', 'SBPDCL Registered', '950+ Installs', '5 Yr Free AMC']
 
 export default function SolarCTA() {
   const contentRef = useRef(null)
@@ -54,7 +54,7 @@ export default function SolarCTA() {
               <small>99310 13345</small>
             </a>
           </Magnetic>
-          <div className={styles.panel}>
+          {/* <div className={styles.panel}>
             <span />
             <span />
             <span />
@@ -64,7 +64,7 @@ export default function SolarCTA() {
             <span />
             <span />
             <span />
-          </div>
+          </div> */}
           <div className={styles.ring} />
         </div>
       </div>
