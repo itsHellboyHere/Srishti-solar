@@ -47,7 +47,7 @@ const REASONS = [
   },
   {
     Icon: WalletCards,
-    stat: '₹', unit: '',
+    stat: '₹ 0', unit: '',
     tag: 'आसान · Zero Upfront',
     title: 'आसान किस्तों में',
     titleEn: 'Easy Financing',
