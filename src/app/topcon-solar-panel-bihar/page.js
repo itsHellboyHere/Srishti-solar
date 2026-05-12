@@ -48,14 +48,8 @@ const schema = {
   alternateName: ['Topcon Bifacial Solar Panel', 'N-Type 16BB Solar Panel Bihar', 'टॉपकॉन सोलर पैनल'],
   description: 'Premium TOPcon Bifacial N-Type solar panels with 16BB/18BB technology. IEC 61215, IEC 61730, UL 61730, CSA 61730 certified. Higher output, better shading tolerance, excellent PID resistance.',
   brand: { '@type': 'Brand', name: 'Srishti Solar Power' },
+  image: `${SITE_URL}/og-image.jpg`,
   seller: { '@type': 'LocalBusiness', '@id': `${SITE_URL}/#business` },
-  offers: {
-    '@type': 'Offer',
-    priceCurrency: 'INR',
-    availability: 'https://schema.org/InStock',
-    areaServed: { '@type': 'State', name: 'Bihar' },
-    description: 'TOPcon solar panel installation with free site visit across Bihar.',
-  },
   additionalProperty: [
     { '@type': 'PropertyValue', name: 'Technology',    value: 'TOPcon, Glass to Glass'           },
     { '@type': 'PropertyValue', name: 'Cell Type',     value: 'Bifacial MBB with Circular Ribbon'},

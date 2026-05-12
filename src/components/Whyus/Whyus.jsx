@@ -59,7 +59,7 @@ const COMPARE = [
   {
     hi: 'पैनल टेक्नोलॉजी', en: 'Panel Technology',
     them: 'POLY CRISTLINE / MONO CRISTLINE',
-    us:   'N-Type Topcon BIFICIAL PANAL',
+    us:   'N-Type Topcon BIFACIAl PANAL',
   },
   {
     hi: 'बस-बार', en: 'Bus Bar',
