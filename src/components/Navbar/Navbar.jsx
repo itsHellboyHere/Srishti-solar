@@ -14,6 +14,8 @@ const NAV_LINKS = [
   { label: 'About',     href: '/about' },
 ]
 
+const BROCHURE_URL = 'https://res.cloudinary.com/dgifa4wgb/image/upload/fl_attachment:Srishti_Solar_Power_Brochure/v1778914616/Srishti_Solar_Power_sqwvsd.pdf'
+
 export default function Navbar() {
   const pathname  = usePathname()
   const [scrolled, setScrolled] = useState(false)
@@ -41,17 +43,18 @@ export default function Navbar() {
 
   const closeMenu = () => setMenuOpen(false)
   const isHome = pathname === '/'
+
   return (
     <>
       {/* ── Navbar bar ── */}
-<nav
-  className={`
-    ${styles.navbar}
-    ${isHome && scrolled ? styles.scrolled : ''}
-    ${!isHome ? styles.scrolled : ''}
-    ${menuOpen ? styles.menuActive : ''}
-  `}
->
+      <nav
+        className={`
+          ${styles.navbar}
+          ${isHome && scrolled ? styles.scrolled : ''}
+          ${!isHome ? styles.scrolled : ''}
+          ${menuOpen ? styles.menuActive : ''}
+        `}
+      >
         <div className={styles.container}>
 
           {/* Logo */}
@@ -86,8 +89,22 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CTA + Hamburger */}
+          {/* CTA + Brochure + Hamburger */}
           <div className={styles.actions}>
+            <a
+              href={BROCHURE_URL}
+              download="Srishti_Solar_Power_Brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.brochureBtn}
+              aria-label="Download Brochure"
+            >
+              <svg className={styles.brochureIcon} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M10 2v10m0 0l-3-3m3 3l3-3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M4 14v2a1 1 0 001 1h10a1 1 0 001-1v-2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+              </svg>
+              <span>Brochure</span>
+            </a>
             <Link href="/contact" className={styles.ctaButton}>
               <span>Contact Us</span>
             </Link>
@@ -122,6 +139,23 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
+
+          {/* Brochure download in mobile menu */}
+          <a
+            href={BROCHURE_URL}
+            download="Srishti_Solar_Power_Brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.mobileBrochure}
+            onClick={closeMenu}
+          >
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M10 2v10m0 0l-3-3m3 3l3-3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M4 14v2a1 1 0 001 1h10a1 1 0 001-1v-2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+            </svg>
+            Download Brochure
+          </a>
+
           <Link href="/contact" className={styles.mobileCta} onClick={closeMenu}>
             Start Your Solar Journey →
           </Link>
