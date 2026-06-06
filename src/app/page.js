@@ -7,6 +7,7 @@ import SolarCTA      from '@/components/Cta/SolarCTA'
 import MediaStrip    from '@/components/MediaStrip'
 import JingleVideo   from '@/components/JingleVideo'
 import ZeroBillStrip from '@/components/ZeroBillStrip'
+import YoutubeSection from '@/components/YoutubeSection'
 
 const SITE_URL = 'https://srishtisolarpower.com'
 
@@ -137,6 +138,7 @@ export default function HomePage() {
       <Subsidy />
       <MediaStrip />
       <ZeroBillStrip />
+      <YoutubeSection/>
       <SolarCTA />
     </main>
   )
