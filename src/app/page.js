@@ -137,7 +137,7 @@ export default function HomePage() {
       </StickyCanvas>
       <Subsidy />
       <MediaStrip />
-      <ZeroBillStrip />
+      {/* <ZeroBillStrip /> */}
       <YoutubeSection/>
       <SolarCTA />
     </main>

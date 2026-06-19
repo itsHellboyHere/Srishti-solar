@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import styles from './HeroSlider.module.css'
+import { Cloud, IndianRupee, BadgeCheck, ArrowRight } from 'lucide-react'
+
 
 const SLIDES = [
   {
@@ -208,6 +210,40 @@ export default function HeroSlider() {
           </div>
 
         </div>
+      </div>
+      {/* ── Floating Zero-Bill proof cloud ── */}
+      <div className={styles.proofFloat}>
+        {/* real drifting clouds */}
+       {/* real drifting clouds — back + front layers */}
+        <div className={styles.clouds} aria-hidden="true">
+          <Cloud className={`${styles.cloud} ${styles.cloud1}`} strokeWidth={1.4} />
+          <Cloud className={`${styles.cloud} ${styles.cloud2}`} strokeWidth={1.4} />
+          <Cloud className={`${styles.cloud} ${styles.cloud3}`} strokeWidth={1.4} />
+          {/* front clouds — drift OVER the card */}
+          <Cloud className={`${styles.cloud} ${styles.cloudFront1}`} strokeWidth={1.4} />
+          <Cloud className={`${styles.cloud} ${styles.cloudFront2}`} strokeWidth={1.4} />
+        </div>
+
+        <Link href="/zero-electricity-bill" className={styles.proofCard}>
+          <span className={styles.proofGlow} aria-hidden="true" />
+
+          <span className={styles.proofBadge}>
+            <IndianRupee size={18} strokeWidth={2.6} color="#1A0E04" />
+            <span className={styles.proofZero}>0</span>
+          </span>
+
+          <span className={styles.proofBody}>
+            <span className={styles.proofTitle}>
+              Zero बिजली बिल
+              <BadgeCheck size={15} strokeWidth={2.2} className={styles.proofVerify} />
+            </span>
+            <span className={styles.proofMeta}>Actual SBPDCL bill · Patna · Feb 2026</span>
+          </span>
+
+          <span className={styles.proofCta} aria-hidden="true">
+            <ArrowRight size={15} strokeWidth={2.6} />
+          </span>
+        </Link>
       </div>
 
     </section>
