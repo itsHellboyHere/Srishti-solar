@@ -144,11 +144,11 @@ export default function YoutubeSection() {
     <section className={styles.section} ref={sectionRef}>
 
       {/* Wave top */}
-      <div className={styles.waveTop} aria-hidden="true">
+      {/* <div className={styles.waveTop} aria-hidden="true">
         <svg viewBox="0 0 1440 90" preserveAspectRatio="none" width="100%" height="100%">
           <path d="M0,90 Q360,0 720,50 Q1080,100 1440,20 L1440,0 L0,0 Z" fill="var(--bg-warm)" />
         </svg>
-      </div>
+      </div> */}
 
       {/* Parallax bg */}
       <div className={styles.parallaxWrap} aria-hidden="true">

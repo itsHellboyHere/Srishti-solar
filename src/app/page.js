@@ -127,6 +127,7 @@ export default function HomePage() {
         Srishti Solar Power — Bihar की #1 Solar Company | Rooftop Solar Installation Patna
       </h1>
       <HeroSlider />
+       <YoutubeSection/>
       <StickyCanvas
         image="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072"
         watermark="SOLAR"
@@ -138,7 +139,7 @@ export default function HomePage() {
       <Subsidy />
       <MediaStrip />
       {/* <ZeroBillStrip /> */}
-      <YoutubeSection/>
+     
       <SolarCTA />
     </main>
   )
