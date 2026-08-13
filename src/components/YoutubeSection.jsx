@@ -26,20 +26,20 @@ const VIDEOS = [
     duration: '1:59',
     featured: false,
   },
-  {
-    id: 'frOq0G0VSWA',
-    title: 'Srishti Solar Power | Harness the Sun, Power Your Future ☀️',
-    tag: 'Brand',
-    duration: '0:33',
-    featured: false,
-  },
-  {
-    id: '2OsDVBR-csg',
-    title: 'Go Solar with Srishti Solar Power 🌙 | Save Money & Energy | Hindi Jingle',
-    tag: 'Jingle',
-    duration: '0:33',
-    featured: false,
-  },
+  // {
+  //   id: 'frOq0G0VSWA',
+  //   title: 'Srishti Solar Power | Harness the Sun, Power Your Future ☀️',
+  //   tag: 'Brand',
+  //   duration: '0:33',
+  //   featured: false,
+  // },
+  // {
+  //   id: '2OsDVBR-csg',
+  //   title: 'Go Solar with Srishti Solar Power 🌙 | Save Money & Energy | Hindi Jingle',
+  //   tag: 'Jingle',
+  //   duration: '0:33',
+  //   featured: false,
+  // },
 ]
 
 function ThumbCard({ video, size = 'small' }) {

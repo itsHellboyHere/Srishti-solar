@@ -133,7 +133,7 @@ export default function HomePage() {
         image="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072"
         watermark="SOLAR"
       >
-        <JingleVideo />
+        {/* <JingleVideo /> */}
         <WhyUs />
         <Process />
       </StickyCanvas>

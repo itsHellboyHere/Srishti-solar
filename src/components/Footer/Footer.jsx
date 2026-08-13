@@ -13,7 +13,7 @@ const PAGES = [
   { label: 'Contact', href: '/contact' },
     { label: 'Zero Electricity Bill',   href: '/zero-electricity-bill'     },
   { label: 'Topcon Solar Panel',      href: '/topcon-solar-panel-bihar'  },
-  {label:'Jingle' ,href: '/jingle'}
+  // {label:'Jingle' ,href: '/jingle'}
 ]
 
 const SERVICES = [
