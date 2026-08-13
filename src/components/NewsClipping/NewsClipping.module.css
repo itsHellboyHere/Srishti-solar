@@ -1,0 +1,112 @@
+/* ═══════════════════════════════════════════════
+   NewsClipping.module.css — Press Feature Card
+═══════════════════════════════════════════════ */
+
+.section {
+  position: relative;
+  background: var(--bg-base, #0F0A03);
+  overflow: hidden;
+}
+
+/* wave continuing from Subsidy's waveBottom */
+.waveTop {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  margin-top: -2px;
+  height: 70px;
+}
+.waveTop svg { display: block; }
+
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 8px 20px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sun-core);
+  background: rgba(244,163,0,0.12);
+  border: 1px solid rgba(244,163,0,0.3);
+  padding: 7px 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+
+/* ── Big card ── */
+.card {
+  width: 100%;
+  background: rgba(255,251,244,0.04);
+  border: 1px solid rgba(244,163,0,0.18);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 70px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(244,163,0,0.06);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  border-color: rgba(244,163,0,0.35);
+  transform: translateY(-4px);
+  box-shadow:
+    0 32px 90px rgba(244,163,0,0.12),
+    0 0 0 1px rgba(244,163,0,0.1);
+}
+
+/* 16:9 image — clean, no crop guesswork */
+.imgWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #fff;
+}
+.img {
+  object-fit: contain;
+}
+
+.footer {
+  padding: 20px 26px 24px;
+  border-top: 1px solid rgba(244,163,0,0.12);
+}
+.source {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,251,244,0.4);
+  margin-bottom: 8px;
+}
+.headline {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #FFFBF4;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .inner { padding: 4px 16px 56px; }
+  .eyebrow { font-size: 0.62rem; padding: 6px 13px; margin-bottom: 20px; }
+  .card { border-radius: 16px; }
+  .footer { padding: 16px 18px 20px; }
+  .headline { font-size: 0.98rem; }
+}

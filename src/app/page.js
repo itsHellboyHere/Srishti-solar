@@ -8,6 +8,7 @@ import MediaStrip    from '@/components/MediaStrip'
 import JingleVideo   from '@/components/JingleVideo'
 import ZeroBillStrip from '@/components/ZeroBillStrip'
 import YoutubeSection from '@/components/YoutubeSection'
+import NewsClipping from '@/components/NewsClipping/NewsClipping'
 
 const SITE_URL = 'https://srishtisolarpower.com'
 
@@ -137,6 +138,7 @@ export default function HomePage() {
         <Process />
       </StickyCanvas>
       <Subsidy />
+      <NewsClipping/>
       <MediaStrip />
       {/* <ZeroBillStrip /> */}
      

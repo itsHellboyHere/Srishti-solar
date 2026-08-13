@@ -16,7 +16,7 @@ export const MEDIA = [
     wide:    false,
   },
   {
-    src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905663/DSC_1862_hcdzlm.jpg',
+    src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1782203680/WhatsApp_Image_2026-06-12_at_3.27.53_PM_xrqgqc.jpg',
     caption: 'Solar Mela 2026 — MNRE Stage',
     outlet:  'Ministry of New & Renewable Energy',
     tag:     'Event',
