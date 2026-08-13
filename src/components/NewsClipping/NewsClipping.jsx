@@ -3,7 +3,7 @@ import { Newspaper } from 'lucide-react'
 import styles from './NewsClipping.module.css'
 
 const NEWS_IMAGE =
-  'https://res.cloudinary.com/dgifa4wgb/image/upload/f_webp,q_100,w_1600/v1786591974/ChatGPT_Image_Aug_13_2026_at_08_54_54_AM_opmp9v.png'
+  'https://res.cloudinary.com/dgifa4wgb/image/upload/v1786594513/srishti-news-clipping-16x9_kokvbp.png'
 
 export default function NewsClipping({
   source = 'सिटी एंकर · दैनिक जागरण',
