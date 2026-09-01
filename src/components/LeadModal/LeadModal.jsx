@@ -93,7 +93,7 @@ export default function LeadModal() {
         </h2>
 
         <p className={styles.desc}>
-          Free site visit · ₹78,000 तक सब्सिडी · Bihar Solar Expo 2026 में <strong>#1</strong>
+          Free site visit · ₹98,000 तक सब्सिडी · Bihar Solar Expo 2026 में <strong>#1</strong>
         </p>
 
         {/* Stats row */}
