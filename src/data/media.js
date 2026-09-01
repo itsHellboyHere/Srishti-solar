@@ -31,7 +31,7 @@ export const MEDIA = [
   },
   {
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905663/DSC_1840_ggrpbb.jpg',
-    caption: 'PM Surya Ghar — ₹78,000 Subsidy Launch',
+    caption: 'PM Surya Ghar',
     outlet:  'Solar Mela 2026, Patna',
     tag:     'Event',
     wide:    false,
