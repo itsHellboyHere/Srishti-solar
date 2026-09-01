@@ -4,18 +4,18 @@ const SITE_URL = 'https://srishtisolarpower.com'
 const PAGE_URL = `${SITE_URL}/subsidies`
 
 export const metadata = {
-  title: 'PM Surya Ghar Subsidy Bihar | ₹78,000 Solar Subsidy | Srishti Solar Power',
-  description: 'PM Surya Ghar Muft Bijli Yojana Bihar — 1kW पर ₹30,000, 2kW पर ₹60,000, 3kW+ पर ₹78,000 subsidy। Srishti Solar Power ने 41+ families को ₹31,98,000 subsidy दिलाई। Free site visit। Patna, Gaya, Muzaffarpur में उपलब्ध।',
+  title: 'PM Surya Ghar Subsidy Bihar | ₹98,000 Solar Subsidy | Srishti Solar Power',
+  description: 'PM Surya Ghar Muft Bijli Yojana Bihar — 1kW पर ₹40,000, 2kW पर ₹80,000, 3kW+ पर ₹98,000 subsidy (केंद्र + राज्य)। Srishti Solar Power ने 41+ families को ₹31,98,000 subsidy दिलाई। Free site visit। Patna, Gaya, Muzaffarpur में उपलब्ध।',
   keywords: [
     'PM Surya Ghar subsidy Bihar',
     'solar subsidy Bihar',
-    'solar panel subsidy Bihar 2025',
+    'solar panel subsidy Bihar 2026',
     'PM Surya Ghar Muft Bijli Yojana Bihar',
     'solar subsidy Patna',
     'rooftop solar subsidy Bihar',
     'PM सूर्य घर योजना बिहार',
     'सोलर सब्सिडी बिहार',
-    '78000 solar subsidy Bihar',
+    '98000 solar subsidy Bihar',
     'solar subsidy apply Bihar',
     'SBPDCL solar subsidy',
     'MNRE solar subsidy Bihar',
@@ -23,8 +23,8 @@ export const metadata = {
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: 'website',
-    title: 'PM Surya Ghar Subsidy Bihar — ₹78,000 तक सरकारी सहायता',
-    description: '₹30K / ₹60K / ₹78K subsidy slabs। Srishti Solar ने 41+ families को ₹31,98,000 subsidy दिलाई। Complete solar process handled — free site visit।',
+    title: 'PM Surya Ghar Subsidy Bihar — ₹98,000 तक सरकारी सहायता',
+    description: '₹40K / ₹80K / ₹98K subsidy slabs (केंद्र + राज्य)। Srishti Solar ने 41+ families को ₹31,98,000 subsidy दिलाई। Complete solar process handled — free site visit।',
     url: PAGE_URL,
     siteName: 'Srishti Solar Power',
     locale: 'hi_IN',
@@ -37,8 +37,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PM Surya Ghar Subsidy Bihar — ₹78,000 तक',
-    description: 'Solar subsidy ₹30K, ₹60K, ₹78K slabs. Complete assistance by Srishti Solar Power.',
+    title: 'PM Surya Ghar Subsidy Bihar — ₹98,000 तक',
+    description: 'Solar subsidy ₹40K, ₹80K, ₹98K slabs. Complete assistance by Srishti Solar Power.',
     images: ['/og-image.jpg'],
   },
 }
@@ -50,7 +50,7 @@ const subsidyServiceSchema = {
   name: 'PM Surya Ghar Subsidy Assistance Bihar',
   alternateName: 'PM सूर्य घर सब्सिडी सहायता',
   serviceType: 'Solar Subsidy Application Assistance',
-  description: 'Srishti Solar Power assists Bihar households in claiming PM Surya Ghar Muft Bijli Yojana subsidy — ₹30,000 for 1kW, ₹60,000 for 2kW, ₹78,000 for 3kW+. End-to-end handling of all 14 documents, SBPDCL application, net metering and subsidy tracking.',
+  description: 'Srishti Solar Power assists Bihar households in claiming PM Surya Ghar Muft Bijli Yojana subsidy — ₹40,000 for 1kW, ₹80,000 for 2kW, ₹98,000 for 3kW+ (Central + Bihar State). End-to-end handling of all 14 documents, SBPDCL application, net metering and subsidy tracking.',
   provider: {
     '@type': 'LocalBusiness',
     '@id': `${SITE_URL}/#business`,
@@ -67,18 +67,18 @@ const subsidyServiceSchema = {
   offers: {
     '@type': 'AggregateOffer',
     priceCurrency: 'INR',
-    lowPrice: '30000',
-    highPrice: '78000',
+    lowPrice: '40000',
+    highPrice: '98000',
     offerCount: '3',
-    description: '1kW: ₹30,000 subsidy | 2kW: ₹60,000 subsidy | 3kW+: ₹78,000 subsidy',
+    description: '1kW: ₹40,000 subsidy | 2kW: ₹80,000 subsidy | 3kW+: ₹98,000 subsidy (Central + Bihar State)',
   },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'PM Surya Ghar Subsidy Slabs',
     itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '1kW Solar System Bihar', description: 'Subsidy ₹30,000. System price ₹65,000. After subsidy ₹35,000. Monthly saving ₹1,000.' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '2kW Solar System Bihar', description: 'Subsidy ₹60,000. System price ₹1,30,000. After subsidy ₹70,000. Monthly saving ₹1,800.' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '3kW Solar System Bihar', description: 'Maximum subsidy ₹78,000. System price ₹1,89,000. After subsidy ₹1,11,000. Monthly saving ₹2,500.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '1kW Solar System Bihar', description: 'Subsidy ₹40,000 (Central + Bihar State). System price ₹65,000. Monthly saving ₹1,000.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '2kW Solar System Bihar', description: 'Subsidy ₹80,000 (Central + Bihar State). System price ₹1,30,000. Monthly saving ₹1,800.' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '3kW Solar System Bihar', description: 'Maximum subsidy ₹98,000 (Central + Bihar State). System price ₹1,89,000. Monthly saving ₹2,500.' } },
     ],
   },
 }
@@ -90,7 +90,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: 'PM Surya Ghar सब्सिडी क्या है?',
-      acceptedAnswer: { '@type': 'Answer', text: 'PM Surya Ghar Muft Bijli Yojana भारत सरकार की योजना है (शुरुआत: 13 फरवरी 2024) जिसमें 1 करोड़ घरों पर रूफटॉप सोलर लगाने का लक्ष्य है। 1kW पर ₹30,000, 2kW पर ₹60,000 और 3kW+ पर ₹78,000 की सब्सिडी मिलती है। FY 2026–27 तक valid।' },
+      acceptedAnswer: { '@type': 'Answer', text: 'PM Surya Ghar Muft Bijli Yojana भारत सरकार की योजना है (शुरुआत: 13 फरवरी 2024) जिसमें 1 करोड़ घरों पर रूफटॉप सोलर लगाने का लक्ष्य है। बिहार में 1kW पर ₹40,000, 2kW पर ₹80,000 और 3kW+ पर ₹98,000 की सब्सिडी मिलती है (केंद्र + राज्य)। FY 2026–27 तक valid।' },
     },
     {
       '@type': 'Question',
@@ -110,7 +110,7 @@ const faqSchema = {
     {
       '@type': 'Question',
       name: '3kW से बड़े सिस्टम पर कितनी subsidy मिलती है?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Subsidy 3kW पर cap है — 4kW या उससे बड़े सिस्टम पर अधिकतम ₹78,000 ही मिलेगी।' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Subsidy 3kW पर cap है — 4kW या उससे बड़े सिस्टम पर अधिकतम ₹98,000 ही मिलेगी (केंद्र + राज्य)।' },
     },
     {
       '@type': 'Question',

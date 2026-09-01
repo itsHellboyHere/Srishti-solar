@@ -5,16 +5,16 @@ import Link from 'next/link'
 import styles from './Contact.module.css'
 
 const KW_OPTIONS = [
-  { value: '1',  label: '1 kW',  hint: '₹30,000 subsidy', desc: 'Small home'    },
-  { value: '2',  label: '2 kW',  hint: '₹60,000 subsidy', desc: 'Medium home'   },
-  { value: '3',  label: '3 kW',  hint: '₹78,000 subsidy', desc: 'Best value'    },
+  { value: '1',  label: '1 kW',  hint: '₹40,000 subsidy', desc: 'Small home'    },
+  { value: '2',  label: '2 kW',  hint: '₹80,000 subsidy', desc: 'Medium home'   },
+  { value: '3',  label: '3 kW',  hint: '₹98,000 subsidy', desc: 'Best value'    },
   { value: '4+', label: '4+ kW', hint: 'Commercial',       desc: 'Large/business'},
 ]
 
 const TRUST = [
   { num: '950+', label: 'Installations' },
   { num: '72 Hrs', label: 'Install Time'  },
-  { num: '₹78k',   label: 'Max Subsidy'  },
+  { num: '₹98,000',   label: 'Max Subsidy'  },
   { num: '5 Yr',   label: 'Free AMC'     },
 ]
 

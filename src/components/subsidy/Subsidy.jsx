@@ -9,7 +9,7 @@ const TIERS = [
     kwHindi: '१ किलोवाट',
     label: 'Starter',
     labelHindi: 'शुरुआत',
-    subsidy: '30,000',
+    subsidy: '40,000',
     monthly: '~₹1,500',
     desc: 'Perfect for small households with 2–3 BHK flats.',
     panels: '2 panels',
@@ -20,7 +20,7 @@ const TIERS = [
     kwHindi: '२ किलोवाट',
     label: 'Popular',
     labelHindi: 'लोकप्रिय',
-    subsidy: '60,000',
+    subsidy: '80,000',
     monthly: '~₹3,000',
     desc: 'Ideal for medium homes. Covers 80% of average Bihar household bill.',
     panels: '4 panels',
@@ -31,7 +31,7 @@ const TIERS = [
     kwHindi: '३ किलोवाट',
     label: 'Best Value',
     labelHindi: 'सर्वश्रेष्ठ',
-    subsidy: '78,000',
+    subsidy: '98,000',
     monthly: '~₹4,500',
     desc: 'Maximum subsidy. Near-zero electricity bill for most families.',
     panels: '5 panels',
@@ -140,13 +140,14 @@ export default function Subsidy() {
           </div>
           <h2 className={styles.heading}>
             Get Up To{' '}
-            <span className={styles.headAmt}>₹78,000</span>
+            <span className={styles.headAmt}>₹98,000</span>
             <br />
             <span className={styles.headSub}>सीधे आपके खाते में</span>
           </h2>
           <p className={styles.headDesc}>
-            Under the Central Government's PM Surya Ghar scheme, eligible households
-            receive direct subsidy — no middlemen, credited straight to your bank.
+            Under the PM Surya Ghar scheme, eligible Bihar households receive direct
+            subsidy — Central (CFA) plus Bihar State (SFA) assistance, no middlemen,
+            credited straight to your bank.
           </p>
         </div>
 

@@ -21,8 +21,8 @@ const SLIDES = [
 {
     tag: 'प्रधानमंत्री सूर्य घर मुफ्त बिजली योजना',
     lines: ['घरेलू उपभोक्ता — प्रधानमंत्री'],
-    accent: 'सूरज घर योजना के तहत पाएँ',
-    desc: '1kW → ₹30,000 · 2kW → ₹60,000 · 3kW → ₹78,000 सीधे बैंक में। SBPDCL / NBPDCL से पंजीकृत · MNRE के नियम अनुसार कार्य।',
+    accent: 'सूर्य घर योजना के तहत पाएँ',
+    desc: '1kW → ₹40,000 · 2kW → ₹80,000 · 3kW → ₹98,000 (केंद्र + राज्य सब्सिडी सहित) सीधे बैंक खाते में। SBPDCL / NBPDCL से पंजीकृत · MNRE के नियम अनुसार कार्य।',
     cta:      'Check Eligibility · पात्रता जांचें',
     ctaHref:  '/subsidies',
     ghost:     'Subsidy Details',
@@ -43,7 +43,7 @@ const SLIDES = [
 ]
 
 const STATS = [
-  { val: '₹78,000', unit: '',    label: 'Max Subsidy · अधिकतम सब्सिडी' },
+  { val: '₹98,000', unit: '',    label: 'Max Subsidy · अधिकतम सब्सिडी' },
   { val: '30',       unit: 'GW', label: 'Solar Capacity Added · PM Surya Ghar' },
   { val: '17',       unit: 'L',  label: 'Direct Jobs Created · प्रत्यक्ष रोजगार' },
   { val: '25',       unit: 'Yr', label: 'Panel Warranty · पैनल वारंटी' },

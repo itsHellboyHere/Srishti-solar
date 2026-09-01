@@ -3,10 +3,10 @@ import Link from 'next/link'
 import styles from '../css/Subsidyhero.module.css'
 
 const SUBSIDY_ROWS = [
-  { label: '1 kW System', val: '₹30,000', pct: '60% of cost',  featured: false },
-  { label: '2 kW System', val: '₹60,000', pct: '60% of cost',  featured: false },
-  { label: '3 kW System', val: '₹78,000', pct: '60% + 40%',    featured: true  },
-  { label: '4+ kW System',val: '₹78,000', pct: 'Capped at 3kW',featured: false },
+  { label: '1 kW System', val: '₹40,000', pct: 'केंद्र + राज्य',  featured: false },
+  { label: '2 kW System', val: '₹80,000', pct: 'केंद्र + राज्य',  featured: false },
+  { label: '3 kW System', val: '₹98,000', pct: 'अधिकतम सहायता',   featured: true  },
+  { label: '4+ kW System',val: '₹98,000', pct: '3kW पर Capped',   featured: false },
 ]
 
 const PILLS = [
@@ -66,7 +66,7 @@ export default function SubsidyHero() {
             <span className={styles.schemeTag}>PM Surya Ghar Muft Bijli Yojana</span>
             <span className={styles.titleHindi}>सोलर लगाएँ —</span>
             <span className={styles.titleAmt}>
-              ₹78,000
+              ₹98,000
               <span className={styles.titleAmtSub}> सब्सिडी <span style={{
                 marginLeft:"6px",
               }}>पाएँ</span></span>
@@ -124,7 +124,7 @@ export default function SubsidyHero() {
           {/* Srishti trust line */}
           <div className={styles.trustLine}>
             <span className={styles.trustCheck}>✓</span>
-            Srishti Solar ने अब तक <strong>41+ families</strong> को <strong>₹31,98,000</strong> subsidy दिलाई
+            Srishti Solar ने अब तक <strong>950+ families</strong> को <strong>₹7,41,00,000</strong> subsidy दिलाई
           </div>
 
         </div>
@@ -159,8 +159,8 @@ export default function SubsidyHero() {
             {/* Big amount */}
             <div className={styles.certAmt}>
               <div className={styles.certAmtLabel}>Maximum Government Subsidy</div>
-              <div className={styles.certAmtNum}>₹78,000</div>
-              <div className={styles.certAmtNote}>Capped at 3kW · सीधे बैंक खाते में (DBT)</div>
+              <div className={styles.certAmtNum}>₹98,000</div>
+              <div className={styles.certAmtNote}>Capped at 3kW · केंद्र + राज्य · सीधे बैंक खाते में (DBT)</div>
             </div>
 
             <div className={styles.certDivider}/>

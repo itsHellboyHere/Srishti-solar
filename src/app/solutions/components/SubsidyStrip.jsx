@@ -18,7 +18,7 @@ export default function SubsidyStrip() {
           </span> */}
           <h2 className={`${styles.title} ${styles.fadeUp2}`}>
             सरकार देती है{' '}
-            <span className={styles.gold}>₹78,000 तक सरकारी सब्सिडी </span>
+            <span className={styles.gold}>₹98,000 तक सरकारी सब्सिडी </span>
           </h2>
           <p className={`${styles.sub} ${styles.fadeUp3}`}>
              सीधे आपके खाते में

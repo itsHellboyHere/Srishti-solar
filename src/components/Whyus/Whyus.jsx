@@ -15,11 +15,11 @@ const REASONS = [
   },
   {
     Icon: ShieldCheck,
-    stat: '₹78,000', unit: '',
+    stat: '₹98,000', unit: '',
     tag: 'सरकारी · Govt Scheme',
     title: 'पूरी सब्सिडी सहायता',
     titleEn: 'Max Subsidy Assisted',
-    desc: 'PM Surya Ghar के तहत ₹78,000 तक सीधे बैंक में। 78 हजार रुपये | All 14 documents filed by us — SBPDCL/NBPDCL approved.',
+    desc: 'PM Surya Ghar के तहत ₹98,000 तक (केंद्र + राज्य) सीधे बैंक में। 98 हजार रुपये | All 14 documents filed by us — SBPDCL/NBPDCL approved.',
   },
   {
     Icon: TrendingUp,
@@ -58,13 +58,13 @@ const REASONS = [
 const COMPARE = [
   {
     hi: 'पैनल टेक्नोलॉजी', en: 'Panel Technology',
-    them: 'POLY CRISTLINE / MONO CRISTLINE',
-    us:   'N-Type Topcon BIFACIAl PANAL',
+    them: 'Poly Crystalline / Mono Crystalline',
+    us:   'N-Type Topcon Bifacial Panel',
   },
   {
     hi: 'बस-बार', en: 'Bus Bar',
-    them: '5 BUS BAR / 10 BUS BAR',
-    us:   '16 BUS BAR',
+    them: '5 Bus Bar / 10 Bus Bar',
+    us:   '16 Bus Bar',
   },
   {
     hi: 'स्ट्रक्चर', en: 'Structure',

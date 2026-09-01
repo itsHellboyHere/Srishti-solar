@@ -313,7 +313,7 @@ export default function ProjectsGallery() {
             </h2>
             <p className={styles.ctaDesc}>
               Join 950+ happy families across Bihar.
-              Free site visit · ₹78,000 subsidy assisted · 72-hour install.
+              Free site visit · ₹7,41,00,000 subsidy assisted · 72-hour install.
             </p>
           </div>
           <div className={styles.ctaActions}>
