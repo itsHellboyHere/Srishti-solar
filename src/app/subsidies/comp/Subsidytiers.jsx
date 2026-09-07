@@ -6,28 +6,28 @@ import styles from '../css/Subsidytiers.module.css'
 const TIERS = [
   {
     kw: 1, label: '1 kW',
-    subsidy: 40000, price: 65000,
+    subsidy: 40000, central: 30000, state: 10000, price: 65000,
     saving: 1000, tag: null,
     descHindi: 'छोटा घर · 2–3 पंखे + बल्ब',
     descEn: 'Small home · Fans + lights',
   },
   {
     kw: 2, label: '2 kW',
-    subsidy: 80000, price: 130000,
+    subsidy: 80000, central: 60000, state: 20000, price: 130000,
     saving: 1800, tag: null,
     descHindi: 'मध्यम घर · AC + फ्रिज + बल्ब',
     descEn: 'Medium home · AC + fridge',
   },
   {
     kw: 3, label: '3 kW',
-    subsidy: 98000, price: 189000,
+    subsidy: 98000, central: 78000, state: 20000, price: 189000,
     saving: 2500, tag: 'Best Value',
     descHindi: 'पूरा घर · 2 AC + सब कुछ',
     descEn: 'Full home · 2 ACs + all appliances',
   },
   {
     kw: '4+', label: '4+ kW',
-    subsidy: 98000, price: 260000,
+    subsidy: 98000, central: 78000, state: 20000, price: 260000,
     saving: 3500, tag: 'Commercial',
     descHindi: 'बड़ा घर या व्यवसाय',
     descEn: 'Large home or business',
@@ -68,7 +68,20 @@ export default function SubsidyTiers() {
                 <div className={styles.divider}/>
 
                 <div className={styles.subsidy}>{fmt(t.subsidy)}</div>
-                <div className={styles.subsidyLabel}>Government Subsidy</div>
+                <div className={styles.subsidyLabel}>Total Government Subsidy</div>
+
+                {/* Central + State breakup */}
+                <div className={styles.breakup}>
+                  <div className={styles.breakItem}>
+                    <span className={styles.breakVal}>{fmt(t.central)}</span>
+                    <span className={styles.breakLabel}>केंद्र</span>
+                  </div>
+                  <span className={styles.breakPlus}>+</span>
+                  <div className={styles.breakItem}>
+                    <span className={styles.breakVal}>{fmt(t.state)}</span>
+                    <span className={styles.breakLabel}>बिहार राज्य</span>
+                  </div>
+                </div>
 
                 <div className={styles.divider}/>
 
