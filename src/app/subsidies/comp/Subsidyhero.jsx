@@ -3,10 +3,10 @@ import Link from 'next/link'
 import styles from '../css/Subsidyhero.module.css'
 
 const SUBSIDY_ROWS = [
-  { label: '1 kW System', val: '₹40,000', pct: 'केंद्र + राज्य',  featured: false },
-  { label: '2 kW System', val: '₹80,000', pct: 'केंद्र + राज्य',  featured: false },
-  { label: '3 kW System', val: '₹98,000', pct: 'अधिकतम सहायता',   featured: true  },
-  { label: '4+ kW System',val: '₹98,000', pct: '3kW पर Capped',   featured: false },
+  { label: '1 kW System', central: '30,000', state: '10,000', val: '₹40,000', featured: false },
+  { label: '2 kW System', central: '60,000', state: '20,000', val: '₹80,000', featured: false },
+  { label: '3 kW System', central: '78,000', state: '20,000', val: '₹98,000', featured: true  },
+  { label: '4+ kW System',central: '78,000', state: '20,000', val: '₹98,000', featured: false, note: '3kW पर Capped' },
 ]
 
 const PILLS = [
@@ -165,13 +165,18 @@ export default function SubsidyHero() {
 
             <div className={styles.certDivider}/>
 
-            {/* Slab rows */}
+            {/* Slab rows — with Central + State breakup */}
             <div className={styles.certRows}>
               {SUBSIDY_ROWS.map((r, i) => (
                 <div key={i} className={`${styles.certRow} ${r.featured ? styles.certRowFeatured : ''}`}>
-                  <div>
+                  <div className={styles.certRowMain}>
                     <div className={styles.certRowLabel}>{r.label}</div>
-                    <div className={styles.certRowPct}>{r.pct}</div>
+                    <div className={styles.certRowBreak}>
+                      <span>केंद्र ₹{r.central}</span>
+                      <span className={styles.certRowPlus}>+</span>
+                      <span>राज्य ₹{r.state}</span>
+                    </div>
+                    {r.note && <div className={styles.certRowNote}>{r.note}</div>}
                   </div>
                   <div className={styles.certRowVal}>{r.val}</div>
                 </div>

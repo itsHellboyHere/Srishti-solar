@@ -176,6 +176,8 @@ export const HOW_IT_WORKS = [
 export const SUBSIDY_SLABS = [
   {
     kw:      '1 kW',
+    central: '₹30,000',
+    state:   '₹10,000',
     subsidy: '₹40,000',
     units:   '~100 units/month',
     saving:  '~₹800/month',
@@ -183,6 +185,8 @@ export const SUBSIDY_SLABS = [
   },
   {
     kw:      '2 kW',
+    central: '₹60,000',
+    state:   '₹20,000',
     subsidy: '₹80,000',
     units:   '~200 units/month',
     saving:  '~₹1,600/month',
@@ -190,6 +194,8 @@ export const SUBSIDY_SLABS = [
   },
   {
     kw:      '3 kW+',
+    central: '₹78,000',
+    state:   '₹20,000',
     subsidy: '₹98,000',
     units:   '~300 units/month',
     saving:  '~₹2,500/month',

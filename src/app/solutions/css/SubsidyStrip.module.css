@@ -137,8 +137,56 @@
 
 .slabSubsidyLabel {
   font-family: var(--font-body); font-size: 0.68rem;
-  color: rgba(255,251,244,0.3); margin-bottom: 20px;
+  color: rgba(255,251,244,0.3); margin-bottom: 14px;
   text-transform: uppercase; letter-spacing: 0.1em;
+}
+
+/* Central + State breakup */
+.slabBreakup {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.breakItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 6px;
+  background: rgba(255,251,244,0.04);
+  border: 1px solid rgba(244,163,0,0.12);
+  border-radius: 10px;
+  min-width: 0;
+}
+.breakVal {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: rgba(255,251,244,0.9);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.breakLabel {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  color: rgba(255,251,244,0.35);
+  line-height: 1.2;
+}
+.breakPlus {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--sun-core);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+.slabFeatured .breakItem {
+  background: rgba(14,9,4,0.25);
+  border-color: rgba(244,163,0,0.22);
 }
 
 /* Stats row inside card */
@@ -236,4 +284,8 @@
   .totalBanner { flex-direction: column; align-items: flex-start; }
   .curveSvg { height: 60px; }
 }
-@media (max-width: 520px) { .inner { padding: 0 20px; } }
+@media (max-width: 520px) {
+  .inner { padding: 0 20px; }
+  .breakVal { font-size: 0.9rem; }
+  .breakLabel { font-size: 0.56rem; }
+}

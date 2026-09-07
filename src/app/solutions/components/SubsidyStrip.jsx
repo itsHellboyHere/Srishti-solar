@@ -21,7 +21,7 @@ export default function SubsidyStrip() {
             <span className={styles.gold}>₹98,000 तक सरकारी सब्सिडी </span>
           </h2>
           <p className={`${styles.sub} ${styles.fadeUp3}`}>
-             सीधे आपके खाते में
+             केंद्र + बिहार राज्य सरकार — सीधे आपके खाते में
           </p>
         </div>
 
@@ -44,7 +44,20 @@ export default function SubsidyStrip() {
               <div className={styles.slabDivider}/>
 
               <div className={styles.slabSubsidy}>{slab.subsidy}</div>
-              <div className={styles.slabSubsidyLabel}>सरकारी सब्सिडी</div>
+              <div className={styles.slabSubsidyLabel}>कुल सरकारी सब्सिडी</div>
+
+              {/* Central + State breakup */}
+              <div className={styles.slabBreakup}>
+                <div className={styles.breakItem}>
+                  <span className={styles.breakVal}>{slab.central}</span>
+                  <span className={styles.breakLabel}>केंद्र सरकार</span>
+                </div>
+                <span className={styles.breakPlus}>+</span>
+                <div className={styles.breakItem}>
+                  <span className={styles.breakVal}>{slab.state}</span>
+                  <span className={styles.breakLabel}>बिहार सरकार</span>
+                </div>
+              </div>
 
               <div className={styles.slabStats}>
                 <div className={styles.slabStat}>
@@ -87,7 +100,7 @@ export default function SubsidyStrip() {
 
         {/* Fine print */}
         <p className={`${styles.finePrint} ${styles.fadeUp5}`}>
-          * सब्सिडी राशि MNRE guidelines अनुसार। DISCOM approval और net metering के बाद DBT के माध्यम से सीधे बैंक में।
+          * सब्सिडी राशि MNRE guidelines अनुसार (केंद्र + बिहार राज्य)। DISCOM approval और net metering के बाद DBT के माध्यम से सीधे बैंक में।
         </p>
 
       </div>

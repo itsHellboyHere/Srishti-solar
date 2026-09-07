@@ -308,11 +308,15 @@
   font-size: 0.64rem; color: rgba(255,251,244,0.3);
 }
 
-/* Slab rows — tighter */
-.certRows { display: flex; flex-direction: column; gap: 5px; }
+/* Slab rows — two-line safe (label + breakup) */
+.certRows { display: flex; flex-direction: column; gap: 6px; }
 .certRow {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 8px 12px; border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 13px;
+  border-radius: 10px;
   background: rgba(255,251,244,0.03);
   border: 1px solid transparent;
   transition: background 0.2s;
@@ -322,19 +326,49 @@
   background: rgba(255,153,51,0.08);
   border-color: rgba(255,153,51,0.2);
 }
+.certRowMain {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 .certRowLabel {
   font-family: var(--font-body);
-  font-size: 0.8rem; color: rgba(255,251,244,0.6); margin-bottom: 1px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,251,244,0.7);
+  line-height: 1.1;
 }
-.certRowPct {
+.certRowBreak {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-body);
-  font-size: 0.58rem; color: rgba(255,251,244,0.22);
+  font-size: 0.62rem;
+  color: rgba(255,251,244,0.42);
+  white-space: nowrap;
+  line-height: 1;
+}
+.certRowPlus {
+  color: #FF9933;
+  font-weight: 800;
+  opacity: 0.85;
+}
+.certRowNote {
+  font-family: var(--font-body);
+  font-size: 0.56rem;
+  color: rgba(255,251,244,0.28);
+  line-height: 1;
 }
 .certRowVal {
   font-family: var(--font-heading);
-  font-weight: 800; font-size: 0.9rem; color: #FF9933;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #FF9933;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
-.certRowFeatured .certRowVal { color: #FFB84D; font-size: 1rem; }
+.certRowFeatured .certRowVal { color: #FFB84D; font-size: 1.1rem; }
 
 /* DBT */
 .certDbt {
@@ -419,6 +453,12 @@
   .sealTitle { font-size: 0.72rem; }
   .sunRays { display: none; }
   .watermark { display: none; }
+
+  /* Breakup stays readable on small screens */
+  .certRowLabel { font-size: 0.8rem; }
+  .certRowBreak { font-size: 0.6rem; gap: 5px; }
+  .certRowVal { font-size: 0.95rem; }
+  .certRowFeatured .certRowVal { font-size: 1.05rem; }
 }
 
 /* Very small phones */
@@ -426,4 +466,5 @@
   .titleHindi { font-size: 1.8rem; }
   .titleAmt { font-size: 1.9rem; }
   .certAmtNum { font-size: 2.2rem; }
+  .certRowBreak { font-size: 0.56rem; }
 }
