@@ -9,6 +9,8 @@ const TIERS = [
     kwHindi: '१ किलोवाट',
     label: 'Starter',
     labelHindi: 'शुरुआत',
+    central: '30,000',
+    state: '10,000',
     subsidy: '40,000',
     monthly: '~₹1,500',
     desc: 'Perfect for small households with 2–3 BHK flats.',
@@ -20,6 +22,8 @@ const TIERS = [
     kwHindi: '२ किलोवाट',
     label: 'Popular',
     labelHindi: 'लोकप्रिय',
+    central: '60,000',
+    state: '20,000',
     subsidy: '80,000',
     monthly: '~₹3,000',
     desc: 'Ideal for medium homes. Covers 80% of average Bihar household bill.',
@@ -31,6 +35,8 @@ const TIERS = [
     kwHindi: '३ किलोवाट',
     label: 'Best Value',
     labelHindi: 'सर्वश्रेष्ठ',
+    central: '78,000',
+    state: '20,000',
     subsidy: '98,000',
     monthly: '~₹4,500',
     desc: 'Maximum subsidy. Near-zero electricity bill for most families.',
@@ -181,7 +187,20 @@ export default function Subsidy() {
                 <div className={styles.amtRow}>
                   <span className={styles.amtPrefix}>₹</span>
                   <span className={styles.amt}>{t.subsidy}</span>
-                  <span className={styles.amtSuffix}>तक</span>
+                  <span className={styles.amtSuffix}>कुल अनुदान</span>
+                </div>
+
+                {/* ── Central + State breakup ── */}
+                <div className={styles.breakup}>
+                  <div className={styles.breakupItem}>
+                    <span className={styles.breakupLabel}>केंद्र सरकार</span>
+                    <span className={styles.breakupVal}>₹{t.central}</span>
+                  </div>
+                  <span className={styles.breakupPlus}>+</span>
+                  <div className={styles.breakupItem}>
+                    <span className={styles.breakupLabel}>बिहार सरकार</span>
+                    <span className={styles.breakupVal}>₹{t.state}</span>
+                  </div>
                 </div>
 
                 <div className={styles.tierDivider} />
