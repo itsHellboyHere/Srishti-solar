@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════
    MediaGallery — About page
-   Masonry grid + lightbox
+   Masonry grid + lightbox (images + videos)
    Bg: #FFFBF4 cream (same as AboutAwards)
 ═══════════════════════════════════════ */
 .section {
@@ -53,10 +53,8 @@
   background: #1a0e04;
   box-shadow: 0 0 0 1px rgba(26,14,4,0.07);
   transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
-}
-.cell:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 16px 40px rgba(26,14,4,0.13), 0 0 0 1px rgba(244,163,0,0.2);
+  -webkit-tap-highlight-color: transparent;
+  contain: layout paint;
 }
 
 .imgWrap { position: absolute; inset: 0; }
@@ -64,7 +62,24 @@
   object-fit: cover;
   transition: transform 0.55s cubic-bezier(0.22,1,0.36,1);
 }
-.cell:hover .img { transform: scale(1.06); }
+
+/* Hover effects sirf mouse wale devices pe (phone pe tap ke baad atakte the) */
+@media (hover: hover) and (pointer: fine) {
+  .cell:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 16px 40px rgba(26,14,4,0.13), 0 0 0 1px rgba(244,163,0,0.2);
+  }
+  .cell:hover .img { transform: scale(1.06); }
+  .cell:hover .hoverOverlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .cell:hover .playBtn {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: var(--sun-core);
+    color: #1A0E04;
+  }
+}
 
 .scrim {
   position: absolute; inset: 0;
@@ -74,6 +89,7 @@
     rgba(10,6,2,0.75) 100%
   );
   z-index: 1;
+  pointer-events: none;
 }
 
 .tag {
@@ -84,6 +100,23 @@
   z-index: 3;
 }
 
+/* ── Video play button (center) ── */
+.playBtn {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px; height: 52px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  padding-left: 3px;                       /* play icon optically center */
+  background: rgba(10,6,2,0.55);
+  color: #FFFBF4;
+  border: 1.5px solid rgba(255,251,244,0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  z-index: 3;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), background 0.25s, color 0.25s;
+}
+
 /* Hover overlay — slides up */
 .hoverOverlay {
   position: absolute; bottom: 0; left: 0; right: 0;
@@ -92,10 +125,7 @@
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.28s ease, transform 0.32s cubic-bezier(0.22,1,0.36,1);
-}
-.cell:hover .hoverOverlay {
-  opacity: 1;
-  transform: translateY(0);
+  pointer-events: none;
 }
 .hoverIcon {
   width: 34px; height: 34px; border-radius: 50%;
@@ -151,11 +181,21 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16/10;
+  max-height: 70vh;
   border-radius: 16px 16px 0 0;
   overflow: hidden;
   background: #1a0e04;
 }
 .lbImg { object-fit: contain; }
+
+/* Lightbox video */
+.lbVideo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  background: #000;
+  outline: none;
+}
 
 .lbCaption {
   background: #0E0904;
@@ -187,7 +227,7 @@
   background: #0E0904; border: 1px solid rgba(244,163,0,0.2);
   color: rgba(255,251,244,0.6);
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer; z-index: 2;
+  cursor: pointer; z-index: 5;
   transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 .lbClose:hover {
@@ -204,7 +244,7 @@
   border: 1px solid rgba(244,163,0,0.15);
   color: rgba(255,251,244,0.7);
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
+  cursor: pointer; z-index: 4;
   transition: background 0.2s, color 0.2s;
 }
 .lbNav:hover { background: rgba(244,163,0,0.12); color: #FFFBF4; }
@@ -235,6 +275,15 @@
   .grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
   .cellWide { grid-column: span 1; }
   .inner { padding: 0 16px; }
-  .lbNav { display: none; }
+  .playBtn { width: 46px; height: 46px; }
+  .lbNav { display: none; }              /* phone pe swipe se prev/next */
+  .lbClose { top: -12px; right: 4px; }
+  .lbImgWrap { aspect-ratio: 4/3; }
   .lbCaption { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .cell, .img, .playBtn, .hoverOverlay { transition: none; }
+  .lb, .lbInner { animation: none; }
 }

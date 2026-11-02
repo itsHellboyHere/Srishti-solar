@@ -1,7 +1,44 @@
 // src/data/media.js
+// type: 'image' (default) ya 'video'
 
 export const MEDIA = [
+  // ───────── NEW (2 Nov 2026) ─────────
   {
+    type:    'image',
+    src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1793639031/WhatsApp_Image_2026-11-02_at_10.31.23_PM_xwttjt.jpg',
+    caption: 'Srishti Solar — Latest Moments',   // ← apna caption daalo
+    outlet:  'Srishti Solar Power',              // ← apna outlet/event daalo
+    tag:     'Event',
+    wide:    true,
+  },
+  {
+    type:    'video',
+    src:     'https://res.cloudinary.com/dgifa4wgb/video/upload/v1793639041/WhatsApp_Video_2026-11-02_at_10.31.23_PM_s3y7vf.mp4',
+    caption: 'Srishti Solar — Video Highlights', // ← apna caption daalo
+    outlet:  'Srishti Solar Power',
+    tag:     'Video',
+    wide:    true,
+  },
+  {
+    type:    'image',
+    src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1793639029/WhatsApp_Image_2026-11-02_at_10.31.23_PM-2_f9j1lm.jpg',
+    caption: 'Srishti Solar — Latest Moments',
+    outlet:  'Srishti Solar Power',
+    tag:     'Event',
+    wide:    false,
+  },
+  {
+    type:    'image',
+    src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1793639027/WhatsApp_Image_2026-11-02_at_10.31.23_PM-3_i3mrfs.jpg',
+    caption: 'Srishti Solar — Latest Moments',
+    outlet:  'Srishti Solar Power',
+    tag:     'Event',
+    wide:    false,
+  },
+
+  // ───────── EXISTING ─────────
+  {
+    type:    'image',
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/q_auto/f_auto/v1775636785/e9122355-459e-4895-9a29-572c7eda19ed_vuqpji.jpg',
     caption: 'Dainik Jagran Feature',
     outlet:  'Dainik Jagran · Solar Mela 2026',
@@ -9,6 +46,7 @@ export const MEDIA = [
     wide:    true,
   },
   {
+    type:    'image',
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905662/DSC_1734_kpgbxy.jpg',
     caption: 'BSPHCL Partnership',
     outlet:  'Bihar State Power Holding Co.',
@@ -16,6 +54,7 @@ export const MEDIA = [
     wide:    false,
   },
   {
+    type:    'image',
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1782203680/WhatsApp_Image_2026-06-12_at_3.27.53_PM_xrqgqc.jpg',
     caption: 'Solar Mela 2026 — MNRE Stage',
     outlet:  'Ministry of New & Renewable Energy',
@@ -23,6 +62,7 @@ export const MEDIA = [
     wide:    true,
   },
   {
+    type:    'image',
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905682/DSC_1820_n8zbys.jpg',
     caption: 'Inauguration Ceremony',
     outlet:  'Solar Mela 2026, Patna',
@@ -30,6 +70,7 @@ export const MEDIA = [
     wide:    false,
   },
   {
+    type:    'image',
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905663/DSC_1840_ggrpbb.jpg',
     caption: 'PM Surya Ghar',
     outlet:  'Solar Mela 2026, Patna',
@@ -37,6 +78,7 @@ export const MEDIA = [
     wide:    false,
   },
   {
+    type:    'image',
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905669/DSC_2040_hdvv16.jpg',
     caption: 'Dignitaries at Solar Mela',
     outlet:  'Solar Mela 2026, Patna',
@@ -44,6 +86,7 @@ export const MEDIA = [
     wide:    false,
   },
   {
+    type:    'image',
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905666/DSC_1969_va7h6v.jpg',
     caption: 'MNRE Officials — PM Surya Ghar',
     outlet:  'Solar Mela 2026, Patna',
@@ -51,6 +94,7 @@ export const MEDIA = [
     wide:    false,
   },
   {
+    type:    'image',
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905665/DSC_1941_smeqv6.jpg',
     caption: 'Srishti Solar Stall — Solar Mela',
     outlet:  'Solar Mela 2026, Patna',
@@ -58,6 +102,7 @@ export const MEDIA = [
     wide:    true,
   },
   {
+    type:    'image',
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905668/DSC_2037_nshxke.jpg',
     caption: 'Live Demo — TOPcon Panel Technology',
     outlet:  'Solar Mela 2026, Patna',
@@ -65,6 +110,7 @@ export const MEDIA = [
     wide:    false,
   },
   {
+    type:    'image',
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905666/DSC_1951_xdws3i.jpg',
     caption: 'Inverter & Battery Showcase',
     outlet:  'Solar Mela 2026, Patna',
@@ -72,6 +118,7 @@ export const MEDIA = [
     wide:    false,
   },
   {
+    type:    'image',
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905666/DSC_1969_va7h6v.jpg',
     caption: 'Official Visit — Srishti Solar Stall',
     outlet:  'Solar Mela 2026, Patna',
@@ -79,6 +126,7 @@ export const MEDIA = [
     wide:    true,
   },
   {
+    type:    'image',
     src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1772905665/DSC_1941_smeqv6.jpg',
     caption: 'Srishti Solar Power — Stall',
     outlet:  'Solar Mela 2026, Patna',
@@ -86,6 +134,7 @@ export const MEDIA = [
     wide:    false,
   },
   // {
+  //   type:    'image',
   //   src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1/media/media-13.jpg',
   //   caption: 'Visitors at Srishti Solar Stall',
   //   outlet:  'Solar Mela 2026, Patna',
@@ -93,6 +142,7 @@ export const MEDIA = [
   //   wide:    false,
   // },
   // {
+  //   type:    'image',
   //   src:     'https://res.cloudinary.com/dgifa4wgb/image/upload/v1/media/media-14.jpg',
   //   caption: 'Panel Inspection by Officials',
   //   outlet:  'Solar Mela 2026, Patna',
@@ -106,4 +156,5 @@ export const TAG_COLORS = {
   Press:       { bg: 'rgba(255,251,244,0.12)',  text: '#FFFBF4'                    },
   Recognition: { bg: 'rgba(37,211,102,0.12)',   text: '#25d366'                    },
   Event:       { bg: 'rgba(255,251,244,0.08)',  text: 'rgba(255,251,244,0.5)'      },
+  Video:       { bg: 'rgba(244,163,0,0.15)',    text: '#F4A300'                    },
 }
